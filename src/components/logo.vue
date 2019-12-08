@@ -33,5 +33,9 @@ export default createComponent({
   padding-top: 25px;
 
   color: white;
+
+  @include mobile {
+    display: none;
+  }
 }
 </style>
