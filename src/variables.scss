@@ -1,0 +1,14 @@
+$width: 850px;
+$textColor: #333;
+
+@mixin notMobile {
+  @media (min-width: 601px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 600px) {
+    @content;
+  }
+}

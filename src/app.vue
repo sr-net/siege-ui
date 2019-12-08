@@ -1,24 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <logo />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import HelloWorld from './components/hello-world.vue'
+import { createComponent } from '@vue/composition-api'
+import Logo from './components/logo.vue'
 
-export default Vue.extend({
-  name: 'app',
+export default createComponent({
   components: {
-    HelloWorld,
+    Logo,
   },
 })
 </script>
 
 <style lang="scss">
-#app {
+body {
+  background: #111;
+  font-family: Lato, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  user-select: none;
 }
 </style>
