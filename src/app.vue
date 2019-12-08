@@ -34,18 +34,21 @@ export default createComponent({
 
 #app {
   font-family: Lato, sans-serif;
-
-  background: #111;
+  background: #0d0d0d;
 }
 
 * {
   box-sizing: border-box;
   user-select: none;
+
+  transition: $transitions;
 }
 
 .content {
   width: $width;
   max-width: 100%;
   margin: 0 auto;
+
+  box-shadow: 1px 3px 8px transparentize(black, 0.25);
 }
 </style>
