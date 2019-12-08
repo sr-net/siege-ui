@@ -25,7 +25,6 @@ export default createComponent({
     },
     title: {
       type: String,
-      required: true,
     },
   },
   setup(props) {

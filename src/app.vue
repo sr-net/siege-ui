@@ -5,13 +5,14 @@
     <div class="content">
       <Title :loading="state.loading" :title="state.title" />
 
-      <button @click="update">set</button>
     </div>
+
+    <button @click="update">set</button>
   </div>
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import { createComponent, reactive } from '@vue/composition-api'
 
 import Logo from './components/logo.vue'
 import Title from './components/title.vue'
@@ -20,7 +21,23 @@ import bgImage from './assets/bg-opacity.png'
 export default createComponent({
   name: 'App',
   setup() {
-    return { bgImage }
+    const state = reactive({
+      title: 'Click a team to start!',
+      loading: false,
+      i: 1,
+    })
+
+    const update = () => {
+      state.loading = true
+      state.i++
+
+      setTimeout(() => {
+        state.title = state.i % 2 === 0 ? 'a new title' : 'Wow a new strat'
+        state.loading = false
+      }, 500)
+    }
+
+    return { bgImage, state, update }
   },
   components: {
     Logo,
