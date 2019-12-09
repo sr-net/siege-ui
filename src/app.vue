@@ -8,6 +8,11 @@
         :loading="loading"
         :title="strat.title"
       />
+      <Info
+        :loading="loading"
+        :author="strat.author"
+        :score="strat.score"
+      />
     </div>
 
     <button @click="setTeam('atk')">ATK</button>
@@ -21,6 +26,7 @@ import { useQuery, useResult } from '@vue/apollo-composable'
 
 import Logo from './components/logo.vue'
 import Title from './components/title.vue'
+import Info from './components/info.vue'
 import bgImage from './assets/bg-opacity.png'
 
 import { StratQuery, StratQueryVariables } from './graphql/generated'
@@ -61,6 +67,7 @@ export default createComponent({
   components: {
     Logo,
     Title,
+    Info,
   },
 })
 </script>
@@ -85,6 +92,8 @@ export default createComponent({
   max-width: 100%;
   margin: 0 auto;
 
+  border-radius: 5px;
+  overflow: hidden;
   box-shadow: 1px 3px 8px transparentize(black, 0.25);
 }
 </style>

@@ -88,7 +88,6 @@ export default createComponent({
   font-size: 25px;
 
   @include notMobile {
-    height: 80px;
     font-size: 35px;
   }
 

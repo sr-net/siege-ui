@@ -6,6 +6,8 @@ $brand: var(--text, #121e2b);
 $text: var(--text, #eee);
 $bg100: var(--bg, #151515);
 $bg200: var(--bg, #1a1a1a);
+$border: var(--bg, #2a2a2a);
+$green: var(--green, #3daa3e);
 
 @mixin notMobile {
   @media (min-width: 601px) {
