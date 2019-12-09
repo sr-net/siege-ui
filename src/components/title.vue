@@ -82,7 +82,7 @@ export default createComponent({
   width: 100%;
   overflow: hidden;
   background: $bg200;
-  color: $text;
+  color: $text400;
 
   font-weight: 600;
   font-size: 25px;
@@ -98,6 +98,7 @@ export default createComponent({
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: text;
   }
 }
 </style>

@@ -3,7 +3,9 @@ $width: 850px;
 $transitions: background 0.35s, color 0.35s;
 
 $brand: var(--text, #121e2b);
-$text: var(--text, #eee);
+$text400: var(--text, #eee);
+$text300: var(--text, #bbb);
+$bg50Trans: var(--bg, transparentize(#111, 0.35));
 $bg100: var(--bg, #151515);
 $bg200: var(--bg, #1a1a1a);
 $border: var(--bg, #2a2a2a);

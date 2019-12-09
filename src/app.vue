@@ -8,15 +8,15 @@
         :loading="loading"
         :title="strat.title"
       />
-      <Info
-        :loading="loading"
-        :author="strat.author"
-        :score="strat.score"
-      />
+
+      <Info :loading="loading" :author="strat.author" :score="strat.score" />
+
+      <Description :loading="loading" :description="strat.description" />
     </div>
 
     <button @click="setTeam('atk')">ATK</button>
     <button @click="setTeam('def')">DEF</button>
+    <button @click="setTeam(null)">RESET</button>
   </div>
 </template>
 
@@ -27,6 +27,7 @@ import { useQuery, useResult } from '@vue/apollo-composable'
 import Logo from './components/logo.vue'
 import Title from './components/title.vue'
 import Info from './components/info.vue'
+import Description from './components/description.vue'
 import bgImage from './assets/bg-opacity.png'
 
 import { StratQuery, StratQueryVariables } from './graphql/generated'
@@ -38,7 +39,7 @@ export default createComponent({
   name: 'App',
   setup() {
     const team = ref<Team>(null)
-    const exclude = ref<number[]>([])
+    const exclude = ref([] as number[])
 
     const { result, loading } = useQuery<StratQuery, StratQueryVariables>(
       stratQuery,
@@ -55,9 +56,17 @@ export default createComponent({
     const strat = useResult(result, {}, data => data.strat)
 
     const setTeam = (t: Team) => {
+      if (t == null) {
+        result.value = null as any
+      }
+
       team.value = t
 
       if (strat.value?.shortId != null) {
+        if (exclude.value.length >= 15) {
+          exclude.value.splice(0, 1)
+        }
+
         exclude.value.push(strat.value.shortId)
       }
     }
@@ -68,6 +77,7 @@ export default createComponent({
     Logo,
     Title,
     Info,
+    Description,
   },
 })
 </script>

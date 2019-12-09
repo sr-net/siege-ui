@@ -5,8 +5,8 @@
     </div>
 
     <div class="author">
-      <a :href="author.url">
-      {{ prefix }}{{ author.name }}
+      <a :href="author.url" target="_blank" rel="noopener">
+        {{ prefix }}{{ author.name }}
       </a>
     </div>
 
@@ -20,7 +20,9 @@
 import { computed, createComponent } from '@vue/composition-api'
 import { AuthorType, Strat } from '@/graphql/generated'
 
-export default createComponent({
+type Props = { loading: boolean; author?: Strat['author']; score?: number }
+
+export default createComponent<Props>({
   props: {
     loading: {
       type: Boolean,
@@ -35,9 +37,7 @@ export default createComponent({
   },
   setup(props) {
     const prefix = computed(() =>
-      (props.author as Strat['author'])?.type === AuthorType.Reddit
-        ? '/u/'
-        : '',
+      props.author?.type === AuthorType.Reddit ? '/u/' : '',
     )
 
     return { prefix }
@@ -58,7 +58,7 @@ export default createComponent({
   border-bottom: 2px solid $border;
 
   background: $bg100;
-  color: $text;
+  color: $text400;
   font-size: 15px;
   overflow: hidden;
 
@@ -78,7 +78,7 @@ export default createComponent({
 
     & > a {
       padding: 0 25px;
-      color: $text;
+      color: $text300;
       text-decoration: none;
     }
   }
