@@ -1,6 +1,8 @@
 <template>
   <div ref="container" class="title-container">
-    <div class="title">{{ state.currentTitle }}</div>
+    <div class="title">
+      {{ initiated ? state.currentTitle : 'Select a team to begin!' }}
+    </div>
 
     <div class="title">Loading...</div>
 
@@ -19,6 +21,10 @@ import {
 
 export default createComponent({
   props: {
+    initiated: {
+      type: Boolean,
+      required: true,
+    },
     loading: {
       type: Boolean,
       required: true,
@@ -40,6 +46,8 @@ export default createComponent({
     })
 
     watch(() => {
+      if (!props.initiated) return
+
       if (props.loading) {
         container.value?.scrollTo({ top: 0 })
 
@@ -50,7 +58,8 @@ export default createComponent({
       }
 
       if (!props.loading) {
-        state.currentTitle = props.title
+        // Default to nice text
+        state.currentTitle = props.title ?? 'Select a team to begin!'
         container.value?.scrollTo({
           top: state.height * 2,
           behavior: 'smooth',

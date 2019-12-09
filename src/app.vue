@@ -3,41 +3,60 @@
     <Logo />
 
     <div class="content">
-      <Title :loading="state.loading" :title="state.title" />
-
+      <Title
+        :initiated="team != null"
+        :loading="loading"
+        :title="strat.title"
+      />
     </div>
 
-    <button @click="update">set</button>
+    <button @click="setTeam('atk')">ATK</button>
+    <button @click="setTeam('def')">DEF</button>
   </div>
 </template>
 
 <script lang="ts">
-import { createComponent, reactive } from '@vue/composition-api'
+import { createComponent, ref } from '@vue/composition-api'
+import { useQuery, useResult } from '@vue/apollo-composable'
 
 import Logo from './components/logo.vue'
 import Title from './components/title.vue'
 import bgImage from './assets/bg-opacity.png'
 
+import { StratQuery, StratQueryVariables } from './graphql/generated'
+import stratQuery from './strat.graphql'
+
+type Team = 'atk' | 'def'
+
 export default createComponent({
   name: 'App',
   setup() {
-    const state = reactive({
-      title: 'Click a team to start!',
-      loading: false,
-      i: 1,
-    })
+    const team = ref<Team>(null)
+    const exclude = ref<number[]>([])
 
-    const update = () => {
-      state.loading = true
-      state.i++
+    const { result, loading } = useQuery<StratQuery, StratQueryVariables>(
+      stratQuery,
+      () => ({
+        atk: team.value === 'atk',
+        def: team.value === 'def',
+        exclude: exclude.value,
+      }),
+      () => ({
+        enabled: team.value != null,
+      }),
+    )
 
-      setTimeout(() => {
-        state.title = state.i % 2 === 0 ? 'a new title' : 'Wow a new strat'
-        state.loading = false
-      }, 500)
+    const strat = useResult(result, {}, data => data.strat)
+
+    const setTeam = (t: Team) => {
+      team.value = t
+
+      if (strat.value?.shortId != null) {
+        exclude.value.push(strat.value.shortId)
+      }
     }
 
-    return { bgImage, state, update }
+    return { bgImage, team, strat, loading, setTeam }
   },
   components: {
     Logo,

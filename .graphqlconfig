@@ -1,0 +1,11 @@
+{
+  "name": "Untitled GraphQL Schema",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Default": {
+        "url": "https://siege.stratroulette.net/graphql"
+      }
+    }
+  }
+}

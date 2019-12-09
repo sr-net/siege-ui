@@ -1,0 +1,33 @@
+overwrite: true
+schema:
+  - https://siege.stratroulette.net/graphql
+documents:
+  - src/**/*.{vue,ts,graphql}
+hooks:
+  afterOneFileWrite:
+    - prettier --write
+generates:
+  src/graphql/generated.ts:
+    plugins:
+      - add: "/* prettier-ignore-start */"
+      - add: "/* eslint-disable */"
+      - add: "/* THIS IS A GENERATED FILE */"
+      - typescript
+      - typescript-operations
+    config:
+      scalars:
+        DateTime: string
+
+  src/shims-graphql.d.ts:
+    plugins:
+      - add: "/* prettier-ignore-start */"
+      - add: "/* eslint-disable */"
+      - add: "/* THIS IS A GENERATED FILE */"
+      - typescript-graphql-files-modules
+
+  src/graphql/introspection-result.ts:
+    plugins:
+      - add: "/* prettier-ignore-start */"
+      - add: "/* eslint-disable */"
+      - add: "/* THIS IS A GENERATED FILE */"
+      - fragment-matcher

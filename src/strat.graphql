@@ -1,0 +1,16 @@
+query Strat($atk: Boolean!, $def: Boolean! $exclude: [Int!]!) {
+  strat(random: true, atk: $atk, def: $def, excludeShortIds: $exclude) {
+    uuid
+    shortId
+    title
+    description
+    gamemodes
+    author {
+      name
+      type
+      url
+    }
+    score
+    liked
+  }
+}
