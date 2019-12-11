@@ -2,14 +2,17 @@ $width: 850px;
 
 $transitions: background 0.35s, color 0.35s;
 
-$brand: var(--text, #121e2b);
-$text400: var(--text, #eee);
-$text300: var(--text, #bbb);
-$bg50Trans: var(--bg, transparentize(#111, 0.35));
-$bg100: var(--bg, #151515);
-$bg200: var(--bg, #1a1a1a);
-$border: var(--bg, #2a2a2a);
+$text400: var(--text400, #eee);
+$text300: var(--text300, #bbb);
+$bg50Trans: var(--bg50Trans, transparentize(#111, 0.35));
+$bg100: var(--bg100, #151515);
+$bg200: var(--bg200, #1a1a1a);
+$border: var(--border, #2a2a2a);
 $green: var(--green, #3daa3e);
+
+$button: var(--button, #2f2f2f);
+$buttonHover: var(--button, lighten(#2f2f2f, 2.5%));
+$buttonClick: var(--button, darken(#2f2f2f, 2.5%));
 
 @mixin notMobile {
   @media (min-width: 601px) {

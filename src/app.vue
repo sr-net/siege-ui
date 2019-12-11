@@ -12,10 +12,10 @@
       <Info :loading="loading" :author="strat.author" :score="strat.score" />
 
       <Description :loading="loading" :description="strat.description" />
+
+      <Buttons :loading="loading" :set-team="setTeam" />
     </div>
 
-    <button @click="setTeam('atk')">ATK</button>
-    <button @click="setTeam('def')">DEF</button>
     <button @click="setTeam(null)">RESET</button>
   </div>
 </template>
@@ -28,6 +28,7 @@ import Logo from './components/logo.vue'
 import Title from './components/title.vue'
 import Info from './components/info.vue'
 import Description from './components/description.vue'
+import Buttons from './components/buttons.vue'
 import bgImage from './assets/bg-opacity.png'
 
 import { StratQuery, StratQueryVariables } from './graphql/generated'
@@ -78,6 +79,7 @@ export default createComponent({
     Title,
     Info,
     Description,
+    Buttons,
   },
 })
 </script>
@@ -98,6 +100,8 @@ export default createComponent({
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
   width: $width;
   max-width: 100%;
   margin: 0 auto;
@@ -105,5 +109,9 @@ export default createComponent({
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 1px 3px 8px transparentize(black, 0.25);
+
+  @include mobile {
+    height: 100%;
+  }
 }
 </style>

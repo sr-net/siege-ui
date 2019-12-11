@@ -34,6 +34,10 @@ export default createComponent({
   font-size: 24px;
   padding: 10px 20px;
 
+  @include mobile {
+    height: 100%;
+  }
+
   @include notMobile {
     padding: 10px 50px;
   }

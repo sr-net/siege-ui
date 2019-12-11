@@ -1,7 +1,7 @@
 <template>
   <div v-if="author && score" class="info-container" :class="{ loading }">
     <div class="score hidden">
-      {{ score }}
+      +{{ score }}
     </div>
 
     <div class="author">
@@ -11,7 +11,7 @@
     </div>
 
     <div class="score">
-      {{ score }}
+      +{{ score }}
     </div>
   </div>
 </template>
@@ -49,6 +49,7 @@ export default createComponent<Props>({
 @import '../variables';
 
 .info-container {
+  flex-shrink: 0;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -88,6 +89,7 @@ export default createComponent<Props>({
     font-weight: 600;
     font-variant-numeric: tabular-nums;
     color: $green;
+    letter-spacing: 0.25px;
 
     &.hidden {
       opacity: 0;
