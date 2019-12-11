@@ -60,6 +60,11 @@ export default createComponent({
       border-left: 1px solid $border;
     }
 
+    &:disabled {
+      pointer-events: none;
+      cursor: default;
+    }
+
     &:hover {
       background: $buttonHover;
     }
