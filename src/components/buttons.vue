@@ -38,7 +38,6 @@ export default createComponent({
     justify-content: center;
     align-items: center;
     min-height: 60px;
-    padding: 0 50px;
 
     background: $button;
     color: $text300;
@@ -51,6 +50,10 @@ export default createComponent({
     cursor: pointer;
 
     transition: background 0.25s;
+
+    @include mobile {
+      font-size: 35px;
+    }
 
     &:first-child {
       border-right: 1px solid $border;

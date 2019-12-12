@@ -5,6 +5,7 @@ $transitions: background 0.35s, color 0.35s;
 $text400: var(--text400, #eee);
 $text300: var(--text300, #bbb);
 $bg50Trans: var(--bg50Trans, transparentize(#111, 0.35));
+$bg50Mobile: var(--bg50Mobile, transparent);
 $bg100: var(--bg100, #151515);
 $bg200: var(--bg200, #1a1a1a);
 $border: var(--border, #2a2a2a);

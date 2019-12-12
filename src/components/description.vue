@@ -36,6 +36,7 @@ export default createComponent({
 
   @include mobile {
     height: 100%;
+    background: $bg50Mobile;
   }
 
   @include notMobile {
