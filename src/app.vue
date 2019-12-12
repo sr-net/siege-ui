@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { createComponent, ref } from '@vue/composition-api'
+import { createComponent, ref, watch } from '@vue/composition-api'
 import { useQuery, useResult } from '@vue/apollo-composable'
 
 import Logo from './components/logo.vue'
@@ -37,14 +37,38 @@ import bgImage from './assets/bg-opacity.png'
 import { Gamemode, StratQuery, StratQueryVariables } from './graphql/generated'
 import stratQuery from './strat.graphql'
 
+type LocalStorage = {
+  gamemode: Gamemode
+  exclude: number[]
+}
+
+const localStorageRef = <
+  K extends keyof LocalStorage,
+  V extends LocalStorage[K],
+  D extends V | null
+>(
+  key: K,
+  defaultValue?: D,
+) => {
+  const theRef = ref<V | D>(
+    JSON.parse(localStorage.getItem(key) ?? 'null') ?? defaultValue ?? null,
+  )
+
+  watch(theRef, () => {
+    localStorage.setItem(key, JSON.stringify(theRef.value))
+  })
+
+  return theRef
+}
+
 type Team = 'atk' | 'def'
 
 export default createComponent({
   name: 'App',
   setup() {
     const team = ref<Team>(null)
-    const gamemode = ref<Gamemode>(null)
-    const exclude = ref([] as number[])
+    const gamemode = localStorageRef('gamemode')
+    const exclude = localStorageRef('exclude', [] as number[])
 
     const { result, loading } = useQuery<StratQuery, StratQueryVariables>(
       stratQuery,
