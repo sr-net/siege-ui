@@ -5,5 +5,5 @@
       <path stroke="#000" stroke-width="2" d="M-8 24L17-1M-1 24L24-1M4 25L25 4M10 25l15-15"/>
     </mask>
   </defs>
-  <path fill="none" stroke="#2c2c2c" stroke-width="6" d="M0 0h24v24H0z" mask="url(#a)"/>
+  <path fill="none" stroke="#888" stroke-width="6" d="M0 0h24v24H0z" mask="url(#a)"/>
 </svg>
