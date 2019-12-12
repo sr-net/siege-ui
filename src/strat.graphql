@@ -1,5 +1,5 @@
-query Strat($atk: Boolean!, $def: Boolean! $exclude: [Int!]!) {
-  strat(random: true, atk: $atk, def: $def, excludeShortIds: $exclude) {
+query Strat($atk: Boolean!, $def: Boolean!, $gamemode: Gamemode!, $exclude: [Int!]!) {
+  strat(random: true, atk: $atk, def: $def, gamemode: $gamemode, excludeShortIds: $exclude) {
     uuid
     shortId
     title

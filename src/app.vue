@@ -13,6 +13,8 @@
 
       <Description :loading="loading" :description="strat.description" />
 
+      <Gamemodes :selected="gamemode" @update="setGamemode" />
+
       <Buttons :loading="loading" :set-team="setTeam" />
     </div>
 
@@ -28,10 +30,11 @@ import Logo from './components/logo.vue'
 import Title from './components/title.vue'
 import Info from './components/info.vue'
 import Description from './components/description.vue'
+import Gamemodes from './components/gamemodes.vue'
 import Buttons from './components/buttons.vue'
 import bgImage from './assets/bg-opacity.png'
 
-import { StratQuery, StratQueryVariables } from './graphql/generated'
+import { Gamemode, StratQuery, StratQueryVariables } from './graphql/generated'
 import stratQuery from './strat.graphql'
 
 type Team = 'atk' | 'def'
@@ -40,6 +43,7 @@ export default createComponent({
   name: 'App',
   setup() {
     const team = ref<Team>(null)
+    const gamemode = ref<Gamemode>(null)
     const exclude = ref([] as number[])
 
     const { result, loading } = useQuery<StratQuery, StratQueryVariables>(
@@ -48,9 +52,10 @@ export default createComponent({
         atk: team.value === 'atk',
         def: team.value === 'def',
         exclude: exclude.value,
+        gamemode: gamemode.value!,
       }),
       () => ({
-        enabled: team.value != null,
+        enabled: gamemode.value != null && team.value != null,
       }),
     )
 
@@ -72,13 +77,18 @@ export default createComponent({
       }
     }
 
-    return { bgImage, team, strat, loading, setTeam }
+    const setGamemode = (gm: Gamemode) => {
+      gamemode.value = gm
+    }
+
+    return { bgImage, team, gamemode, strat, loading, setTeam, setGamemode }
   },
   components: {
     Logo,
     Title,
     Info,
     Description,
+    Gamemodes,
     Buttons,
   },
 })
@@ -95,6 +105,10 @@ export default createComponent({
 * {
   box-sizing: border-box;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  :focus {
+    outline: none;
+  }
 
   transition: $transitions;
 }

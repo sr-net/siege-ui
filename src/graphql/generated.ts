@@ -60,6 +60,7 @@ export type QueryStratArgs = {
   shortId?: Maybe<Scalars['Int']>
   atk?: Maybe<Scalars['Boolean']>
   def?: Maybe<Scalars['Boolean']>
+  gamemode?: Maybe<Gamemode>
   excludeShortIds?: Maybe<Array<Scalars['Int']>>
   random?: Maybe<Scalars['Boolean']>
 }
@@ -69,6 +70,7 @@ export type QueryStratsArgs = {
   shortId?: Maybe<Scalars['Int']>
   atk?: Maybe<Scalars['Boolean']>
   def?: Maybe<Scalars['Boolean']>
+  gamemode?: Maybe<Gamemode>
   excludeShortIds?: Maybe<Array<Scalars['Int']>>
   page?: Maybe<Scalars['Int']>
 }
@@ -98,6 +100,7 @@ export type StratPage = {
 export type StratQueryVariables = {
   atk: Scalars['Boolean']
   def: Scalars['Boolean']
+  gamemode: Gamemode
   exclude: Array<Scalars['Int']>
 }
 
