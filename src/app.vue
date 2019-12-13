@@ -215,9 +215,12 @@ export default createComponent({
   max-width: 100%;
   margin: 0 auto;
 
-  border-radius: 5px;
   overflow: hidden;
   box-shadow: 1px 3px 8px transparentize(black, 0.25);
+
+  @include notMobile {
+    border-radius: 5px;
+  }
 
   @include mobile {
     height: 100%;
