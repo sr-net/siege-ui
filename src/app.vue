@@ -91,7 +91,6 @@ const postGraphql = async <R, V>(query: string, variables: V) => {
   return response.json() as { data?: R }
 }
 
-// http://localhost:3000/graphql
 const fetchStrat = async (variables: StratQueryVariables) => {
   const result = await postGraphql<StratQuery, StratQueryVariables>(
     stratQuery,

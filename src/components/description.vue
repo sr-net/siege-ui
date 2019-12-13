@@ -1,13 +1,21 @@
 <template>
-  <div class="description-container">
-    <div v-if="description != null" class="description" :class="{ loading }">
+  <div
+    class="description-container"
+    :style="{ height: `${description != null ? height : 0}px` }"
+  >
+    <div
+      ref="content"
+      :key="description"
+      class="description"
+      :class="{ loading }"
+    >
       {{ description }}
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import { createComponent, ref, watch } from '@vue/composition-api'
 
 export default createComponent({
   props: {
@@ -19,6 +27,18 @@ export default createComponent({
       type: String,
     },
   },
+  setup() {
+    const content = ref<HTMLDivElement>(null)
+    const height = ref(0)
+
+    watch(content, (newVal, oldVar) => {
+      if (newVal?.innerText === oldVar?.innerText) return
+
+      height.value = newVal?.getBoundingClientRect().height ?? 0
+    })
+
+    return { height, content }
+  },
 })
 </script>
 
@@ -26,21 +46,19 @@ export default createComponent({
 @import '../variables';
 
 .description-container {
-  width: 100% !important;
+  width: 100%;
+  height: 0;
 
   background: $bg50Trans;
   color: $text400;
   text-align: center;
   font-size: 24px;
-  padding: 10px 20px;
+
+  transition: $transitions, height 0.25s;
 
   @include mobile {
     height: 100%;
     background: $bg50Mobile;
-  }
-
-  @include notMobile {
-    padding: 10px 50px;
   }
 
   & > .description {
@@ -50,8 +68,13 @@ export default createComponent({
     min-height: 125px;
     width: 100%;
     user-select: text;
+    transition: $transitions, opacity 0.25s;
 
-    transition: $transitions, opacity 0.15s;
+    padding: 10px 20px;
+
+    @include notMobile {
+      padding: 15px 75px;
+    }
 
     &.loading {
       opacity: 0;

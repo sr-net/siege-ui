@@ -1,10 +1,10 @@
 <template>
-  <div v-if="author && score" class="info-container" :class="{ loading }">
+  <div class="info-container" :class="{ loading, hide: author == null }">
     <div class="score hidden">
       +{{ score }}
     </div>
 
-    <div class="author">
+    <div v-if="author" class="author">
       <a :href="author.url" target="_blank" rel="noopener">
         {{ prefix }}{{ author.name }}
       </a>
@@ -54,17 +54,24 @@ export default createComponent<Props>({
   display: flex;
   justify-content: space-between;
   width: 100%;
+  height: 30px;
   padding: 5px 25px;
-  border-top: 2px solid $border;
   border-bottom: 2px solid $border;
 
   background: $bg100;
   color: $text400;
   font-size: 15px;
   overflow: hidden;
+  transition: $transitions, height 0.25s, padding 0.25s, border-bottom 0.25s;
+
+  &.hide {
+    height: 0;
+    padding: 0;
+    border-bottom: 0 solid $border;
+  }
 
   & > div {
-    transition: $transitions, opacity 0.15s;
+    transition: $transitions, opacity 0.25s;
   }
 
   &.loading > div {

@@ -84,6 +84,7 @@ export default createComponent({
   overflow: hidden;
   background: $bg200;
   color: $text400;
+  border-bottom: 2px solid $border;
 
   font-weight: 600;
   font-size: 25px;

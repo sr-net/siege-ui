@@ -67,7 +67,7 @@ export default createComponent({
     background: 0;
     cursor: pointer;
     opacity: 0.2;
-    transition: $transitions, opacity 0.15s;
+    transition: $transitions, opacity 0.25s;
 
     &.selected {
       opacity: 1;
