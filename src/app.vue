@@ -22,8 +22,6 @@
         :toggle-like="toggleLiked"
       />
     </div>
-
-    <button @click="setTeam(null)">RESET</button>
   </div>
 </template>
 

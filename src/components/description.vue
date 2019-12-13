@@ -57,7 +57,7 @@ export default createComponent({
   transition: $transitions, height 0.25s;
 
   @include mobile {
-    height: 100%;
+    height: 100% !important;
     background: $bg50Mobile;
   }
 
