@@ -1,29 +1,17 @@
 # siege-ui
 
-## Project setup
-```
-yarn install
-```
+The frontend for [stratroulette.net](https://stratroulette.net])
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+<div style="display:flex;">
+  <img src="https://i.imgur.com/gOTceQU.png" height="300"/>
+  <img src="https://i.imgur.com/rSlatKO.png" height="300"/>
+</div>
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+## Development
 
-### Run your tests
-```
-yarn run test
-```
+1. Install dependencies - `yarn`
+1. Start dev server - `yarn serve`
 
-### Lints and fixes files
-```
-yarn run lint
-```
+### Generate GraphQL Types
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Run `yarn gql-gen`
