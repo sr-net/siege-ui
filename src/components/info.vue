@@ -66,7 +66,7 @@ export default createComponent<Props>({
 
   &.hide {
     height: 0;
-    padding: 0;
+    padding: 0 25px;
     border-bottom: 0 solid $border;
   }
 
