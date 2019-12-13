@@ -97,6 +97,16 @@ export type StratPage = {
   lastPage: Scalars['Int']
 }
 
+export type LikeStratMutationVariables = {
+  uuid: Scalars['ID']
+}
+
+export type LikeStratMutation = { __typename?: 'Mutation' } & {
+  likeStrat: Maybe<
+    { __typename?: 'Strat' } & Pick<Strat, 'uuid' | 'score' | 'liked'>
+  >
+}
+
 export type StratQueryVariables = {
   atk: Scalars['Boolean']
   def: Scalars['Boolean']
@@ -121,5 +131,15 @@ export type StratQuery = { __typename?: 'Query' } & {
           'name' | 'type' | 'url'
         >
       }
+  >
+}
+
+export type UnlikeStratMutationVariables = {
+  uuid: Scalars['ID']
+}
+
+export type UnlikeStratMutation = { __typename?: 'Mutation' } & {
+  unlikeStrat: Maybe<
+    { __typename?: 'Strat' } & Pick<Strat, 'uuid' | 'score' | 'liked'>
   >
 }

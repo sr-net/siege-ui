@@ -15,7 +15,12 @@
 
       <Gamemodes :selected="gamemode" @update="setGamemode" />
 
-      <Buttons :loading="loading" :set-team="setTeam" />
+      <Buttons
+        :loading="loading"
+        :liked="strat.liked"
+        :set-team="setTeam"
+        :toggle-like="() => {}"
+      />
     </div>
 
     <button @click="setTeam(null)">RESET</button>
@@ -24,7 +29,6 @@
 
 <script lang="ts">
 import { createComponent, ref, watch } from '@vue/composition-api'
-import { useQuery, useResult } from '@vue/apollo-composable'
 
 import Logo from './components/logo.vue'
 import Title from './components/title.vue'
@@ -35,7 +39,7 @@ import Buttons from './components/buttons.vue'
 import bgImage from './assets/bg-opacity.png'
 
 import { Gamemode, StratQuery, StratQueryVariables } from './graphql/generated'
-import stratQuery from './strat.graphql'
+import stratQuery from './graphql/strat.graphql'
 
 type LocalStorage = {
   gamemode: Gamemode
@@ -61,6 +65,25 @@ const localStorageRef = <
   return theRef
 }
 
+// http://localhost:3000/graphql
+const fetchStrat = async (variables: StratQueryVariables) => {
+  const response = await fetch('https://siege.stratroulette.net/graphql', {
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: stratQuery,
+      variables,
+    }),
+  })
+
+  const { data } = (await response.json()) as { data: StratQuery }
+
+  return data?.strat
+}
+
 type Team = 'atk' | 'def'
 
 export default createComponent({
@@ -69,25 +92,12 @@ export default createComponent({
     const team = ref<Team>(null)
     const gamemode = localStorageRef('gamemode')
     const exclude = localStorageRef('exclude', [] as number[])
+    const strat = ref<StratQuery['strat']>({})
+    const loading = ref(false)
 
-    const { result, loading } = useQuery<StratQuery, StratQueryVariables>(
-      stratQuery,
-      () => ({
-        atk: team.value === 'atk',
-        def: team.value === 'def',
-        exclude: exclude.value,
-        gamemode: gamemode.value!,
-      }),
-      () => ({
-        enabled: gamemode.value != null && team.value != null,
-      }),
-    )
-
-    const strat = useResult(result, {}, data => data.strat)
-
-    const setTeam = (t: Team) => {
+    const setTeam = async (t: Team) => {
       if (t == null) {
-        result.value = null as any
+        strat.value = {} as any
       }
 
       team.value = t
@@ -99,6 +109,19 @@ export default createComponent({
 
         exclude.value.push(strat.value.shortId)
       }
+
+      loading.value = true
+      const result = await fetchStrat({
+        atk: team.value === 'atk',
+        def: team.value === 'def',
+        exclude: exclude.value,
+        gamemode: gamemode.value!,
+      })
+
+      setTimeout(() => {
+        loading.value = false
+        strat.value = result
+      }, 250)
     }
 
     const setGamemode = (gm: Gamemode) => {
@@ -135,6 +158,10 @@ export default createComponent({
   }
 
   transition: $transitions;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
 }
 
 .content {

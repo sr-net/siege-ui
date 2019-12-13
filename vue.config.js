@@ -8,7 +8,7 @@ module.exports = {
     chain.module
       .rule('graphql')
       .test(/\.(graphql|gql)$/)
-      .use('graphql-tag')
-      .loader('graphql-tag/loader')
+      .use('raw-loader')
+      .loader('raw-loader')
   },
 }
