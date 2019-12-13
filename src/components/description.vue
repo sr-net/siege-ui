@@ -11,13 +11,20 @@
     >
       {{ description }}
     </div>
+
+    <transition>
+      <Logo v-if="!loading && description == null" mobile />
+    </transition>
   </div>
 </template>
 
 <script lang="ts">
 import { createComponent, ref, watch } from '@vue/composition-api'
 
+import Logo from './logo.vue'
+
 export default createComponent({
+  components: { Logo },
   props: {
     loading: {
       type: Boolean,
@@ -46,6 +53,7 @@ export default createComponent({
 @import '../variables';
 
 .description-container {
+  position: relative;
   width: 100%;
   height: 0;
 
@@ -77,6 +85,19 @@ export default createComponent({
     }
 
     &.loading {
+      opacity: 0;
+    }
+  }
+
+  & > .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    transition: opacity 0.25s;
+
+    &.v-leave-to {
       opacity: 0;
     }
   }

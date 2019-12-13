@@ -1,5 +1,5 @@
 <template>
-  <img class="logo" alt="stratroulette.net" :src="logo" />
+  <img class="logo" :class="{ mobile }" alt="stratroulette.net" :src="logo" />
 </template>
 
 <script lang="ts">
@@ -10,6 +10,9 @@ import { getHoliday } from '@/holidays'
 const logosContext = require.context('../assets/logos', false)
 
 export default createComponent({
+  props: {
+    mobile: Boolean
+  },
   setup() {
     const holiday = getHoliday()
 
@@ -26,7 +29,6 @@ export default createComponent({
 .logo {
   display: block;
 
-  min-height: 216px;
   width: $width;
   max-width: 90%;
   margin: auto auto 25px;
@@ -34,8 +36,18 @@ export default createComponent({
 
   color: white;
 
-  @include mobile {
-    display: none;
+  &:not(.mobile) {
+    min-height: 216px;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &.mobile {
+    @include notMobile {
+      display: none;
+    }
   }
 }
 </style>

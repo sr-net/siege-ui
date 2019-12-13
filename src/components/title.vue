@@ -94,6 +94,8 @@ export default createComponent({
   }
 
   & > .title {
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 800;
     flex-shrink: 0;
     height: 100%;
     width: 100%;
