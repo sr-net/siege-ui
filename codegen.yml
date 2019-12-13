@@ -18,13 +18,6 @@ generates:
       scalars:
         DateTime: string
 
-  src/shims-graphql.d.ts:
-    plugins:
-      - add: "/* prettier-ignore-start */"
-      - add: "/* eslint-disable */"
-      - add: "/* THIS IS A GENERATED FILE */"
-      - typescript-graphql-files-modules
-
   src/graphql/introspection-result.ts:
     plugins:
       - add: "/* prettier-ignore-start */"

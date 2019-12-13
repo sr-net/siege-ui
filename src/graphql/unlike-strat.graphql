@@ -1,0 +1,7 @@
+mutation UnlikeStrat($uuid: ID!) {
+  unlikeStrat(uuid: $uuid) {
+    uuid
+    score
+    liked
+  }
+}

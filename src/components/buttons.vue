@@ -1,13 +1,22 @@
 <template>
   <div class="buttons-container">
-    <button class="team-button" :disabled="loading" @click="setTeam('atk')">ATK</button>
+    <button class="team-button" :disabled="loading" @click="setTeam('atk')">
+      ATK
+    </button>
 
-    <button class="team-button" :disabled="loading" @click="setTeam('def')">DEF</button>
+    <button class="like-button" :class="{ liked }" @click="toggleLike">
+      <img :src="likeIcon" />
+    </button>
+
+    <button class="team-button" :disabled="loading" @click="setTeam('def')">
+      DEF
+    </button>
   </div>
 </template>
 
 <script lang="ts">
 import { createComponent } from '@vue/composition-api'
+import likeIcon from '../assets/like.svg'
 
 export default createComponent({
   props: {
@@ -15,11 +24,19 @@ export default createComponent({
       type: Boolean,
       required: true,
     },
+    liked: {
+      type: Boolean,
+    },
     setTeam: {
       type: Function,
       required: true,
     },
+    toggleLike: {
+      type: Function,
+      required: true,
+    },
   },
+  setup: () => ({ likeIcon }),
 })
 </script>
 
@@ -27,6 +44,7 @@ export default createComponent({
 @import '../variables';
 
 .buttons-container {
+  position: relative;
   flex-shrink: 0;
   display: flex;
   width: 100%;
@@ -74,6 +92,46 @@ export default createComponent({
 
     &:active {
       background: $buttonClick;
+    }
+  }
+
+  & > .like-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 45px;
+    width: 45px;
+    padding: 5px;
+    padding-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: $button;
+    border: 2px solid $green;
+    border-radius: 100%;
+    cursor: pointer;
+
+    transition: $transitions, transform 0.1s;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+
+      transition: filter 0.1s;
+    }
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.025);
+    }
+
+    &.liked {
+      background: $green;
+
+      & > img {
+        filter: brightness(10);
+      }
     }
   }
 }

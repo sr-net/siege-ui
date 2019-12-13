@@ -1,0 +1,7 @@
+mutation LikeStrat($uuid: ID!) {
+  likeStrat(uuid: $uuid) {
+    uuid
+    score
+    liked
+  }
+}

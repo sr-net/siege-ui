@@ -19,7 +19,7 @@
         :loading="loading"
         :liked="strat.liked"
         :set-team="setTeam"
-        :toggle-like="() => {}"
+        :toggle-like="toggleLiked"
       />
     </div>
 
@@ -38,8 +38,18 @@ import Gamemodes from './components/gamemodes.vue'
 import Buttons from './components/buttons.vue'
 import bgImage from './assets/bg-opacity.png'
 
-import { Gamemode, StratQuery, StratQueryVariables } from './graphql/generated'
+import {
+  Gamemode,
+  LikeStratMutation,
+  LikeStratMutationVariables,
+  StratQuery,
+  StratQueryVariables,
+  UnlikeStratMutation,
+  UnlikeStratMutationVariables,
+} from './graphql/generated'
 import stratQuery from './graphql/strat.graphql'
+import likeQuery from './graphql/like-strat.graphql'
+import unlikeQuery from './graphql/unlike-strat.graphql'
 
 type LocalStorage = {
   gamemode: Gamemode
@@ -65,8 +75,7 @@ const localStorageRef = <
   return theRef
 }
 
-// http://localhost:3000/graphql
-const fetchStrat = async (variables: StratQueryVariables) => {
+const postGraphql = async <R, V>(query: string, variables: V) => {
   const response = await fetch('https://siege.stratroulette.net/graphql', {
     credentials: 'include',
     method: 'POST',
@@ -74,14 +83,37 @@ const fetchStrat = async (variables: StratQueryVariables) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      query: stratQuery,
+      query,
       variables,
     }),
   })
 
-  const { data } = (await response.json()) as { data: StratQuery }
+  return response.json() as { data?: R }
+}
 
-  return data?.strat
+// http://localhost:3000/graphql
+const fetchStrat = async (variables: StratQueryVariables) => {
+  const result = await postGraphql<StratQuery, StratQueryVariables>(
+    stratQuery,
+    variables,
+  )
+
+  return result.data?.strat
+}
+
+const toggleLikeMutation = async <B extends boolean>(
+  liked: B,
+  variables: LikeStratMutationVariables | UnlikeStratMutationVariables,
+) => {
+  let result = await postGraphql<
+    LikeStratMutation | UnlikeStratMutation,
+    typeof variables
+  >(liked ? unlikeQuery : likeQuery, variables)
+
+  return (
+    (result.data as LikeStratMutation)?.likeStrat ??
+    (result.data as UnlikeStratMutation)?.unlikeStrat
+  )
 }
 
 type Team = 'atk' | 'def'
@@ -120,7 +152,7 @@ export default createComponent({
 
       setTimeout(() => {
         loading.value = false
-        strat.value = result
+        strat.value = result ?? null
       }, 250)
     }
 
@@ -128,7 +160,20 @@ export default createComponent({
       gamemode.value = gm
     }
 
-    return { bgImage, team, gamemode, strat, loading, setTeam, setGamemode }
+    const toggleLiked = async () => {
+      if (strat.value == null) return null
+
+      const result = await toggleLikeMutation(strat.value.liked, {
+        uuid: strat.value.uuid,
+      })
+
+      strat.value = {
+        ...strat.value,
+        ...result,
+      }
+    }
+
+    return { bgImage, team, gamemode, strat, loading, setTeam, setGamemode, toggleLiked }
   },
   components: {
     Logo,
