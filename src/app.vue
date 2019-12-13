@@ -105,7 +105,7 @@ const toggleLikeMutation = async <B extends boolean>(
   liked: B,
   variables: LikeStratMutationVariables | UnlikeStratMutationVariables,
 ) => {
-  let result = await postGraphql<
+  const result = await postGraphql<
     LikeStratMutation | UnlikeStratMutation,
     typeof variables
   >(liked ? unlikeQuery : likeQuery, variables)
@@ -128,8 +128,10 @@ export default createComponent({
     const loading = ref(false)
 
     const setTeam = async (t: Team) => {
+      if (gamemode.value == null) return
+
       if (t == null) {
-        strat.value = {} as any
+        strat.value = null
       }
 
       team.value = t
@@ -147,7 +149,7 @@ export default createComponent({
         atk: team.value === 'atk',
         def: team.value === 'def',
         exclude: exclude.value,
-        gamemode: gamemode.value!,
+        gamemode: gamemode.value,
       })
 
       setTimeout(() => {
