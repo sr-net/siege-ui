@@ -4,7 +4,7 @@
 
     <div class="content">
       <Title
-        :initiated="team != null"
+        :initiated="initiated"
         :loading="loading"
         :title="strat.title"
       />
@@ -18,7 +18,7 @@
       <Buttons
         :loading="loading"
         :liked="strat.liked"
-        :set-team="setTeam"
+        :set-team="fetchForTeam"
         :toggle-like="toggleLiked"
       />
     </div>
@@ -118,20 +118,15 @@ type Team = 'atk' | 'def'
 export default createComponent({
   name: 'App',
   setup() {
-    const team = ref<Team>(null)
     const gamemode = localStorageRef('gamemode')
     const exclude = localStorageRef('exclude', [] as number[])
+
+    const initiated = ref(false)
     const strat = ref<StratQuery['strat']>({ title: 'Select a team to begin!' })
     const loading = ref(false)
 
-    const setTeam = async (t: Team) => {
+    const fetchForTeam = async (team: Team) => {
       if (gamemode.value == null) return
-
-      if (t == null) {
-        strat.value = null
-      }
-
-      team.value = t
 
       if (strat.value?.shortId != null) {
         if (exclude.value.length >= 15) {
@@ -141,10 +136,11 @@ export default createComponent({
         exclude.value.push(strat.value.shortId)
       }
 
+      initiated.value = true
       loading.value = true
       const result = await fetchStrat({
-        atk: team.value === 'atk',
-        def: team.value === 'def',
+        atk: team === 'atk',
+        def: team === 'def',
         exclude: exclude.value,
         gamemode: gamemode.value,
       })
@@ -172,7 +168,7 @@ export default createComponent({
       }
     }
 
-    return { bgImage, team, gamemode, strat, loading, setTeam, setGamemode, toggleLiked }
+    return { bgImage, gamemode, initiated, strat, loading, fetchForTeam, setGamemode, toggleLiked }
   },
   components: {
     Logo,
