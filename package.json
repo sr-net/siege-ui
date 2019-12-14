@@ -11,7 +11,8 @@
     "@vue/composition-api": "0.3.4",
     "core-js": "3.5.0",
     "graphql": "14.5.8",
-    "vue": "2.6.11"
+    "vue": "2.6.11",
+    "vue-resize-text": "0.1.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-nullish-coalescing-operator": "7.7.4",

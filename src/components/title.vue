@@ -1,12 +1,12 @@
 <template>
   <div ref="container" class="title-container">
-    <div class="title">
+    <div v-resize-text="resizeOptions" class="title" :class="{ start: !initiated }">
       {{ initiated ? state.currentTitle : 'Select a team to begin!' }}
     </div>
 
     <div class="title">Loading...</div>
 
-    <div class="title">{{ title }}</div>
+    <div v-resize-text="resizeOptions" class="title">{{ title }}</div>
   </div>
 </template>
 
@@ -41,6 +41,12 @@ export default createComponent({
       height: 70,
     })
 
+    const resizeOptions = {
+      ratio: 1.1,
+      minFontSize: 25,
+      maxFontSize: 45,
+    }
+
     onMounted(() => {
       state.height = container.value!.getBoundingClientRect().height ?? 70
     })
@@ -67,7 +73,7 @@ export default createComponent({
       }
     })
 
-    return { state, container }
+    return { container, state, resizeOptions }
   },
 })
 </script>
@@ -90,21 +96,28 @@ export default createComponent({
   font-size: 25px;
 
   @include notMobile {
-    font-size: 35px;
+    font-size: 40px;
   }
 
   & > .title {
-    font-family: 'Catamaran', sans-serif;
-    font-weight: 800;
-    flex-shrink: 0;
-    height: 100%;
-    width: 100%;
-    padding: 0 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 800;
+    line-height: 100%;
+    flex-shrink: 0;
+    height: 70px;
+    width: 100%;
+    padding: 10px 25px;
     user-select: text;
+
+    @include mobile {
+      &.start {
+        font-size: 30px !important;
+      }
+    }
   }
 }
 </style>

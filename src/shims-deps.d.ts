@@ -17,3 +17,9 @@ declare module '*.png' {
   const content: string
   export default content
 }
+
+declare module 'vue-resize-text' {
+  import { PluginObject } from 'vue'
+  const content: PluginObject<any>
+  export default content
+}
