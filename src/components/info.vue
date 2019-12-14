@@ -1,6 +1,6 @@
 <template>
   <div class="info-container" :class="{ loading, hide: author == null }">
-    <div class="score hidden">+{{ score }}</div>
+    <div class="short-id">#{{ shortId }}</div>
 
     <div v-if="author" class="author">
       <a :href="author.url" target="_blank" rel="noopener">
@@ -30,6 +30,9 @@ export default createComponent<Props>({
     loading: {
       type: Boolean,
       required: true,
+    },
+    shortId: {
+      type: Number,
     },
     author: {
       type: Object,
@@ -109,12 +112,16 @@ export default createComponent<Props>({
     }
   }
 
+  & > .short-id,
   & > .score {
     flex-shrink: 0;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
-    color: $green;
     letter-spacing: 0.25px;
+
+    &.score {
+      color: $green;
+    }
 
     &.hidden {
       opacity: 0;

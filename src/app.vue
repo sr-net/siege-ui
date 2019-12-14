@@ -9,7 +9,12 @@
     <div class="content">
       <Title :initiated="initiated" :loading="loading" :title="strat.title" />
 
-      <Info :loading="loading" :author="strat.author" :score="strat.score" />
+      <Info
+        :loading="loading"
+        :short-id="strat.shortId"
+        :author="strat.author"
+        :score="strat.score"
+      />
 
       <Description :loading="loading" :description="strat.description" />
 
