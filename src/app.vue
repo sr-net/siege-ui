@@ -1,7 +1,7 @@
 <template>
   <div id="app" :style="{ backgroundImage: `url(${bgImage})` }">
     <transition name="fade" type="transition">
-      <Christmas v-if="gamemode === 'Bombs'" />
+      <Christmas v-if="holiday === 'christmas'" />
     </transition>
 
     <Logo />
