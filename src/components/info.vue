@@ -1,18 +1,15 @@
 <template>
   <div class="info-container" :class="{ loading, hide: author == null }">
-    <div class="score hidden">
-      +{{ score }}
-    </div>
+    <div class="score hidden">+{{ score }}</div>
 
     <div v-if="author" class="author">
+      <img class="type" :src="getAuthorImg(author.type)" />
       <a :href="author.url" target="_blank" rel="noopener">
         {{ prefix }}{{ author.name }}
       </a>
     </div>
 
-    <div class="score">
-      +{{ score }}
-    </div>
+    <div class="score">+{{ score }}</div>
   </div>
 </template>
 
@@ -21,6 +18,12 @@ import { computed, createComponent } from '@vue/composition-api'
 import { AuthorType, Strat } from '@/graphql/generated'
 
 type Props = { loading: boolean; author?: Strat['author']; score?: number }
+
+const authorIconContext = require.context(
+  '../assets',
+  false,
+  /name|reddit|twitch|youtube/,
+)
 
 export default createComponent<Props>({
   props: {
@@ -40,7 +43,10 @@ export default createComponent<Props>({
       props.author?.type === AuthorType.Reddit ? '/u/' : '',
     )
 
-    return { prefix }
+    const getAuthorImg = (type: AuthorType) =>
+      authorIconContext(`./${type.toLowerCase()}.svg`)
+
+    return { prefix, getAuthorImg }
   },
 })
 </script>
@@ -79,13 +85,22 @@ export default createComponent<Props>({
   }
 
   & > .author {
-    width: 100%;
+    position: absolute;
+    height: 100%;
+    width: 85%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center;
 
+    & > .type {
+      height: 18px;
+      margin-right: 5px;
+    }
+
     & > a {
-      padding: 0 25px;
       color: $text300;
       text-decoration: none;
     }
