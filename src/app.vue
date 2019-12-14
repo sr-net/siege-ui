@@ -1,5 +1,9 @@
 <template>
   <div id="app" :style="{ backgroundImage: `url(${bgImage})` }">
+    <transition name="fade" type="transition">
+      <Christmas v-if="gamemode === 'Bombs'" />
+    </transition>
+
     <Logo />
 
     <div class="content">
@@ -33,7 +37,8 @@ import Buttons from './components/buttons.vue'
 import bgImage from './assets/bg-opacity.png'
 
 import { Gamemode, StratQuery } from './graphql/generated'
-import { randomStratQuery, toggleLikeMutation } from '@/graphql/requests'
+import { randomStratQuery, toggleLikeMutation } from './graphql/requests'
+import { getHoliday } from './holidays'
 
 type LocalStorage = {
   gamemode: Gamemode
@@ -116,6 +121,7 @@ export default createComponent({
 
     return {
       bgImage,
+      holiday: getHoliday(),
       gamemode,
       initiated,
       strat,
@@ -127,6 +133,8 @@ export default createComponent({
   },
   components: {
     Logo,
+    Christmas: () =>
+      import(/* webpackChunkName: "christmas" */ './components/christmas.vue'),
     Title,
     Info,
     Description,
@@ -160,6 +168,7 @@ export default createComponent({
 }
 
 .content {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: $width;
@@ -168,6 +177,7 @@ export default createComponent({
 
   overflow: hidden;
   box-shadow: 1px 3px 8px transparentize(black, 0.25);
+  z-index: 1;
 
   @include notMobile {
     border-radius: 5px;

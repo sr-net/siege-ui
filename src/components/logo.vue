@@ -11,13 +11,13 @@ const logosContext = require.context('../assets/logos', false)
 
 export default createComponent({
   props: {
-    mobile: Boolean
+    mobile: Boolean,
   },
   setup() {
     const holiday = getHoliday()
 
     return {
-      logo: logosContext(`./${holiday}.png`) as string
+      logo: logosContext(`./${holiday}.png`) as string,
     }
   },
 })
@@ -27,6 +27,7 @@ export default createComponent({
 @import '../variables';
 
 .logo {
+  position: relative;
   display: block;
 
   width: $width;
@@ -35,6 +36,7 @@ export default createComponent({
   padding-top: 25px;
 
   color: white;
+  z-index: 1;
 
   &:not(.mobile) {
     min-height: 216px;
