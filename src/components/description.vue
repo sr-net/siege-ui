@@ -67,6 +67,7 @@ export default createComponent({
   @include mobile {
     height: 100% !important;
     background: $bg50Mobile;
+    font-size: 20px;
   }
 
   & > .description {

@@ -113,9 +113,11 @@ export default createComponent({
     padding: 10px 25px;
     user-select: text;
 
+    transition: $transitions, font-size 1s;
+
     @include mobile {
       &.start {
-        font-size: 30px !important;
+        font-size: 24px !important;
       }
     }
   }
