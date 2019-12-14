@@ -15,12 +15,19 @@
     <transition>
       <Logo v-if="!loading && description == null" mobile />
     </transition>
+
+    <div class="menu">
+      <a href="https://github.com/sr-net" target="_blank" rel="noopener">
+        <img class="github" :src="githubLogo" />
+      </a>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { createComponent, ref, watch } from '@vue/composition-api'
 
+import githubLogo from '../assets/github.svg'
 import Logo from './logo.vue'
 
 export default createComponent({
@@ -44,7 +51,7 @@ export default createComponent({
       height.value = newVal?.getBoundingClientRect().height ?? 0
     })
 
-    return { height, content }
+    return { height, content, githubLogo }
   },
 })
 </script>
@@ -61,6 +68,7 @@ export default createComponent({
   color: $text400;
   text-align: center;
   font-size: 24px;
+  overflow: hidden;
 
   transition: $transitions, height 0.25s;
 
@@ -79,10 +87,12 @@ export default createComponent({
     user-select: text;
     transition: $transitions, opacity 0.25s;
 
-    padding: 10px 20px;
+    padding: 15px 75px;
 
-    @include notMobile {
-      padding: 15px 75px;
+    @include mobile {
+      max-height: 100%;
+      padding: 10px 30px;
+      overflow: scroll;
     }
 
     &.loading {
@@ -100,6 +110,35 @@ export default createComponent({
 
     &.v-leave-to {
       opacity: 0;
+    }
+  }
+
+  & > .menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+
+    & > a,
+    & > button {
+      position: relative;
+      height: 35px;
+      width: 35px;
+      padding: 5px;
+      border: 0;
+      background: $button;
+      border-radius: 100%;
+      cursor: pointer;
+
+      & > img {
+        height: 100%;
+        width: 100%;
+
+        &.github {
+          filter: brightness(9);
+        }
+      }
     }
   }
 }

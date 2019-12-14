@@ -3,8 +3,8 @@
     <div class="score hidden">+{{ score }}</div>
 
     <div v-if="author" class="author">
-      <img class="type" :src="getAuthorImg(author.type)" />
       <a :href="author.url" target="_blank" rel="noopener">
+        <img class="type" :src="getAuthorImg(author.type)" />
         {{ prefix }}{{ author.name }}
       </a>
     </div>
@@ -95,14 +95,17 @@ export default createComponent<Props>({
     justify-content: center;
     align-items: center;
 
-    & > .type {
-      height: 18px;
-      margin-right: 5px;
-    }
-
     & > a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: $text300;
       text-decoration: none;
+
+      & > .type {
+        height: 18px;
+        margin-right: 5px;
+      }
     }
   }
 
