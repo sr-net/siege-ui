@@ -59,8 +59,6 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "0d:d4:55:3c:86:5a:33:e1:cd:85:d8:c6:da:4f:05:6d"
-      - run: "git config --global user.email ${GITHUB_USER_EMAIL}"
-      - run: "git config --global user.name ${GITHUB_USER_NAME}"
       - run:
           name: Deploy to GH Pages
           command: yarn gh-pages -d dist
