@@ -1,6 +1,45 @@
-<template functional>
-  <div class="christmas-container" />
+<template>
+  <div ref="container" class="christmas-container" />
 </template>
+
+<script lang="ts">
+import {
+  createComponent,
+  onMounted,
+  onUnmounted,
+  ref,
+} from '@vue/composition-api'
+
+const handleBlur = (el: HTMLDivElement | null) => () => {
+  if (el == null) return
+
+  el.style.animationPlayState = 'paused, paused, paused'
+}
+
+const handleFocus = (el: HTMLDivElement | null) => () => {
+  if (el == null) return
+
+  el.style.animationPlayState = ''
+}
+
+export default createComponent({
+  setup() {
+    const container = ref<HTMLDivElement>(null)
+
+    onMounted(() => {
+      window.addEventListener('blur', handleBlur(container.value))
+      window.addEventListener('focus', handleFocus(container.value))
+    })
+
+    onUnmounted(() => {
+      window.removeEventListener('blur', handleBlur(container.value))
+      window.removeEventListener('focus', handleFocus(container.value))
+    })
+
+    return { container }
+  },
+})
+</script>
 
 <style scoped lang="scss">
 @import '../variables';
