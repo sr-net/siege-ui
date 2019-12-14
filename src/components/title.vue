@@ -1,6 +1,10 @@
 <template>
   <div ref="container" class="title-container">
-    <div v-resize-text="resizeOptions" class="title" :class="{ start: !initiated }">
+    <div
+      v-resize-text="resizeOptions"
+      class="title"
+      :class="{ start: !initiated }"
+    >
       {{ state.currentTitle }}
     </div>
 
@@ -43,7 +47,7 @@ export default createComponent({
 
     const resizeOptions = {
       ratio: 1.1,
-      minFontSize: 25,
+      minFontSize: 24,
       maxFontSize: 45,
     }
 
@@ -117,7 +121,7 @@ export default createComponent({
 
     @include mobile {
       &.start {
-        font-size: 24px !important;
+        font-size: 28px !important;
       }
     }
   }
