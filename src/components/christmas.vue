@@ -66,6 +66,10 @@ export default createComponent({
   background-size: 500px, 400px, 300px;
 
   opacity: 1;
+  @include mobile {
+    opacity: 0.25;
+  }
+
   transition: opacity 10s;
 
   &.fade-enter,
