@@ -121,7 +121,7 @@ export default createComponent({
     const team = ref<Team>(null)
     const gamemode = localStorageRef('gamemode')
     const exclude = localStorageRef('exclude', [] as number[])
-    const strat = ref<StratQuery['strat']>({})
+    const strat = ref<StratQuery['strat']>({ title: 'Select a team to begin!' })
     const loading = ref(false)
 
     const setTeam = async (t: Team) => {

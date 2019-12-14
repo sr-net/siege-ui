@@ -1,7 +1,7 @@
 <template>
   <div ref="container" class="title-container">
     <div v-resize-text="resizeOptions" class="title" :class="{ start: !initiated }">
-      {{ initiated ? state.currentTitle : 'Select a team to begin!' }}
+      {{ state.currentTitle }}
     </div>
 
     <div class="title">Loading...</div>
