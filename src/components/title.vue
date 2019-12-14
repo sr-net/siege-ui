@@ -1,16 +1,12 @@
 <template>
   <div ref="container" class="title-container">
-    <div
-      v-resize-text="resizeOptions"
-      class="title"
-      :class="{ start: !initiated }"
-    >
+    <div class="title" :class="{ start: !initiated }">
       {{ state.currentTitle }}
     </div>
 
     <div class="title">Loading...</div>
 
-    <div v-resize-text="resizeOptions" class="title">{{ title }}</div>
+    <div class="title">{{ title }}</div>
   </div>
 </template>
 
@@ -45,12 +41,6 @@ export default createComponent({
       height: 70,
     })
 
-    const resizeOptions = {
-      ratio: 1.1,
-      minFontSize: 24,
-      maxFontSize: 45,
-    }
-
     onMounted(() => {
       state.height = container.value!.getBoundingClientRect().height ?? 70
     })
@@ -77,7 +67,7 @@ export default createComponent({
       }
     })
 
-    return { container, state, resizeOptions }
+    return { container, state }
   },
 })
 </script>
@@ -97,7 +87,7 @@ export default createComponent({
   border-bottom: 2px solid $border;
 
   font-weight: 600;
-  font-size: 25px;
+  font-size: 28px;
 
   @include notMobile {
     font-size: 40px;
@@ -121,7 +111,7 @@ export default createComponent({
 
     @include mobile {
       &.start {
-        font-size: 28px !important;
+        font-size: 30px !important;
       }
     }
   }
