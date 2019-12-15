@@ -3,7 +3,6 @@
  */
 module.exports = {
   lintOnSave: false,
-  publicPath: process.env.NODE_ENV === 'production' ? '/siege-ui' : '/',
 
   /**
    * @param chain { import("webpack-chain").Config }
