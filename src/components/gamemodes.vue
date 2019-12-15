@@ -5,6 +5,7 @@
       :key="gm"
       class="gamemode"
       :class="{ selected: gm === selected }"
+      :title="gm"
       @click="setSelected(gm)"
     >
       <img :src="getGamemodeIcon(gm)" />
