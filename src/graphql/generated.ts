@@ -108,10 +108,12 @@ export type LikeStratMutation = { __typename?: 'Mutation' } & {
 }
 
 export type StratQueryVariables = {
+  random: Scalars['Boolean']
   atk: Scalars['Boolean']
   def: Scalars['Boolean']
   gamemode: Gamemode
-  exclude: Array<Scalars['Int']>
+  shortId?: Maybe<Scalars['Int']>
+  exclude?: Maybe<Array<Scalars['Int']>>
 }
 
 export type StratQuery = { __typename?: 'Query' } & {

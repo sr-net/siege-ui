@@ -31,7 +31,13 @@
 </template>
 
 <script lang="ts">
-import { createComponent, ref, watch } from '@vue/composition-api'
+import {
+  createComponent,
+  onMounted,
+  onUnmounted,
+  ref,
+  watch,
+} from '@vue/composition-api'
 
 import Logo from './components/logo.vue'
 import Title from './components/title.vue'
@@ -48,6 +54,12 @@ import { getHoliday } from './holidays'
 type LocalStorage = {
   gamemode: Gamemode
   exclude: number[]
+}
+
+const getShortIdFromUrl = (url: string): number | null => {
+  const hash = Number(/#(\d+)/.exec(url)?.[1])
+
+  return !isNaN(hash) ? hash : null
 }
 
 const localStorageRef = <
@@ -78,11 +90,17 @@ export default createComponent({
     const exclude = localStorageRef('exclude', [] as number[])
 
     const initiated = ref(false)
+    const shortId = ref(getShortIdFromUrl(location.href))
     const strat = ref<StratQuery['strat']>({ title: 'Select a team to begin!' })
     const loading = ref(false)
 
-    const fetchForTeam = async (team: Team) => {
+    const fetchStrat = async (team?: Team) => {
       if (gamemode.value == null) return
+
+      if (team != null) {
+        shortId.value = null
+        location.hash = ''
+      }
 
       if (strat.value?.shortId != null) {
         if (exclude.value.length >= 15) {
@@ -94,10 +112,14 @@ export default createComponent({
 
       initiated.value = true
       loading.value = true
+
+      const random = shortId.value == null
       const result = await randomStratQuery({
+        random,
+        shortId: shortId.value,
         atk: team === 'atk',
         def: team === 'def',
-        exclude: exclude.value,
+        exclude: !random ? exclude.value : [],
         gamemode: gamemode.value,
       })
 
@@ -124,14 +146,33 @@ export default createComponent({
       }
     }
 
+    const updateShortId = ({ newURL }: HashChangeEvent) => {
+      shortId.value = getShortIdFromUrl(newURL)
+    }
+
+    onMounted(() => {
+      window.addEventListener('hashchange', updateShortId)
+    })
+
+    onUnmounted(() => {
+      window.removeEventListener('hashchange', updateShortId)
+    })
+
+    watch(shortId, newValue => {
+      if (newValue === strat.value?.shortId) return
+
+      fetchStrat()
+    })
+
     return {
       bgImage,
       holiday: getHoliday(),
       gamemode,
       initiated,
+      shortId,
       strat,
       loading,
-      fetchForTeam,
+      fetchForTeam: fetchStrat,
       setGamemode,
       toggleLiked,
     }
