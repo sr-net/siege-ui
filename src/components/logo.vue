@@ -32,7 +32,7 @@ export default createComponent({
 
   width: $width;
   max-width: 90%;
-  margin: auto auto 25px;
+  margin: 0 auto 25px;
   padding-top: 25px;
 
   color: white;

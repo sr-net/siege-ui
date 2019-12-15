@@ -13,7 +13,10 @@
     </div>
 
     <transition>
-      <Logo v-if="!loading && description == null" mobile />
+      <div v-if="!loading && description == null" class="logo-container">
+        <Logo mobile />
+        <Disclaimer mobile />
+      </div>
     </transition>
 
     <div class="menu">
@@ -29,9 +32,10 @@ import { createComponent, ref, watch } from '@vue/composition-api'
 
 import githubLogo from '../assets/github.svg'
 import Logo from './logo.vue'
+import Disclaimer from './disclaimer.vue'
 
 export default createComponent({
-  components: { Logo },
+  components: { Logo, Disclaimer },
   props: {
     loading: {
       type: Boolean,
@@ -100,16 +104,22 @@ export default createComponent({
     }
   }
 
-  & > .logo {
+  & > .logo-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
 
     transition: opacity 0.25s;
 
     &.v-leave-to {
       opacity: 0;
+    }
+
+    & /deep/ .disclaimer {
+      padding: 0 10px;
+      font-size: 17px;
     }
   }
 

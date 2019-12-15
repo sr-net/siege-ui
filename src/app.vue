@@ -27,6 +27,10 @@
         :toggle-like="toggleLiked"
       />
     </div>
+
+    <transition>
+      <Disclaimer v-if="strat.score == null" />
+    </transition>
   </div>
 </template>
 
@@ -39,6 +43,7 @@ import Info from './components/info.vue'
 import Description from './components/description.vue'
 import Gamemodes from './components/gamemodes.vue'
 import Buttons from './components/buttons.vue'
+import Disclaimer from './components/disclaimer.vue'
 import bgImage from './assets/bg-opacity.png'
 import { useStrat } from './graphql/requests'
 import { getHoliday } from './holidays'
@@ -87,6 +92,7 @@ export default createComponent({
     Description,
     Gamemodes,
     Buttons,
+    Disclaimer,
   },
 })
 </script>
@@ -97,6 +103,10 @@ export default createComponent({
 #app {
   font-family: Lato, sans-serif;
   background: #0d0d0d;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 * {
@@ -132,6 +142,21 @@ export default createComponent({
 
   @include mobile {
     height: 100%;
+  }
+
+  & + .disclaimer {
+    margin: 10px auto 0;
+    padding: 10px 15px;
+    background: $bg100;
+    border-radius: 5px;
+    font-size: 18px;
+    box-shadow: 1px 3px 5px transparentize(black, 0.5);
+    transition: $transitions, transform 0.25s, opacity 0.1s;
+
+    &.v-leave-to {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
   }
 }
 </style>
