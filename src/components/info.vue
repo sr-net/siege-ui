@@ -73,6 +73,10 @@ export default createComponent<Props>({
   overflow: hidden;
   transition: $transitions, height 0.25s, padding 0.25s, border-bottom 0.25s;
 
+  @include mobile {
+    padding: 5px 15px;
+  }
+
   &.hide {
     height: 0;
     padding: 0 25px;
@@ -88,12 +92,9 @@ export default createComponent<Props>({
   }
 
   & > .author {
-    position: absolute;
+    position: relative;
     height: 100%;
-    width: 85%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,6 +115,7 @@ export default createComponent<Props>({
 
   & > .short-id,
   & > .score {
+    width: 60px;
     flex-shrink: 0;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
@@ -121,6 +123,7 @@ export default createComponent<Props>({
 
     &.score {
       color: $green;
+      text-align: right;
     }
 
     &.hidden {
