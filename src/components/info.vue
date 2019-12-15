@@ -117,9 +117,9 @@ export default createComponent<Props>({
   & > .score {
     width: 60px;
     flex-shrink: 0;
-    font-weight: 600;
+    font-weight: 300;
     font-variant-numeric: tabular-nums;
-    letter-spacing: 0.25px;
+    letter-spacing: 0.5px;
 
     &.score {
       color: $green;

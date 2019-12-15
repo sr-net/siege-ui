@@ -86,13 +86,6 @@ export default createComponent({
   color: $text400;
   border-bottom: 2px solid $border;
 
-  font-weight: 600;
-  font-size: 28px;
-
-  @include notMobile {
-    font-size: 40px;
-  }
-
   & > .title {
     display: flex;
     justify-content: center;
@@ -100,6 +93,7 @@ export default createComponent({
     text-align: center;
     font-family: 'Catamaran', sans-serif;
     font-weight: 800;
+    font-size: 40px;
     line-height: 100%;
     flex-shrink: 0;
     height: 70px;
@@ -110,6 +104,8 @@ export default createComponent({
     transition: $transitions, font-size 1s;
 
     @include mobile {
+      font-size: 28px;
+
       &.start {
         font-size: 30px !important;
       }
