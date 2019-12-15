@@ -64,7 +64,7 @@ export const toggleLikeMutation = async <B extends boolean>(
 }
 
 export const useStrat = () => {
-  const gamemode = localStorageRef('gamemode')
+  const gamemode = localStorageRef('gamemode', Gamemode.Hostage)
   const exclude = localStorageRef('exclude', [] as number[])
 
   const state = reactive({
