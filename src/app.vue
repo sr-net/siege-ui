@@ -159,7 +159,9 @@ export default createComponent({
     })
 
     watch(shortId, newValue => {
-      if (newValue === strat.value?.shortId) return
+      if (newValue == null || newValue === strat.value?.shortId) {
+        return
+      }
 
       fetchStrat()
     })
