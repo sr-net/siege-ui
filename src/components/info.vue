@@ -1,6 +1,8 @@
 <template>
   <div class="info-container" :class="{ loading, hide: author == null }">
-    <div class="short-id">#{{ shortId }}</div>
+    <div class="short-id" title="Click to copy link!" @click="copyLink">
+      #{{ shortId }}
+    </div>
 
     <div v-if="author" class="author">
       <a :href="author.url" target="_blank" rel="noopener">
@@ -15,6 +17,8 @@
 
 <script lang="ts">
 import { computed, createComponent } from '@vue/composition-api'
+import copy from 'clipboard-copy'
+
 import { AuthorType, Strat } from '@/graphql/generated'
 
 type Props = { loading: boolean; author?: Strat['author']; score?: number }
@@ -49,7 +53,11 @@ export default createComponent<Props>({
     const getAuthorImg = (type: AuthorType) =>
       authorIconContext(`./${type.toLowerCase()}.svg`)
 
-    return { prefix, getAuthorImg }
+    const copyLink = () => {
+      copy(location.href)
+    }
+
+    return { prefix, getAuthorImg, copyLink }
   },
 })
 </script>
@@ -124,6 +132,10 @@ export default createComponent<Props>({
     &.score {
       color: $green;
       text-align: right;
+    }
+
+    &.short-id {
+      cursor: pointer;
     }
 
     &.hidden {

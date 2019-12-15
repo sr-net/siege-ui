@@ -79,7 +79,6 @@ export const useStrat = () => {
 
     if (team != null) {
       state.shortId = null
-      location.hash = ''
     }
 
     if (state.strat?.shortId != null) {
@@ -106,6 +105,7 @@ export const useStrat = () => {
     setTimeout(() => {
       state.loading = false
       state.strat = result ?? null
+      location.hash = result?.shortId.toString() ?? ''
     }, 250)
   }
 
