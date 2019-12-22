@@ -146,9 +146,9 @@ export default createComponent({
 
   & + .disclaimer {
     margin: 10px auto 0;
-    padding: 10px 15px;
     background: $bg100;
     border-radius: 5px;
+    overflow: hidden;
     font-size: 18px;
     box-shadow: 1px 3px 5px transparentize(black, 0.5);
     transition: $transitions, transform 0.25s, opacity 0.1s;

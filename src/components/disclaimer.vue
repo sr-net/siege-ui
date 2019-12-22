@@ -1,8 +1,11 @@
-<template functional>
-  <div class="disclaimer" :class="{ mobile: props.mobile }">
-    Please only play Strats as a five man group.
-    <br v-if="props.mobile" />
-    Don't ruin other people's games.
+<template>
+  <div class="disclaimer" :class="{ mobile: mobile }">
+    <Adsense
+      is-non-personalized-ads
+      data-ad-client="ca-pub-2760086516112871"
+      data-ad-slot="3859200341"
+      :data-ad-format="isMobile ? 'rectangle' : 'horizontal'"
+    />
   </div>
 </template>
 
@@ -10,6 +13,11 @@
 export default {
   props: {
     mobile: Boolean,
+  },
+  setup() {
+    const isMobile = window.matchMedia('(max-width: 600px)').matches
+
+    return { isMobile }
   },
 }
 </script>
@@ -20,7 +28,13 @@ export default {
 .disclaimer {
   position: relative;
   color: $text300;
-  white-space: pre-wrap;
+  box-sizing: content-box;
+  width: 728px;
+
+  &.mobile {
+    margin: auto;
+    width: 100%;
+  }
 
   @include notMobile {
     &.mobile {

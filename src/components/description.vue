@@ -117,9 +117,8 @@ export default createComponent({
       opacity: 0;
     }
 
-    & /deep/ .disclaimer {
-      padding: 0 10px;
-      font-size: 17px;
+    & > .logo {
+      padding-top: 0;
     }
   }
 
