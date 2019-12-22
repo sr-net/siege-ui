@@ -3,7 +3,7 @@
     <Adsense
       is-non-personalized-ads
       data-ad-client="ca-pub-2760086516112871"
-      data-ad-slot="3859200341"
+      :data-ad-slot="isMobile ? '3273924000' : '3859200341'"
       :data-ad-format="isMobile ? 'rectangle' : 'horizontal'"
     />
   </div>
@@ -33,7 +33,8 @@ export default {
 
   &.mobile {
     margin: auto;
-    width: 100%;
+    width: 330px;
+    height: 150px;
   }
 
   @include notMobile {
