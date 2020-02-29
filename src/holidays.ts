@@ -13,12 +13,10 @@ const matrix: Array<[number, number, Holiday]> = [
 ]
 
 export const getHoliday = (): Holiday => {
-  const date = Number(
-    `${now.getMonth() + 1}${zeroPrefix(now.getDate())}`,
-  )
+  const date = Number(`${now.getMonth() + 1}${zeroPrefix(now.getDate())}`)
 
   const found = matrix.find(([min, max]) => {
-    return date >= min || date <= max
+    return date >= min && date <= max
   })
 
   return found?.[2] ?? Holiday.Normal
