@@ -7,13 +7,24 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue,ts}": [
+      "prettier --write",
+      "vue-cli-service lint --fix"
+    ]
+  },
   "dependencies": {
     "@vue/composition-api": "0.3.4",
     "clipboard-copy": "3.1.0",
-    "core-js": "3.6.4",
+    "core-js": "3.6.5",
     "graphql": "14.5.8",
     "vue": "2.6.11",
-    "vue-google-adsense": "1.8.0",
+    "vue-google-adsense": "1.8.1",
     "vue-script2": "2.1.0"
   },
   "devDependencies": {
@@ -25,34 +36,21 @@
     "@graphql-codegen/typescript": "1.9.1",
     "@graphql-codegen/typescript-graphql-files-modules": "1.9.1",
     "@graphql-codegen/typescript-operations": "1.9.1",
-    "@typescript-eslint/eslint-plugin": "2.12.0",
-    "@typescript-eslint/parser": "2.14.0",
     "@vue/cli-plugin-babel": "4.1.1",
     "@vue/cli-plugin-eslint": "4.1.1",
     "@vue/cli-plugin-typescript": "4.1.1",
     "@vue/cli-service": "4.1.1",
     "@vue/eslint-config-prettier": "6.0.0",
     "@vue/eslint-config-typescript": "5.0.1",
-    "eslint": "6.8.0",
-    "eslint-plugin-prettier": "3.1.2",
-    "eslint-plugin-vue": "6.1.2",
-    "gh-pages": "2.2.0",
-    "lint-staged": "9.5.0",
-    "node-sass": "4.13.0",
+    "eslint": "7.2.0",
+    "gh-pages": "3.0.0",
+    "husky": "4.2.5",
+    "lint-staged": "10.2.9",
+    "node-sass": "4.14.1",
     "prettier": "1.19.1",
-    "raw-loader": "4.0.0",
-    "sass-loader": "8.0.0",
-    "typescript": "3.7.4",
+    "raw-loader": "4.0.1",
+    "sass-loader": "8.0.2",
+    "typescript": "3.9.5",
     "vue-template-compiler": "2.6.11"
-  },
-  "gitHooks": {
-    "pre-commit": "yarn lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,vue,ts}": [
-      "prettier --write",
-      "vue-cli-service lint",
-      "git add"
-    ]
   }
 }
