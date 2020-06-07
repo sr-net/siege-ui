@@ -1,4 +1,3 @@
-/* prettier-ignore-start */
 /* eslint-disable */
 /* THIS IS A GENERATED FILE */
 export type Maybe<T> = T | null
@@ -102,7 +101,7 @@ export type LikeStratMutationVariables = {
 }
 
 export type LikeStratMutation = { __typename?: 'Mutation' } & {
-  likeStrat: Maybe<
+  likeStrat?: Maybe<
     { __typename?: 'Strat' } & Pick<Strat, 'uuid' | 'score' | 'liked'>
   >
 }
@@ -117,7 +116,7 @@ export type StratQueryVariables = {
 }
 
 export type StratQuery = { __typename?: 'Query' } & {
-  strat: Maybe<
+  strat?: Maybe<
     { __typename?: 'Strat' } & Pick<
       Strat,
       | 'uuid'
@@ -141,7 +140,7 @@ export type UnlikeStratMutationVariables = {
 }
 
 export type UnlikeStratMutation = { __typename?: 'Mutation' } & {
-  unlikeStrat: Maybe<
+  unlikeStrat?: Maybe<
     { __typename?: 'Strat' } & Pick<Strat, 'uuid' | 'score' | 'liked'>
   >
 }

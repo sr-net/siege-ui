@@ -1,4 +1,3 @@
-/* prettier-ignore-start */
 /* eslint-disable */
 /* THIS IS A GENERATED FILE */
 
