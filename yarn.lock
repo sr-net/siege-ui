@@ -962,12 +962,28 @@
     tslib "~2.0.0"
     upper-case "2.0.1"
 
-"@graphql-codegen/typescript-graphql-files-modules@1.15.1":
-  version "1.15.1"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-graphql-files-modules/-/typescript-graphql-files-modules-1.15.1.tgz#aa9499c02def82660c36ede41beac06ae9a3f441"
-  integrity sha512-+ROL2k4oWKStgDNTTJWpWEt3rkHByR5SLKIhMskfQGbqPTAFx+ySMqKPr7nLYqw6PoBvj8SltWJh5Jx0lzfKag==
+"@graphql-codegen/plugin-helpers@1.15.3":
+  version "1.15.3"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/plugin-helpers/-/plugin-helpers-1.15.3.tgz#0e2cf89b8aec3ee7a737157ac1b08fbfce626e07"
+  integrity sha512-32SbFNWRqUrjVbD5NQjlvbaM+be7x3upu3K/leS6+gop5q2y6CsvvoboMyj1p1N4Vee6lL87msojnOCOryxPFg==
   dependencies:
-    "@graphql-codegen/plugin-helpers" "1.15.1"
+    "@graphql-tools/utils" "^6.0.0"
+    camel-case "4.1.1"
+    common-tags "1.8.0"
+    constant-case "3.0.3"
+    import-from "3.0.0"
+    lower-case "2.0.1"
+    param-case "3.0.3"
+    pascal-case "3.1.1"
+    tslib "~2.0.0"
+    upper-case "2.0.1"
+
+"@graphql-codegen/typescript-graphql-files-modules@1.15.3":
+  version "1.15.3"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-graphql-files-modules/-/typescript-graphql-files-modules-1.15.3.tgz#821b5cc8c287eede4b54fc5df26f8cfbc6255309"
+  integrity sha512-t9oJDKm5PCFZ8eMW6KyjdprqeLQgVtYSGjE+tH02ZB+LmLnDDIzYPze13X3k8KUnMw13aJPJgKKhXPWYyIJsbw==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "1.15.3"
     tslib "~2.0.0"
 
 "@graphql-codegen/typescript-operations@1.15.1":
