@@ -938,18 +938,34 @@
     "@graphql-tools/utils" "^6.0.0"
     tslib "~2.0.0"
 
-"@graphql-codegen/fragment-matcher@1.15.1":
-  version "1.15.1"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/fragment-matcher/-/fragment-matcher-1.15.1.tgz#3391b86b7b688f803d846abb6ef93d83bb359154"
-  integrity sha512-30oLLPRYLuAo+OvJLPBsBEYEswAaXddOGDYL4QxGQsYnml0IhQMj//24rnLEUmYEV6zy2BAXCPK5whmV/DOnNw==
+"@graphql-codegen/fragment-matcher@1.17.3":
+  version "1.17.3"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/fragment-matcher/-/fragment-matcher-1.17.3.tgz#199dd609d718257713837f68ac81b6d9a001738e"
+  integrity sha512-MX8BM2v1PUP9gJG72IcQxE0UoBwwNRlUNpc52UiFyJO7WK4ytR0NRh9KfFufYUGP79KJT0U+cDAegOPzgJpuYA==
   dependencies:
-    "@graphql-codegen/plugin-helpers" "1.15.1"
+    "@graphql-codegen/plugin-helpers" "1.17.3"
     tslib "~2.0.0"
 
 "@graphql-codegen/plugin-helpers@1.15.1":
   version "1.15.1"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/plugin-helpers/-/plugin-helpers-1.15.1.tgz#7fce2f93cf42199ca977018bcb8f67e946d5503a"
   integrity sha512-DnLD+s4ng+rqbqrcHtV0/jtn/bYSUTqL3tpqPDeIhsqmdDSAtOtelVCeTtPHAJGOO7RI6BQB6rXm/ZgaCObIAg==
+  dependencies:
+    "@graphql-tools/utils" "^6.0.0"
+    camel-case "4.1.1"
+    common-tags "1.8.0"
+    constant-case "3.0.3"
+    import-from "3.0.0"
+    lower-case "2.0.1"
+    param-case "3.0.3"
+    pascal-case "3.1.1"
+    tslib "~2.0.0"
+    upper-case "2.0.1"
+
+"@graphql-codegen/plugin-helpers@1.17.3":
+  version "1.17.3"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/plugin-helpers/-/plugin-helpers-1.17.3.tgz#365b40aab3bd9263cbf5f4a153b8bbd7bc9fe5f6"
+  integrity sha512-bhEqPUKW4GrSk92GTwQV/B4jHuiyAqaz30cAnRwdwl7PUuSc2su81nOC33t9TXf9H0QD4QPfgklFGFcfAnSGQg==
   dependencies:
     "@graphql-tools/utils" "^6.0.0"
     camel-case "4.1.1"
