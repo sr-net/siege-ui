@@ -28,7 +28,7 @@
     "vue-script2": "2.1.0"
   },
   "devDependencies": {
-    "@graphql-codegen/add": "1.15.1",
+    "@graphql-codegen/add": "1.17.4",
     "@graphql-codegen/cli": "1.15.1",
     "@graphql-codegen/fragment-matcher": "1.15.1",
     "@graphql-codegen/typescript": "1.15.1",
