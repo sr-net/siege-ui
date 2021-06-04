@@ -1,31 +1,23 @@
-declare module '*.vue' {
-  import Vue from 'vue'
-  export default Vue
-}
+/* eslint-disable @typescript-eslint/no-empty-interface,@typescript-eslint/consistent-type-definitions,@typescript-eslint/naming-convention */
 
-declare module '*.graphql' {
+declare module "*.svg" {
   const content: string
   export default content
 }
 
-declare module '*.svg' {
+declare module "*.png" {
   const content: string
   export default content
 }
 
-declare module '*.png' {
-  const content: string
-  export default content
-}
-
-declare module 'vue-script2' {
-  import { PluginFunction } from 'vue'
+declare module "vue-script2" {
+  import { PluginFunction } from "vue"
   const content: PluginFunction<any>
   export default content
 }
 
-declare module 'vue-google-adsense' {
-  import { PluginFunction } from 'vue'
+declare module "vue-google-adsense" {
+  import { PluginFunction } from "vue"
   const content: {
     Adsense: PluginFunction<any>
     InArticleAdsense: PluginFunction<any>

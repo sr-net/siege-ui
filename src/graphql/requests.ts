@@ -1,4 +1,6 @@
-import { getShortIdFromUrl, localStorageRef } from '@/utils'
+import { onMounted, onUnmounted, reactive, ref, toRefs } from "vue"
+
+import { getShortIdFromUrl, localStorageRef } from "@/utils"
 
 import {
   Gamemode,
@@ -8,27 +10,19 @@ import {
   StratQueryVariables,
   UnlikeStratMutation,
   UnlikeStratMutationVariables,
-} from './generated'
-import stratQuery from './strat.graphql'
-import unlikeQuery from './unlike-strat.graphql'
-import likeQuery from './like-strat.graphql'
-import {
-  onMounted,
-  onUnmounted,
-  reactive,
-  ref,
-  toRefs,
-  watch,
-} from '@vue/composition-api'
+} from "./generated"
+import likeQuery from "./like-strat.graphql?raw"
+import stratQuery from "./strat.graphql?raw"
+import unlikeQuery from "./unlike-strat.graphql?raw"
 
-type Team = 'atk' | 'def'
+type Team = "atk" | "def"
 
 const postGraphql = async <R, V>(query: string, variables: V) => {
-  const response = await fetch('https://siege.stratroulette.net/graphql', {
-    credentials: 'include',
-    method: 'POST',
+  const response = await fetch("https://siege.stratroulette.com/graphql", {
+    credentials: "include",
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       query,
@@ -36,14 +30,11 @@ const postGraphql = async <R, V>(query: string, variables: V) => {
     }),
   })
 
-  return response.json() as { data?: R }
+  return (await response.json()) as { data?: R }
 }
 
 export const randomStratQuery = async (variables: StratQueryVariables) => {
-  const result = await postGraphql<StratQuery, StratQueryVariables>(
-    stratQuery,
-    variables,
-  )
+  const result = await postGraphql<StratQuery, StratQueryVariables>(stratQuery, variables)
 
   return result.data?.strat
 }
@@ -64,13 +55,15 @@ export const toggleLikeMutation = async <B extends boolean>(
 }
 
 export const useStrat = () => {
-  const gamemode = localStorageRef('gamemode', Gamemode.Hostage)
-  const exclude = localStorageRef('exclude', [] as number[])
+  const gamemode = localStorageRef("gamemode", Gamemode.Hostage)
+  const exclude = localStorageRef("exclude", [] as number[])
 
   const state = reactive({
     initiated: ref(false),
     shortId: ref(getShortIdFromUrl(location.href)),
-    strat: ref<StratQuery['strat']>({ title: 'Select a team to begin!' }),
+    strat: ref<Partial<StratQuery["strat"]>>({
+      title: "Select a team to begin!",
+    }),
     loading: ref(false),
   })
 
@@ -96,8 +89,8 @@ export const useStrat = () => {
     const result = await randomStratQuery({
       random,
       shortId: state.shortId,
-      atk: team === 'atk',
-      def: team === 'def',
+      atk: team === "atk",
+      def: team === "def",
       exclude: !random ? exclude.value : [],
       gamemode: gamemode.value,
     })
@@ -105,7 +98,7 @@ export const useStrat = () => {
     setTimeout(() => {
       state.loading = false
       state.strat = result ?? null
-      location.hash = result?.shortId.toString() ?? ''
+      location.hash = result?.shortId.toString() ?? ""
     }, 250)
   }
 
@@ -131,11 +124,11 @@ export const useStrat = () => {
   }
 
   onMounted(() => {
-    window.addEventListener('hashchange', updateShortId)
+    window.addEventListener("hashchange", updateShortId)
   })
 
   onUnmounted(() => {
-    window.removeEventListener('hashchange', updateShortId)
+    window.removeEventListener("hashchange", updateShortId)
   })
 
   return {

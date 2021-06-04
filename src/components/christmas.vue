@@ -3,37 +3,32 @@
 </template>
 
 <script lang="ts">
-import {
-  createComponent,
-  onMounted,
-  onUnmounted,
-  ref,
-} from '@vue/composition-api'
+import { defineComponent, onMounted, onUnmounted, ref } from "vue"
 
 const handleBlur = (el: HTMLDivElement | null) => () => {
   if (el == null) return
 
-  el.style.animationPlayState = 'paused, paused, paused'
+  el.style.animationPlayState = "paused, paused, paused"
 }
 
 const handleFocus = (el: HTMLDivElement | null) => () => {
   if (el == null) return
 
-  el.style.animationPlayState = ''
+  el.style.animationPlayState = ""
 }
 
-export default createComponent({
+export default defineComponent({
   setup() {
     const container = ref<HTMLDivElement>(null)
 
     onMounted(() => {
-      window.addEventListener('blur', handleBlur(container.value))
-      window.addEventListener('focus', handleFocus(container.value))
+      window.addEventListener("blur", handleBlur(container.value))
+      window.addEventListener("focus", handleFocus(container.value))
     })
 
     onUnmounted(() => {
-      window.removeEventListener('blur', handleBlur(container.value))
-      window.removeEventListener('focus', handleFocus(container.value))
+      window.removeEventListener("blur", handleBlur(container.value))
+      window.removeEventListener("focus", handleFocus(container.value))
     })
 
     return { container }
@@ -42,7 +37,7 @@ export default createComponent({
 </script>
 
 <style scoped lang="scss">
-@import '../variables';
+@import "../variables";
 
 @keyframes snowfall {
   to {

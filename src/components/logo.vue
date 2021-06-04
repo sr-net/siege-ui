@@ -3,13 +3,13 @@
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import { defineComponent } from "vue"
 
-import { getHoliday } from '@/holidays'
+import { getHoliday } from "@/holidays"
 
-const logosContext = require.context('../assets/logos', false)
+const logos = import.meta.globEager("../assets/logos/*.png")
 
-export default createComponent({
+export default defineComponent({
   props: {
     mobile: Boolean,
   },
@@ -17,14 +17,14 @@ export default createComponent({
     const holiday = getHoliday()
 
     return {
-      logo: logosContext(`./${holiday}.png`) as string,
+      logo: logos[`../assets/logos/${holiday}.png`]?.default,
     }
   },
 })
 </script>
 
 <style scoped lang="scss">
-@import '../variables';
+@import "../variables";
 
 .logo {
   position: relative;

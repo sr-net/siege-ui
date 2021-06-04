@@ -1,5 +1,6 @@
-import { VNode } from 'vue'
-import { ComponentRenderProxy } from '@vue/composition-api'
+/* eslint-disable @typescript-eslint/no-empty-interface,@typescript-eslint/consistent-type-definitions */
+import { VNode } from "vue"
+import { ComponentRenderProxy } from "vue"
 
 declare global {
   namespace JSX {

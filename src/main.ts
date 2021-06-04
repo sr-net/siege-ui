@@ -1,12 +1,10 @@
-import Vue from 'vue'
-import VueCompositionApi from '@vue/composition-api'
-import Script2 from 'vue-script2'
-import Ads from 'vue-google-adsense'
-import App from './app.vue'
+import { load } from "fathom-client"
+import { createApp } from "vue"
 
-Vue.use(VueCompositionApi)
-Vue.use(Script2)
-Vue.use(Ads.Adsense)
-Vue.config.productionTip = false
+import App from "./app.vue"
 
-new Vue({ render: h => h(App) }).$mount('#app')
+const app = createApp(App)
+
+app.mount("#app")
+
+load("LLJJZWJA", { url: "https://mammal.haglund.dev/script.js" })

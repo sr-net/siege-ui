@@ -3,12 +3,7 @@
     class="description-container"
     :style="{ height: `${description != null ? height : 0}px` }"
   >
-    <div
-      ref="content"
-      :key="description"
-      class="description"
-      :class="{ loading }"
-    >
+    <div ref="content" :key="description" class="description" :class="{ loading }">
       {{ description }}
     </div>
 
@@ -28,13 +23,14 @@
 </template>
 
 <script lang="ts">
-import { createComponent, ref, watch } from '@vue/composition-api'
+import { defineComponent, ref, watch } from "vue"
 
-import githubLogo from '../assets/github.svg'
-import Logo from './logo.vue'
-import Disclaimer from './disclaimer.vue'
+import githubLogo from "../assets/github.svg"
 
-export default createComponent({
+import Disclaimer from "./disclaimer.vue"
+import Logo from "./logo.vue"
+
+export default defineComponent({
   components: { Logo, Disclaimer },
   props: {
     loading: {
@@ -43,6 +39,7 @@ export default createComponent({
     },
     description: {
       type: String,
+      default: null,
     },
   },
   setup() {
@@ -50,7 +47,7 @@ export default createComponent({
     const height = ref(0)
 
     watch(content, (newVal, oldVar) => {
-      if (newVal?.innerText === oldVar?.innerText) return
+      if (newVal?.textContent === oldVar?.textContent) return
 
       height.value = newVal?.getBoundingClientRect().height ?? 0
     })
@@ -61,7 +58,7 @@ export default createComponent({
 </script>
 
 <style scoped lang="scss">
-@import '../variables';
+@import "../variables";
 
 .description-container {
   position: relative;

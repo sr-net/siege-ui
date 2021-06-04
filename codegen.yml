@@ -1,6 +1,6 @@
 overwrite: true
 
-schema: https://siege.stratroulette.net/graphql
+schema: https://siege.stratroulette.com/graphql
 
 documents:
   - src/**/*.graphql
@@ -16,13 +16,16 @@ config:
 generates:
   src/graphql/generated.ts:
     plugins:
-      - add: "/* eslint-disable */"
-      - add: "/* THIS IS A GENERATED FILE */"
+      - add:
+          content: "/* eslint-disable */"
+      - add:
+          content: "/* THIS IS A GENERATED FILE */"
       - typescript
       - typescript-operations
-
-  src/graphql/introspection-result.ts:
-    plugins:
-      - add: "/* eslint-disable */"
-      - add: "/* THIS IS A GENERATED FILE */"
-      - fragment-matcher
+    config:
+      pureMagicComment: true
+      arrayInputCoercion: false
+      immutableTypes: true
+      avoidOptionals: true
+      skipTypename: false
+      nonOptionalTypename: true

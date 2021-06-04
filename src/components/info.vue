@@ -16,20 +16,14 @@
 </template>
 
 <script lang="ts">
-import { computed, createComponent } from '@vue/composition-api'
-import copy from 'clipboard-copy'
+import copy from "clipboard-copy"
+import { computed, defineComponent, PropType } from "vue"
 
-import { AuthorType, Strat } from '@/graphql/generated'
+import { AuthorType, Strat } from "@/graphql/generated"
 
-type Props = { loading: boolean; author?: Strat['author']; score?: number }
+const authorIcons = import.meta.globEager("../assets/{name,youtube,twitch,reddit}.svg")
 
-const authorIconContext = require.context(
-  '../assets',
-  false,
-  /name|reddit|twitch|youtube/,
-)
-
-export default createComponent<Props>({
+export default defineComponent({
   props: {
     loading: {
       type: Boolean,
@@ -37,24 +31,25 @@ export default createComponent<Props>({
     },
     shortId: {
       type: Number,
+      default: null,
     },
     author: {
-      type: Object,
+      type: Object as PropType<Strat["author"]>,
+      default: null,
     },
     score: {
       type: Number,
+      default: null,
     },
   },
   setup(props) {
-    const prefix = computed(() =>
-      props.author?.type === AuthorType.Reddit ? '/u/' : '',
-    )
+    const prefix = computed(() => (props.author?.type === AuthorType.Reddit ? "/u/" : ""))
 
     const getAuthorImg = (type: AuthorType) =>
-      authorIconContext(`./${type.toLowerCase()}.svg`)
+      authorIcons[`../assets/${type.toLowerCase()}.svg`]?.default
 
     const copyLink = () => {
-      copy(location.href)
+      void copy(location.href)
     }
 
     return { prefix, getAuthorImg, copyLink }
@@ -63,7 +58,7 @@ export default createComponent<Props>({
 </script>
 
 <style scoped lang="scss">
-@import '../variables';
+@import "../variables";
 
 .info-container {
   flex-shrink: 0;

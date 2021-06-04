@@ -27,29 +27,33 @@
         :toggle-like="toggleLiked"
       />
     </div>
-
-    <transition>
-      <Disclaimer v-if="strat.score == null" />
-    </transition>
   </div>
 </template>
 
 <script lang="ts">
-import { createComponent, watch } from '@vue/composition-api'
+import { defineAsyncComponent, defineComponent, watch } from "vue"
 
-import Logo from './components/logo.vue'
-import Title from './components/title.vue'
-import Info from './components/info.vue'
-import Description from './components/description.vue'
-import Gamemodes from './components/gamemodes.vue'
-import Buttons from './components/buttons.vue'
-import Disclaimer from './components/disclaimer.vue'
-import bgImage from './assets/bg-opacity.png'
-import { useStrat } from './graphql/requests'
-import { getHoliday } from './holidays'
+import bgImage from "./assets/bg-opacity.png"
+import Buttons from "./components/buttons.vue"
+import Description from "./components/description.vue"
+import Gamemodes from "./components/gamemodes.vue"
+import Info from "./components/info.vue"
+import Logo from "./components/logo.vue"
+import Title from "./components/title.vue"
+import { useStrat } from "./graphql/requests"
+import { getHoliday } from "./holidays"
 
-export default createComponent({
-  name: 'App',
+export default defineComponent({
+  name: "App",
+  components: {
+    Logo,
+    Christmas: defineAsyncComponent(() => import("./components/christmas.vue")),
+    Title,
+    Info,
+    Description,
+    Gamemodes,
+    Buttons,
+  },
   setup() {
     const {
       initiated,
@@ -62,12 +66,12 @@ export default createComponent({
       toggleLiked,
     } = useStrat()
 
-    watch(shortId, newValue => {
+    watch(shortId, (newValue) => {
       if (newValue == null || newValue === strat.value?.shortId) {
         return
       }
 
-      fetchStrat()
+      void fetchStrat()
     })
 
     return {
@@ -83,22 +87,11 @@ export default createComponent({
       toggleLiked,
     }
   },
-  components: {
-    Logo,
-    Christmas: () =>
-      import(/* webpackChunkName: "christmas" */ './components/christmas.vue'),
-    Title,
-    Info,
-    Description,
-    Gamemodes,
-    Buttons,
-    Disclaimer,
-  },
 })
 </script>
 
 <style lang="scss">
-@import 'variables';
+@import "variables";
 
 #app {
   font-family: Lato, sans-serif;
@@ -113,6 +106,7 @@ export default createComponent({
   box-sizing: border-box;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+
   :focus {
     outline: none;
   }

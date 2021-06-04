@@ -1,5 +1,6 @@
-import { ref, watch } from '@vue/composition-api'
-import { Gamemode } from '@/graphql/generated'
+import { ref, watch } from "vue"
+
+import { Gamemode } from "@/graphql/generated"
 
 type LocalStorage = {
   gamemode: Gamemode
@@ -9,13 +10,13 @@ type LocalStorage = {
 export const localStorageRef = <
   K extends keyof LocalStorage,
   V extends LocalStorage[K],
-  D extends V | null
+  D extends V | null,
 >(
   key: K,
   defaultValue?: D,
 ) => {
   const theRef = ref<V | D>(
-    JSON.parse(localStorage.getItem(key) ?? 'null') ?? defaultValue ?? null,
+    JSON.parse(localStorage.getItem(key) ?? "null") ?? defaultValue ?? null,
   )
 
   watch(theRef, () => {
@@ -28,5 +29,5 @@ export const localStorageRef = <
 export const getShortIdFromUrl = (url: string): number | null => {
   const hash = Number(/#(\d+)/.exec(url)?.[1])
 
-  return !isNaN(hash) ? hash : null
+  return !Number.isNaN(hash) ? hash : null
 }

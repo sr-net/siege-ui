@@ -8,35 +8,36 @@
       :title="gm"
       @click="setSelected(gm)"
     >
-      <img :src="getGamemodeIcon(gm)" />
+      <img :alt="gm" :src="getGamemodeIcon(gm)" />
     </button>
   </div>
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
-import { Gamemode } from '@/graphql/generated'
+import { defineComponent } from "vue"
 
-const gamemodesContext = require.context(
-  '../assets',
-  false,
-  /areas|bombs|hostage/,
-)
+import { Gamemode } from "@/graphql/generated"
+
+const gamemodeIcons = import.meta.globEager("../assets/{areas,bombs,hostage}.svg")
 
 const gamemodes = Object.values(Gamemode)
 
-export default createComponent({
+export default defineComponent({
   props: {
     selected: {
       type: String,
+      default: null,
     },
   },
 
-  setup(_, context) {
-    const setSelected = (gamemode: Gamemode) => context.emit('update', gamemode)
+  emits: ["update"],
 
-    const getGamemodeIcon = (gamemode: Gamemode) =>
-      gamemodesContext(`./${gamemode.toLowerCase()}.svg`)
+  setup(_, context) {
+    const setSelected = (gamemode: Gamemode) => context.emit("update", gamemode)
+
+    const getGamemodeIcon = (gamemode: Gamemode): string | undefined => {
+      return gamemodeIcons[`../assets/${gamemode.toLowerCase()}.svg`]?.default
+    }
 
     return { gamemodes, setSelected, getGamemodeIcon }
   },
@@ -44,7 +45,7 @@ export default createComponent({
 </script>
 
 <style scoped lang="scss">
-@import '../variables';
+@import "../variables";
 
 .gamemodes-container {
   width: 100% !important;

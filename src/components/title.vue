@@ -11,15 +11,9 @@
 </template>
 
 <script lang="ts">
-import {
-  createComponent,
-  onMounted,
-  reactive,
-  ref,
-  watch,
-} from '@vue/composition-api'
+import { defineComponent, onMounted, reactive, ref, watchEffect } from "vue"
 
-export default createComponent({
+export default defineComponent({
   props: {
     initiated: {
       type: Boolean,
@@ -31,6 +25,7 @@ export default createComponent({
     },
     title: {
       type: String,
+      default: null,
     },
   },
   setup(props) {
@@ -42,10 +37,10 @@ export default createComponent({
     })
 
     onMounted(() => {
-      state.height = container.value!.getBoundingClientRect().height ?? 70
+      state.height = container.value.getBoundingClientRect().height ?? 70
     })
 
-    watch(() => {
+    watchEffect(() => {
       if (!props.initiated) return
 
       if (props.loading) {
@@ -53,16 +48,16 @@ export default createComponent({
 
         container.value?.scrollTo({
           top: state.height,
-          behavior: 'smooth',
+          behavior: "smooth",
         })
       }
 
       if (!props.loading) {
         // Default to nice text
-        state.currentTitle = props.title ?? 'Select a team to begin!'
+        state.currentTitle = props.title ?? "Select a team to begin!"
         container.value?.scrollTo({
           top: state.height * 2,
-          behavior: 'smooth',
+          behavior: "smooth",
         })
       }
     })
@@ -73,7 +68,7 @@ export default createComponent({
 </script>
 
 <style scoped lang="scss">
-@import '../variables';
+@import "../variables";
 
 .title-container {
   flex-shrink: 0;
@@ -91,7 +86,7 @@ export default createComponent({
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-family: 'Catamaran', sans-serif;
+    font-family: "Catamaran", sans-serif;
     font-weight: 800;
     font-size: 40px;
     line-height: 100%;

@@ -1,24 +1,21 @@
 <template>
   <div class="buttons-container">
-    <button class="team-button" :disabled="loading" @click="setTeam('atk')">
-      ATK
-    </button>
+    <button class="team-button" :disabled="loading" @click="setTeam('atk')">ATK</button>
 
     <button class="like-button" :class="{ liked }" @click="toggleLike">
       <img :src="likeIcon" />
     </button>
 
-    <button class="team-button" :disabled="loading" @click="setTeam('def')">
-      DEF
-    </button>
+    <button class="team-button" :disabled="loading" @click="setTeam('def')">DEF</button>
   </div>
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
-import likeIcon from '../assets/like.svg'
+import { defineComponent, PropType } from "vue"
 
-export default createComponent({
+import likeIcon from "../assets/like.svg"
+
+export default defineComponent({
   props: {
     loading: {
       type: Boolean,
@@ -28,11 +25,11 @@ export default createComponent({
       type: Boolean,
     },
     setTeam: {
-      type: Function,
+      type: Function as PropType<(team: string) => void>,
       required: true,
     },
     toggleLike: {
-      type: Function,
+      type: Function as PropType<() => void>,
       required: true,
     },
   },
@@ -41,7 +38,7 @@ export default createComponent({
 </script>
 
 <style scoped lang="scss">
-@import '../variables';
+@import "../variables";
 
 .buttons-container {
   position: relative;
@@ -59,7 +56,7 @@ export default createComponent({
 
     background: $button;
     color: $text300;
-    font-family: 'Catamaran', Impact, sans-serif;
+    font-family: "Catamaran", Impact, sans-serif;
     font-size: 40px;
     font-weight: 800;
     border: 0;
