@@ -2346,7 +2346,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.16.6":
+"browserslist@npm:4.16.6, browserslist@npm:^4.16.6":
   version: 4.16.6
   resolution: "browserslist@npm:4.16.6"
   dependencies:
@@ -3478,6 +3478,19 @@ __metadata:
     is-date-object: ^1.0.1
     is-symbol: ^1.0.2
   checksum: 4ead6671a2c1402619bdd77f3503991232ca15e17e46222b0a41a5d81aebc8740a77822f5b3c965008e631153e9ef0580540007744521e72de8e33599fca2eed
+  languageName: node
+  linkType: hard
+
+"esbuild-plugin-browserslist@npm:0.1.0":
+  version: 0.1.0
+  resolution: "esbuild-plugin-browserslist@npm:0.1.0"
+  dependencies:
+    debug: ^4.3.1
+    zod: ^1.11.16
+  peerDependencies:
+    browserslist: ^4.16.5
+    esbuild: ~0.11.15
+  checksum: 9c14078875184525e7e6d872190593955848479e7bcc184bff4f15cf4aad0e1f5f32add2029d500665a5efa1e5292ab8616fa574631f203ec8a1cafc9cbffd28
   languageName: node
   linkType: hard
 
@@ -7845,7 +7858,9 @@ resolve@^2.0.0-next.3:
     "@graphql-codegen/typescript-operations": 1.18.0
     "@vitejs/plugin-vue": 1.2.3
     "@vue/compiler-sfc": 3.0.11
+    browserslist: 4.16.6
     clipboard-copy: 4.0.1
+    esbuild-plugin-browserslist: 0.1.0
     eslint: 7.27.0
     fathom-client: 3.0.0
     graphql: 15.5.0
@@ -9570,5 +9585,12 @@ typescript@4.3.2:
   version: 0.1.0
   resolution: "yocto-queue@npm:0.1.0"
   checksum: f77b3d8d00310def622123df93d4ee654fc6a0096182af8bd60679ddcdfb3474c56c6c7190817c84a2785648cdee9d721c0154eb45698c62176c322fb46fc700
+  languageName: node
+  linkType: hard
+
+"zod@npm:^1.11.16":
+  version: 1.11.17
+  resolution: "zod@npm:1.11.17"
+  checksum: e07764a8a2fba195a4ec0ed9e66cee20e651ee1d9e533e5f48956de1ded6c6bcf80f63fed4a2bdb67de40a1300399edc9ee2095ee382c67d85745e3b0ccd14ca
   languageName: node
   linkType: hard
