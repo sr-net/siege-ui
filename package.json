@@ -51,9 +51,9 @@
     "gh-pages": "3.0.0",
     "husky": "4.2.5",
     "lint-staged": "10.2.9",
-    "node-sass": "4.14.1",
     "prettier": "1.19.1",
     "raw-loader": "4.0.1",
+    "sass": "1.34.1",
     "sass-loader": "8.0.2",
     "typescript": "3.9.5",
     "vue-template-compiler": "2.6.11"
