@@ -4021,6 +4021,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fathom-client@npm:3.0.0":
+  version: 3.0.0
+  resolution: "fathom-client@npm:3.0.0"
+  checksum: 469fc388f5d9976b6b61db8dadf38a1e6fc338b7cc62532c0c3ea11e52d46e1bbd44198ee82cfbebf72780b49b9071283bc6271f4f25ce2d544f0c7fde898bba
+  languageName: node
+  linkType: hard
+
 "fault@npm:^1.0.0":
   version: 1.0.4
   resolution: "fault@npm:1.0.4"
@@ -7906,6 +7913,7 @@ resolve@^2.0.0-next.3:
     "@vue/compiler-sfc": 3.0.11
     clipboard-copy: 3.1.0
     eslint: 7.27.0
+    fathom-client: 3.0.0
     graphql: 15.5.0
     husky: 4.2.5
     lint-staged: 11.0.0

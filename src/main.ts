@@ -1,3 +1,4 @@
+import { load } from "fathom-client"
 import { createApp } from "vue"
 
 // import Script2 from 'vue-script2'
@@ -10,3 +11,5 @@ const app = createApp(App)
 // app.use(Ads.Adsense)
 
 app.mount("#app")
+
+load("LLJJZWJA", { url: "https://mammal.haglund.dev/script.js" })
