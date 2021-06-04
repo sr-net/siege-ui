@@ -36,7 +36,6 @@
     "@graphql-codegen/typescript-operations": "1.18.0",
     "@vitejs/plugin-vue": "1.2.3",
     "@vue/compiler-sfc": "3.0.11",
-    "gh-pages": "3.0.0",
     "husky": "4.2.5",
     "lint-staged": "11.0.0",
     "prettier": "1.19.1",
