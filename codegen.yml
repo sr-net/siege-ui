@@ -1,6 +1,6 @@
 overwrite: true
 
-schema: https://siege.stratroulette.net/graphql
+schema: https://siege-b5pz.onrender.com/graphql
 
 documents:
   - src/**/*.graphql
@@ -22,3 +22,10 @@ generates:
           content: "/* THIS IS A GENERATED FILE */"
       - typescript
       - typescript-operations
+    config:
+      pureMagicComment: true
+      arrayInputCoercion: false
+      immutableTypes: true
+      avoidOptionals: true
+      skipTypename: false
+      nonOptionalTypename: true

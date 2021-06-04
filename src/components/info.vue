@@ -47,7 +47,7 @@ export default defineComponent({
     )
 
     const getAuthorImg = (type: AuthorType) =>
-      authorIcons[`./${type.toLowerCase()}.svg`]
+      authorIcons[`../assets/${type.toLowerCase()}.svg`]?.default
 
     const copyLink = () => {
       copy(location.href)

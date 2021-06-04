@@ -9,21 +9,15 @@ import {
   UnlikeStratMutation,
   UnlikeStratMutationVariables,
 } from './generated'
-import stratQuery from './strat.graphql'
-import unlikeQuery from './unlike-strat.graphql'
-import likeQuery from './like-strat.graphql'
-import {
-  onMounted,
-  onUnmounted,
-  reactive,
-  ref,
-  toRefs,
-} from 'vue'
+import stratQuery from './strat.graphql?raw'
+import unlikeQuery from './unlike-strat.graphql?raw'
+import likeQuery from './like-strat.graphql?raw'
+import { onMounted, onUnmounted, reactive, ref, toRefs } from 'vue'
 
 type Team = 'atk' | 'def'
 
 const postGraphql = async <R, V>(query: string, variables: V) => {
-  const response = await fetch('https://siege.stratroulette.net/graphql', {
+  const response = await fetch('https://siege-b5pz.onrender.com/graphql', {
     credentials: 'include',
     method: 'POST',
     headers: {
@@ -35,7 +29,7 @@ const postGraphql = async <R, V>(query: string, variables: V) => {
     }),
   })
 
-  return response.json() as { data?: R }
+  return (await response.json()) as { data?: R }
 }
 
 export const randomStratQuery = async (variables: StratQueryVariables) => {
@@ -51,8 +45,10 @@ export const toggleLikeMutation = async <B extends boolean>(
   liked: B,
   variables: LikeStratMutationVariables | UnlikeStratMutationVariables,
 ) => {
-  const result = await postGraphql<LikeStratMutation | UnlikeStratMutation,
-    typeof variables>(liked ? unlikeQuery : likeQuery, variables)
+  const result = await postGraphql<
+    LikeStratMutation | UnlikeStratMutation,
+    typeof variables
+  >(liked ? unlikeQuery : likeQuery, variables)
 
   return (
     (result.data as LikeStratMutation)?.likeStrat ??
@@ -67,7 +63,9 @@ export const useStrat = () => {
   const state = reactive({
     initiated: ref(false),
     shortId: ref(getShortIdFromUrl(location.href)),
-    strat: ref<Partial<StratQuery['strat']>>({ title: 'Select a team to begin!' }),
+    strat: ref<Partial<StratQuery['strat']>>({
+      title: 'Select a team to begin!',
+    }),
     loading: ref(false),
   })
 

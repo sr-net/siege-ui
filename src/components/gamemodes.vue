@@ -33,8 +33,9 @@ export default defineComponent({
   setup(_, context) {
     const setSelected = (gamemode: Gamemode) => context.emit('update', gamemode)
 
-    const getGamemodeIcon = (gamemode: Gamemode) =>
-      gamemodesContext(`./${gamemode.toLowerCase()}.svg`)
+    const getGamemodeIcon = (gamemode: Gamemode): string | undefined => {
+      return gamemodeIcons[`../assets/${gamemode.toLowerCase()}.svg`]?.default
+    }
 
     return { gamemodes, setSelected, getGamemodeIcon }
   },
