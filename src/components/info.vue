@@ -33,12 +33,15 @@ export default defineComponent({
     },
     shortId: {
       type: Number,
+      default: null,
     },
     author: {
       type: Object as PropType<Strat['author']>,
+      default: null,
     },
     score: {
       type: Number,
+      default: null,
     },
   },
   setup(props) {
@@ -50,7 +53,7 @@ export default defineComponent({
       authorIcons[`../assets/${type.toLowerCase()}.svg`]?.default
 
     const copyLink = () => {
-      copy(location.href)
+      void copy(location.href)
     }
 
     return { prefix, getAuthorImg, copyLink }

@@ -25,6 +25,7 @@ export default defineComponent({
     },
     title: {
       type: String,
+      default: null,
     },
   },
   setup(props) {
@@ -36,7 +37,7 @@ export default defineComponent({
     })
 
     onMounted(() => {
-      state.height = container.value!.getBoundingClientRect().height ?? 70
+      state.height = container.value.getBoundingClientRect().height ?? 70
     })
 
     watchEffect(() => {

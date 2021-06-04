@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-abusive-eslint-disable */
 /* eslint-disable */
 /* THIS IS A GENERATED FILE */
 export type Maybe<T> = T | null

@@ -50,6 +50,18 @@ import { getHoliday } from './holidays'
 
 export default defineComponent({
   name: 'App',
+  components: {
+    Logo,
+    Christmas: defineAsyncComponent(() =>
+      import(/* webpackChunkName: "christmas" */ './components/christmas.vue'),
+    ),
+    Title,
+    Info,
+    Description,
+    Gamemodes,
+    Buttons,
+    Disclaimer,
+  },
   setup() {
     const {
       initiated,
@@ -67,7 +79,7 @@ export default defineComponent({
         return
       }
 
-      fetchStrat()
+      void fetchStrat()
     })
 
     return {
@@ -82,18 +94,6 @@ export default defineComponent({
       setGamemode,
       toggleLiked,
     }
-  },
-  components: {
-    Logo,
-    Christmas: defineAsyncComponent(() =>
-      import(/* webpackChunkName: "christmas" */ './components/christmas.vue'),
-    ),
-    Title,
-    Info,
-    Description,
-    Gamemodes,
-    Buttons,
-    Disclaimer,
   },
 })
 </script>

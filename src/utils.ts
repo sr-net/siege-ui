@@ -29,5 +29,5 @@ export const localStorageRef = <
 export const getShortIdFromUrl = (url: string): number | null => {
   const hash = Number(/#(\d+)/.exec(url)?.[1])
 
-  return !isNaN(hash) ? hash : null
+  return !Number.isNaN(hash) ? hash : null
 }

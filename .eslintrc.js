@@ -9,5 +9,12 @@ module.exports = {
     es2021: true,
     browser: true,
   },
-  rules: {},
+  overrides: [
+    {
+      files: ['src/**/*.vue'],
+      rules: {
+        'unicorn/consistent-function-scoping': 'off',
+      },
+    },
+  ],
 }

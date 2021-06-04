@@ -8,7 +8,7 @@
       :title="gm"
       @click="setSelected(gm)"
     >
-      <img :src="getGamemodeIcon(gm)" />
+      <img :alt="gm" :src="getGamemodeIcon(gm)" />
     </button>
   </div>
 </template>
@@ -28,8 +28,11 @@ export default defineComponent({
   props: {
     selected: {
       type: String,
+      default: null,
     },
   },
+
+  emits: ['update'],
 
   setup(_, context) {
     const setSelected = (gamemode: Gamemode) => context.emit('update', gamemode)
