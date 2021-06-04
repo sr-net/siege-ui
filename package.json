@@ -8,7 +8,7 @@
   "scripts": {
     "build": "yarn typecheck && vite build",
     "dev": "vite",
-    "lint": "vue-cli-service lint",
+    "lint": "eslint src",
     "serve": "vite preview",
     "typecheck": "yarn vue-tsc --noEmit"
   },
@@ -30,12 +30,14 @@
     "vue-script2": "2.1.0"
   },
   "devDependencies": {
+    "@beequeue/eslint-plugin": "0.2.0",
     "@graphql-codegen/add": "2.0.2",
     "@graphql-codegen/cli": "1.21.5",
     "@graphql-codegen/typescript": "1.22.1",
     "@graphql-codegen/typescript-operations": "1.18.0",
     "@vitejs/plugin-vue": "1.2.3",
     "@vue/compiler-sfc": "3.0.11",
+    "eslint": "7.27.0",
     "husky": "4.2.5",
     "lint-staged": "11.0.0",
     "prettier": "1.19.1",

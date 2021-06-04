@@ -31,8 +31,9 @@
 import { defineComponent, ref, watch } from 'vue'
 
 import githubLogo from '../assets/github.svg'
-import Logo from './logo.vue'
+
 import Disclaimer from './disclaimer.vue'
+import Logo from './logo.vue'
 
 export default defineComponent({
   components: { Logo, Disclaimer },
@@ -50,7 +51,7 @@ export default defineComponent({
     const height = ref(0)
 
     watch(content, (newVal, oldVar) => {
-      if (newVal?.innerText === oldVar?.innerText) return
+      if (newVal?.textContent === oldVar?.textContent) return
 
       height.value = newVal?.getBoundingClientRect().height ?? 0
     })

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-interface,@typescript-eslint/consistent-type-definitions */
 import { VNode } from 'vue'
 import { ComponentRenderProxy } from 'vue'
 

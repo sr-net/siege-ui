@@ -15,6 +15,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+
 import { Gamemode } from '@/graphql/generated'
 
 const gamemodeIcons = import.meta.globEager(

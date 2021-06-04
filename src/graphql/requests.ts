@@ -1,3 +1,5 @@
+import { onMounted, onUnmounted, reactive, ref, toRefs } from 'vue'
+
 import { getShortIdFromUrl, localStorageRef } from '@/utils'
 
 import {
@@ -9,10 +11,9 @@ import {
   UnlikeStratMutation,
   UnlikeStratMutationVariables,
 } from './generated'
+import likeQuery from './like-strat.graphql?raw'
 import stratQuery from './strat.graphql?raw'
 import unlikeQuery from './unlike-strat.graphql?raw'
-import likeQuery from './like-strat.graphql?raw'
-import { onMounted, onUnmounted, reactive, ref, toRefs } from 'vue'
 
 type Team = 'atk' | 'def'
 

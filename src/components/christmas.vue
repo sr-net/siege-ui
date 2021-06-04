@@ -3,12 +3,7 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  onMounted,
-  onUnmounted,
-  ref,
-} from 'vue'
+import { defineComponent, onMounted, onUnmounted, ref } from 'vue'
 
 const handleBlur = (el: HTMLDivElement | null) => () => {
   if (el == null) return

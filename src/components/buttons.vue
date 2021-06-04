@@ -16,6 +16,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
+
 import likeIcon from '../assets/like.svg'
 
 export default defineComponent({

@@ -37,14 +37,14 @@
 <script lang="ts">
 import { defineAsyncComponent, defineComponent, watch } from 'vue'
 
+import bgImage from './assets/bg-opacity.png'
+import Buttons from './components/buttons.vue'
+import Description from './components/description.vue'
+import Disclaimer from './components/disclaimer.vue'
+import Gamemodes from './components/gamemodes.vue'
+import Info from './components/info.vue'
 import Logo from './components/logo.vue'
 import Title from './components/title.vue'
-import Info from './components/info.vue'
-import Description from './components/description.vue'
-import Gamemodes from './components/gamemodes.vue'
-import Buttons from './components/buttons.vue'
-import Disclaimer from './components/disclaimer.vue'
-import bgImage from './assets/bg-opacity.png'
 import { useStrat } from './graphql/requests'
 import { getHoliday } from './holidays'
 

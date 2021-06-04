@@ -16,8 +16,8 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType } from 'vue'
 import copy from 'clipboard-copy'
+import { computed, defineComponent, PropType } from 'vue'
 
 import { AuthorType, Strat } from '@/graphql/generated'
 
