@@ -2728,10 +2728,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clipboard-copy@npm:3.1.0":
-  version: 3.1.0
-  resolution: "clipboard-copy@npm:3.1.0"
-  checksum: 5d4bd040885c2a38b45d446fc7ec7559ccf6bc8bb7ebbc55bb93a26895ebc4dfdbc546e4c0b2e86825ad02dafd4031f478235285d0a94cd724d54eab77beba93
+"clipboard-copy@npm:4.0.1":
+  version: 4.0.1
+  resolution: "clipboard-copy@npm:4.0.1"
+  checksum: 530a09de80dfd0536793fdefb6559a2dfb6c2706b027c41c672a0f18debafd420e69111224f3265555afcd73f9cd97517dcaf494aa25996a58a8f550a3426080
   languageName: node
   linkType: hard
 
@@ -7845,7 +7845,7 @@ resolve@^2.0.0-next.3:
     "@graphql-codegen/typescript-operations": 1.18.0
     "@vitejs/plugin-vue": 1.2.3
     "@vue/compiler-sfc": 3.0.11
-    clipboard-copy: 3.1.0
+    clipboard-copy: 4.0.1
     eslint: 7.27.0
     fathom-client: 3.0.0
     graphql: 15.5.0
