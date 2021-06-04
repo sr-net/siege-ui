@@ -137,20 +137,5 @@ export default defineComponent({
   @include mobile {
     height: 100%;
   }
-
-  & + .disclaimer {
-    margin: 10px auto 0;
-    background: $bg100;
-    border-radius: 5px;
-    overflow: hidden;
-    font-size: 18px;
-    box-shadow: 1px 3px 5px transparentize(black, 0.5);
-    transition: $transitions, transform 0.25s, opacity 0.1s;
-
-    &.v-leave-to {
-      transform: translateY(-100px);
-      opacity: 0;
-    }
-  }
 }
 </style>

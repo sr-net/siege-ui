@@ -10,7 +10,6 @@
     <transition>
       <div v-if="!loading && description == null" class="logo-container">
         <Logo mobile />
-        <Disclaimer mobile />
       </div>
     </transition>
 
@@ -27,11 +26,10 @@ import { defineComponent, ref, watch } from "vue"
 
 import githubLogo from "../assets/github.svg"
 
-import Disclaimer from "./disclaimer.vue"
 import Logo from "./logo.vue"
 
 export default defineComponent({
-  components: { Logo, Disclaimer },
+  components: { Logo },
   props: {
     loading: {
       type: Boolean,
