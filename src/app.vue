@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, watch } from 'vue'
+import { defineAsyncComponent, defineComponent, watch } from 'vue'
 
 import Logo from './components/logo.vue'
 import Title from './components/title.vue'
@@ -85,8 +85,9 @@ export default defineComponent({
   },
   components: {
     Logo,
-    Christmas: () =>
+    Christmas: defineAsyncComponent(() =>
       import(/* webpackChunkName: "christmas" */ './components/christmas.vue'),
+    ),
     Title,
     Info,
     Description,
@@ -113,6 +114,7 @@ export default defineComponent({
   box-sizing: border-box;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+
   :focus {
     outline: none;
   }
