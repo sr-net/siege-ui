@@ -3,18 +3,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onUnmounted, ref } from 'vue'
+import { defineComponent, onMounted, onUnmounted, ref } from "vue"
 
 const handleBlur = (el: HTMLDivElement | null) => () => {
   if (el == null) return
 
-  el.style.animationPlayState = 'paused, paused, paused'
+  el.style.animationPlayState = "paused, paused, paused"
 }
 
 const handleFocus = (el: HTMLDivElement | null) => () => {
   if (el == null) return
 
-  el.style.animationPlayState = ''
+  el.style.animationPlayState = ""
 }
 
 export default defineComponent({
@@ -22,13 +22,13 @@ export default defineComponent({
     const container = ref<HTMLDivElement>(null)
 
     onMounted(() => {
-      window.addEventListener('blur', handleBlur(container.value))
-      window.addEventListener('focus', handleFocus(container.value))
+      window.addEventListener("blur", handleBlur(container.value))
+      window.addEventListener("focus", handleFocus(container.value))
     })
 
     onUnmounted(() => {
-      window.removeEventListener('blur', handleBlur(container.value))
-      window.removeEventListener('focus', handleFocus(container.value))
+      window.removeEventListener("blur", handleBlur(container.value))
+      window.removeEventListener("focus", handleFocus(container.value))
     })
 
     return { container }
@@ -37,7 +37,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '../variables';
+@import "../variables";
 
 @keyframes snowfall {
   to {

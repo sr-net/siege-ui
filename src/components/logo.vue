@@ -3,11 +3,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue"
 
-import { getHoliday } from '@/holidays'
+import { getHoliday } from "@/holidays"
 
-const logos = import.meta.globEager('../assets/logos/*.png')
+const logos = import.meta.globEager("../assets/logos/*.png")
 
 export default defineComponent({
   props: {
@@ -24,7 +24,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '../variables';
+@import "../variables";
 
 .logo {
   position: relative;

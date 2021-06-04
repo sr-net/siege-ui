@@ -15,7 +15,7 @@ export default {
     mobile: Boolean,
   },
   setup() {
-    const isMobile = window.matchMedia('(max-width: 600px)').matches
+    const isMobile = window.matchMedia("(max-width: 600px)").matches
 
     return { isMobile }
   },
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../variables';
+@import "../variables";
 
 .disclaimer {
   position: relative;

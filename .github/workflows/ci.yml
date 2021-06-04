@@ -4,10 +4,10 @@ on:
     branches:
       - master
     paths-ignore:
-      - '**/*.md'
-      - '.gitignore'
-      - '.github/**'
-      - '!.github/workflows/*.yml'
+      - "**/*.md"
+      - ".gitignore"
+      - ".github/**"
+      - "!.github/workflows/*.yml"
   pull_request:
 
 jobs:

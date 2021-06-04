@@ -1,23 +1,19 @@
 <template>
   <div class="buttons-container">
-    <button class="team-button" :disabled="loading" @click="setTeam('atk')">
-      ATK
-    </button>
+    <button class="team-button" :disabled="loading" @click="setTeam('atk')">ATK</button>
 
     <button class="like-button" :class="{ liked }" @click="toggleLike">
       <img :src="likeIcon" />
     </button>
 
-    <button class="team-button" :disabled="loading" @click="setTeam('def')">
-      DEF
-    </button>
+    <button class="team-button" :disabled="loading" @click="setTeam('def')">DEF</button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent, PropType } from "vue"
 
-import likeIcon from '../assets/like.svg'
+import likeIcon from "../assets/like.svg"
 
 export default defineComponent({
   props: {
@@ -42,7 +38,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '../variables';
+@import "../variables";
 
 .buttons-container {
   position: relative;
@@ -60,7 +56,7 @@ export default defineComponent({
 
     background: $button;
     color: $text300;
-    font-family: 'Catamaran', Impact, sans-serif;
+    font-family: "Catamaran", Impact, sans-serif;
     font-size: 40px;
     font-weight: 800;
     border: 0;

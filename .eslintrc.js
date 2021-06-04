@@ -1,9 +1,9 @@
 module.exports = {
   extends: [
-    'plugin:@beequeue/base',
-    'plugin:@beequeue/vue',
-    'plugin:@beequeue/typescript',
-    'plugin:@beequeue/prettier',
+    "plugin:@beequeue/base",
+    "plugin:@beequeue/vue",
+    "plugin:@beequeue/typescript",
+    "plugin:@beequeue/prettier",
   ],
   env: {
     es2021: true,
@@ -11,9 +11,9 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['src/**/*.vue'],
+      files: ["src/**/*.vue"],
       rules: {
-        'unicorn/consistent-function-scoping': 'off',
+        "unicorn/consistent-function-scoping": "off",
       },
     },
   ],

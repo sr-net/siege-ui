@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref, watchEffect } from 'vue'
+import { defineComponent, onMounted, reactive, ref, watchEffect } from "vue"
 
 export default defineComponent({
   props: {
@@ -48,16 +48,16 @@ export default defineComponent({
 
         container.value?.scrollTo({
           top: state.height,
-          behavior: 'smooth',
+          behavior: "smooth",
         })
       }
 
       if (!props.loading) {
         // Default to nice text
-        state.currentTitle = props.title ?? 'Select a team to begin!'
+        state.currentTitle = props.title ?? "Select a team to begin!"
         container.value?.scrollTo({
           top: state.height * 2,
-          behavior: 'smooth',
+          behavior: "smooth",
         })
       }
     })
@@ -68,7 +68,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '../variables';
+@import "../variables";
 
 .title-container {
   flex-shrink: 0;
@@ -86,7 +86,7 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-family: 'Catamaran', sans-serif;
+    font-family: "Catamaran", sans-serif;
     font-weight: 800;
     font-size: 40px;
     line-height: 100%;

@@ -16,14 +16,12 @@
 </template>
 
 <script lang="ts">
-import copy from 'clipboard-copy'
-import { computed, defineComponent, PropType } from 'vue'
+import copy from "clipboard-copy"
+import { computed, defineComponent, PropType } from "vue"
 
-import { AuthorType, Strat } from '@/graphql/generated'
+import { AuthorType, Strat } from "@/graphql/generated"
 
-const authorIcons = import.meta.globEager(
-  '../assets/{name,youtube,twitch,reddit}.svg',
-)
+const authorIcons = import.meta.globEager("../assets/{name,youtube,twitch,reddit}.svg")
 
 export default defineComponent({
   props: {
@@ -36,7 +34,7 @@ export default defineComponent({
       default: null,
     },
     author: {
-      type: Object as PropType<Strat['author']>,
+      type: Object as PropType<Strat["author"]>,
       default: null,
     },
     score: {
@@ -45,9 +43,7 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const prefix = computed(() =>
-      props.author?.type === AuthorType.Reddit ? '/u/' : '',
-    )
+    const prefix = computed(() => (props.author?.type === AuthorType.Reddit ? "/u/" : ""))
 
     const getAuthorImg = (type: AuthorType) =>
       authorIcons[`../assets/${type.toLowerCase()}.svg`]?.default
@@ -62,7 +58,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '../variables';
+@import "../variables";
 
 .info-container {
   flex-shrink: 0;

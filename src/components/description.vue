@@ -3,12 +3,7 @@
     class="description-container"
     :style="{ height: `${description != null ? height : 0}px` }"
   >
-    <div
-      ref="content"
-      :key="description"
-      class="description"
-      :class="{ loading }"
-    >
+    <div ref="content" :key="description" class="description" :class="{ loading }">
       {{ description }}
     </div>
 
@@ -28,12 +23,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from 'vue'
+import { defineComponent, ref, watch } from "vue"
 
-import githubLogo from '../assets/github.svg'
+import githubLogo from "../assets/github.svg"
 
-import Disclaimer from './disclaimer.vue'
-import Logo from './logo.vue'
+import Disclaimer from "./disclaimer.vue"
+import Logo from "./logo.vue"
 
 export default defineComponent({
   components: { Logo, Disclaimer },
@@ -63,7 +58,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '../variables';
+@import "../variables";
 
 .description-container {
   position: relative;

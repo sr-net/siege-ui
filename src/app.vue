@@ -35,25 +35,25 @@
 </template>
 
 <script lang="ts">
-import { defineAsyncComponent, defineComponent, watch } from 'vue'
+import { defineAsyncComponent, defineComponent, watch } from "vue"
 
-import bgImage from './assets/bg-opacity.png'
-import Buttons from './components/buttons.vue'
-import Description from './components/description.vue'
-import Disclaimer from './components/disclaimer.vue'
-import Gamemodes from './components/gamemodes.vue'
-import Info from './components/info.vue'
-import Logo from './components/logo.vue'
-import Title from './components/title.vue'
-import { useStrat } from './graphql/requests'
-import { getHoliday } from './holidays'
+import bgImage from "./assets/bg-opacity.png"
+import Buttons from "./components/buttons.vue"
+import Description from "./components/description.vue"
+import Disclaimer from "./components/disclaimer.vue"
+import Gamemodes from "./components/gamemodes.vue"
+import Info from "./components/info.vue"
+import Logo from "./components/logo.vue"
+import Title from "./components/title.vue"
+import { useStrat } from "./graphql/requests"
+import { getHoliday } from "./holidays"
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
   components: {
     Logo,
-    Christmas: defineAsyncComponent(() =>
-      import(/* webpackChunkName: "christmas" */ './components/christmas.vue'),
+    Christmas: defineAsyncComponent(
+      () => import(/* webpackChunkName: "christmas" */ "./components/christmas.vue"),
     ),
     Title,
     Info,
@@ -74,7 +74,7 @@ export default defineComponent({
       toggleLiked,
     } = useStrat()
 
-    watch(shortId, newValue => {
+    watch(shortId, (newValue) => {
       if (newValue == null || newValue === strat.value?.shortId) {
         return
       }
@@ -99,7 +99,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import 'variables';
+@import "variables";
 
 #app {
   font-family: Lato, sans-serif;

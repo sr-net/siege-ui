@@ -1,16 +1,14 @@
 const now = new Date()
 
 enum Holiday {
-  Normal = 'normal',
-  Christmas = 'christmas',
+  Normal = "normal",
+  Christmas = "christmas",
 }
 
-const zeroPrefix = (n: number) => `${n < 10 ? '0' : ''}${n}`
+const zeroPrefix = (n: number) => `${n < 10 ? "0" : ""}${n}`
 
 // Numbers are dates represented as `{month}{day}`
-const matrix: Array<[number, number, Holiday]> = [
-  [1115, 1231, Holiday.Christmas],
-]
+const matrix: Array<[number, number, Holiday]> = [[1115, 1231, Holiday.Christmas]]
 
 export const getHoliday = (): Holiday => {
   const date = Number(`${now.getMonth() + 1}${zeroPrefix(now.getDate())}`)
