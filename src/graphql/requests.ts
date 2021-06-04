@@ -18,8 +18,7 @@ import {
   reactive,
   ref,
   toRefs,
-  watch,
-} from '@vue/composition-api'
+} from 'vue'
 
 type Team = 'atk' | 'def'
 
@@ -52,10 +51,8 @@ export const toggleLikeMutation = async <B extends boolean>(
   liked: B,
   variables: LikeStratMutationVariables | UnlikeStratMutationVariables,
 ) => {
-  const result = await postGraphql<
-    LikeStratMutation | UnlikeStratMutation,
-    typeof variables
-  >(liked ? unlikeQuery : likeQuery, variables)
+  const result = await postGraphql<LikeStratMutation | UnlikeStratMutation,
+    typeof variables>(liked ? unlikeQuery : likeQuery, variables)
 
   return (
     (result.data as LikeStratMutation)?.likeStrat ??
@@ -70,7 +67,7 @@ export const useStrat = () => {
   const state = reactive({
     initiated: ref(false),
     shortId: ref(getShortIdFromUrl(location.href)),
-    strat: ref<StratQuery['strat']>({ title: 'Select a team to begin!' }),
+    strat: ref<Partial<StratQuery['strat']>>({ title: 'Select a team to begin!' }),
     loading: ref(false),
   })
 

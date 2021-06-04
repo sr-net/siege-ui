@@ -1,12 +1,11 @@
-import Vue from 'vue'
-import VueCompositionApi from '@vue/composition-api'
+import { createApp } from 'vue'
 import Script2 from 'vue-script2'
 import Ads from 'vue-google-adsense'
 import App from './app.vue'
 
-Vue.use(VueCompositionApi)
-Vue.use(Script2)
-Vue.use(Ads.Adsense)
-Vue.config.productionTip = false
+const app = createApp(App)
 
-new Vue({ render: h => h(App) }).$mount('#app')
+app.use(Script2)
+app.use(Ads.Adsense)
+
+app.mount('#app')

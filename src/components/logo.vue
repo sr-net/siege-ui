@@ -3,13 +3,13 @@
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import { defineComponent } from 'vue'
 
 import { getHoliday } from '@/holidays'
 
 const logosContext = require.context('../assets/logos', false)
 
-export default createComponent({
+export default defineComponent({
   props: {
     mobile: Boolean,
   },

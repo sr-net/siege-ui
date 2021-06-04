@@ -16,20 +16,16 @@
 </template>
 
 <script lang="ts">
-import { computed, createComponent } from '@vue/composition-api'
+import { computed, defineComponent, PropType } from 'vue'
 import copy from 'clipboard-copy'
 
 import { AuthorType, Strat } from '@/graphql/generated'
 
-type Props = { loading: boolean; author?: Strat['author']; score?: number }
-
-const authorIconContext = require.context(
-  '../assets',
-  false,
-  /name|reddit|twitch|youtube/,
+const authorIcons = import.meta.globEager(
+  '../assets/{name,youtube,twitch,reddit}.svg',
 )
 
-export default createComponent<Props>({
+export default defineComponent({
   props: {
     loading: {
       type: Boolean,
@@ -39,7 +35,7 @@ export default createComponent<Props>({
       type: Number,
     },
     author: {
-      type: Object,
+      type: Object as PropType<Strat['author']>,
     },
     score: {
       type: Number,
@@ -51,7 +47,7 @@ export default createComponent<Props>({
     )
 
     const getAuthorImg = (type: AuthorType) =>
-      authorIconContext(`./${type.toLowerCase()}.svg`)
+      authorIcons[`./${type.toLowerCase()}.svg`]
 
     const copyLink = () => {
       copy(location.href)

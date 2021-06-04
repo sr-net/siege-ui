@@ -15,10 +15,10 @@
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import { defineComponent, PropType } from 'vue'
 import likeIcon from '../assets/like.svg'
 
-export default createComponent({
+export default defineComponent({
   props: {
     loading: {
       type: Boolean,
@@ -28,11 +28,11 @@ export default createComponent({
       type: Boolean,
     },
     setTeam: {
-      type: Function,
+      type: Function as PropType<(team: string) => void>,
       required: true,
     },
     toggleLike: {
-      type: Function,
+      type: Function as PropType<() => void>,
       required: true,
     },
   },

@@ -14,18 +14,16 @@
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import { defineComponent } from 'vue'
 import { Gamemode } from '@/graphql/generated'
 
-const gamemodesContext = require.context(
-  '../assets',
-  false,
-  /areas|bombs|hostage/,
+const gamemodeIcons = import.meta.globEager(
+  '../assets/{areas,bombs,hostage}.svg',
 )
 
 const gamemodes = Object.values(Gamemode)
 
-export default createComponent({
+export default defineComponent({
   props: {
     selected: {
       type: String,

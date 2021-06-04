@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts">
-import { createComponent, watch } from '@vue/composition-api'
+import { defineComponent, watch } from 'vue'
 
 import Logo from './components/logo.vue'
 import Title from './components/title.vue'
@@ -48,7 +48,7 @@ import bgImage from './assets/bg-opacity.png'
 import { useStrat } from './graphql/requests'
 import { getHoliday } from './holidays'
 
-export default createComponent({
+export default defineComponent({
   name: 'App',
   setup() {
     const {

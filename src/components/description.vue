@@ -28,13 +28,13 @@
 </template>
 
 <script lang="ts">
-import { createComponent, ref, watch } from '@vue/composition-api'
+import { defineComponent, ref, watch } from 'vue'
 
 import githubLogo from '../assets/github.svg'
 import Logo from './logo.vue'
 import Disclaimer from './disclaimer.vue'
 
-export default createComponent({
+export default defineComponent({
   components: { Logo, Disclaimer },
   props: {
     loading: {

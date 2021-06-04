@@ -4,11 +4,11 @@
 
 <script lang="ts">
 import {
-  createComponent,
+  defineComponent,
   onMounted,
   onUnmounted,
   ref,
-} from '@vue/composition-api'
+} from 'vue'
 
 const handleBlur = (el: HTMLDivElement | null) => () => {
   if (el == null) return
@@ -22,7 +22,7 @@ const handleFocus = (el: HTMLDivElement | null) => () => {
   el.style.animationPlayState = ''
 }
 
-export default createComponent({
+export default defineComponent({
   setup() {
     const container = ref<HTMLDivElement>(null)
 

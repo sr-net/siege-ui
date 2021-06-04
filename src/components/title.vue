@@ -11,15 +11,9 @@
 </template>
 
 <script lang="ts">
-import {
-  createComponent,
-  onMounted,
-  reactive,
-  ref,
-  watch,
-} from '@vue/composition-api'
+import { defineComponent, onMounted, reactive, ref, watchEffect } from 'vue'
 
-export default createComponent({
+export default defineComponent({
   props: {
     initiated: {
       type: Boolean,
@@ -45,7 +39,7 @@ export default createComponent({
       state.height = container.value!.getBoundingClientRect().height ?? 70
     })
 
-    watch(() => {
+    watchEffect(() => {
       if (!props.initiated) return
 
       if (props.loading) {
