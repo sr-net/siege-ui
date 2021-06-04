@@ -52,9 +52,7 @@ export default defineComponent({
   name: "App",
   components: {
     Logo,
-    Christmas: defineAsyncComponent(
-      () => import(/* webpackChunkName: "christmas" */ "./components/christmas.vue"),
-    ),
+    Christmas: defineAsyncComponent(() => import("./components/christmas.vue")),
     Title,
     Info,
     Description,
