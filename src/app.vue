@@ -27,10 +27,6 @@
         :toggle-like="toggleLiked"
       />
     </div>
-
-    <transition>
-      <Disclaimer v-if="strat.score == null" />
-    </transition>
   </div>
 </template>
 
@@ -40,7 +36,6 @@ import { defineAsyncComponent, defineComponent, watch } from "vue"
 import bgImage from "./assets/bg-opacity.png"
 import Buttons from "./components/buttons.vue"
 import Description from "./components/description.vue"
-import Disclaimer from "./components/disclaimer.vue"
 import Gamemodes from "./components/gamemodes.vue"
 import Info from "./components/info.vue"
 import Logo from "./components/logo.vue"
@@ -58,7 +53,6 @@ export default defineComponent({
     Description,
     Gamemodes,
     Buttons,
-    Disclaimer,
   },
   setup() {
     const {

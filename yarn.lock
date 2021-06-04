@@ -7923,8 +7923,6 @@ resolve@^2.0.0-next.3:
     vite: 2.3.6
     vite-tsconfig-paths: 3.3.13
     vue: 3.0.11
-    vue-google-adsense: 1.8.1
-    vue-script2: 2.1.0
     vue-tsc: 0.1.7
   languageName: unknown
   linkType: soft
@@ -9305,23 +9303,6 @@ typescript@3.9.5:
   peerDependencies:
     eslint: ">=5.0.0"
   checksum: d8f69dbbdd683a226ce60cc9fbd49faec2217e3c1b72193ee4db10dec5531fb80b8090b53ba32d8f357a11145664a44cd48e9bd99005786d70c37df5c039d7e0
-  languageName: node
-  linkType: hard
-
-"vue-google-adsense@npm:1.8.1":
-  version: 1.8.1
-  resolution: "vue-google-adsense@npm:1.8.1"
-  peerDependencies:
-    vue: ^2.6.11
-    vue-script2: 2.1.0
-  checksum: 3f1d88d50daee034bfa6c8dcf0ebb53971ba84a243c4eb25cf68dd93a0fe573758ad9371cccc61d3e258ad4d3e0dcd912de7a05b07402e59cad4bb7c85413a35
-  languageName: node
-  linkType: hard
-
-"vue-script2@npm:2.1.0":
-  version: 2.1.0
-  resolution: "vue-script2@npm:2.1.0"
-  checksum: 55d016904d64160d1f4db32905e38d94360dd4a16e5192b12c07e9785c2a3fc592c5e7b3d0c3d436e49da779524a791cf2e74fdb7f40e56b44cbe5827d8376dc
   languageName: node
   linkType: hard
 
