@@ -14,7 +14,7 @@
     "typecheck": "yarn vue-tsc --noEmit"
   },
   "lint-staged": {
-    "*.{js,vue,ts}": [
+    "*.{js,vue,ts,html,json,json5,graphql}": [
       "prettier --write"
     ]
   },
