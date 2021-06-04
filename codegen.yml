@@ -1,6 +1,6 @@
 overwrite: true
 
-schema: https://siege-b5pz.onrender.com/graphql
+schema: https://siege.stratroulette.com/graphql
 
 documents:
   - src/**/*.graphql
