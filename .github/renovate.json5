@@ -1,6 +1,7 @@
 {
   extends: ["config:js-app", "helpers:disableTypesNodeMajor"],
   prConcurrentLimit: 5,
+  prHourlyLimit: 5,
   branchConcurrentLimit: 5,
   labels: ["dependencies"],
   postUpdateOptions: ["yarnDedupeHighest"],
