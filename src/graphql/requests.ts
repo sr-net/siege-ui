@@ -18,7 +18,7 @@ import unlikeQuery from "./unlike-strat.graphql?raw"
 type Team = "atk" | "def"
 
 const postGraphql = async <R, V>(query: string, variables: V) => {
-  const response = await fetch("https://siege.stratroulette.com/graphql", {
+  const response = await fetch("https://siege.stratroulette.net/graphql", {
     credentials: "include",
     method: "POST",
     headers: {
