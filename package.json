@@ -22,7 +22,7 @@
     "clipboard-copy": "4.0.1",
     "fathom-client": "3.0.0",
     "graphql": "15.5.0",
-    "vue": "3.0.11"
+    "vue": "3.1.0"
   },
   "devDependencies": {
     "@beequeue/eslint-plugin": "0.2.1",
@@ -31,7 +31,7 @@
     "@graphql-codegen/typescript": "1.22.1",
     "@graphql-codegen/typescript-operations": "1.18.0",
     "@vitejs/plugin-vue": "1.2.3",
-    "@vue/compiler-sfc": "3.0.11",
+    "@vue/compiler-sfc": "3.1.0",
     "browserslist": "4.16.6",
     "esbuild-plugin-browserslist": "0.1.0",
     "eslint": "7.28.0",
