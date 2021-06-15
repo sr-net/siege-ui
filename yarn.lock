@@ -7704,14 +7704,14 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"sass@npm:1.34.1":
-  version: 1.34.1
-  resolution: "sass@npm:1.34.1"
+"sass@npm:1.35.0":
+  version: 1.35.0
+  resolution: "sass@npm:1.35.0"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
   bin:
     sass: sass.js
-  checksum: 97b3816ab1bf8f59421b61ce84e4c45ad9c59890f960bdd7a23bc5058283070252dcc23f19559c12121c18d6da0b4cd2fddedb6ffe8f2509aad20662fd9ca087
+  checksum: b533d6f100702a7deb7c20b88a46375dd0a5de91805c2671f2b5bb8a5de9e2788bb845983774f49f01de7f964c61b9be695f8b189509c537c0fab41467b779ab
   languageName: node
   linkType: hard
 
@@ -7862,7 +7862,7 @@ resolve@^2.0.0-next.3:
     husky: 6.0.0
     lint-staged: 11.0.0
     prettier: 2.3.1
-    sass: 1.34.1
+    sass: 1.35.0
     typescript: 4.3.2
     vite: 2.3.7
     vite-tsconfig-paths: 3.3.13
