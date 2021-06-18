@@ -34,7 +34,7 @@
     "@vue/compiler-sfc": "3.1.1",
     "browserslist": "4.16.6",
     "esbuild-plugin-browserslist": "0.1.0",
-    "eslint": "7.28.0",
+    "eslint": "7.29.0",
     "husky": "6.0.0",
     "lint-staged": "11.0.0",
     "prettier": "2.3.1",
