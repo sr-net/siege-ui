@@ -27,9 +27,9 @@
   "devDependencies": {
     "@beequeue/eslint-plugin": "0.2.1",
     "@graphql-codegen/add": "2.0.2",
-    "@graphql-codegen/cli": "1.21.5",
-    "@graphql-codegen/typescript": "1.22.1",
-    "@graphql-codegen/typescript-operations": "1.18.0",
+    "@graphql-codegen/cli": "1.21.7",
+    "@graphql-codegen/typescript": "1.23.0",
+    "@graphql-codegen/typescript-operations": "1.18.4",
     "@vitejs/plugin-vue": "1.2.3",
     "@vue/compiler-sfc": "3.1.1",
     "browserslist": "4.16.6",
