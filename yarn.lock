@@ -8631,11 +8631,11 @@ typescript@4.3.2:
 
 "typescript@patch:typescript@4.3.2#~builtin<compat/typescript>":
   version: 4.3.2
-  resolution: "typescript@patch:typescript@npm%3A4.3.2#~builtin<compat/typescript>::version=4.3.2&hash=34ad7d"
+  resolution: "typescript@patch:typescript@npm%3A4.3.2#~builtin<compat/typescript>::version=4.3.2&hash=32657b"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: c71285d8bc17e0108ae1489a7e906ea606e951d7afc5d141c8889bbdc1c7548c0833b82716b1dd2099321c20b48604309c96c8454831cbcc939966190226d9a2
+  checksum: 36508db49715350e06cbe5d9f2dca238023c16bbb46cf0de756e51675db7da6fb341d5f2ba020d5c1972c3dcde5a488b7799b21c445c2c6b36d3b2ac0ced53dd
   languageName: node
   linkType: hard
 
