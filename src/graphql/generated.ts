@@ -2,9 +2,7 @@
 /* eslint-disable */
 /* THIS IS A GENERATED FILE */
 export type Maybe<T> = T | null
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K]
-}
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] }
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
   { [SubKey in K]?: Maybe<T[SubKey]> }
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
@@ -107,10 +105,14 @@ export type LikeStratMutationVariables = Exact<{
   uuid: Scalars["ID"]
 }>
 
-export type LikeStratMutation = { readonly __typename: "Mutation" } & {
-  readonly likeStrat: Maybe<
-    { readonly __typename: "Strat" } & Pick<Strat, "uuid" | "score" | "liked">
-  >
+export type LikeStratMutation = {
+  readonly __typename: "Mutation"
+  readonly likeStrat: Maybe<{
+    readonly __typename: "Strat"
+    readonly uuid: string
+    readonly score: number
+    readonly liked: boolean
+  }>
 }
 
 export type StratQueryVariables = Exact<{
@@ -122,26 +124,36 @@ export type StratQueryVariables = Exact<{
   exclude: Maybe<ReadonlyArray<Scalars["Int"]>>
 }>
 
-export type StratQuery = { readonly __typename: "Query" } & {
-  readonly strat: Maybe<
-    { readonly __typename: "Strat" } & Pick<
-      Strat,
-      "uuid" | "shortId" | "title" | "description" | "gamemodes" | "score" | "liked"
-    > & {
-        readonly author: { readonly __typename: "Author" } & Pick<
-          Author,
-          "name" | "type" | "url"
-        >
-      }
-  >
+export type StratQuery = {
+  readonly __typename: "Query"
+  readonly strat: Maybe<{
+    readonly __typename: "Strat"
+    readonly uuid: string
+    readonly shortId: number
+    readonly title: string
+    readonly description: string
+    readonly gamemodes: ReadonlyArray<Gamemode>
+    readonly score: number
+    readonly liked: boolean
+    readonly author: {
+      readonly __typename: "Author"
+      readonly name: string
+      readonly type: AuthorType
+      readonly url: Maybe<string>
+    }
+  }>
 }
 
 export type UnlikeStratMutationVariables = Exact<{
   uuid: Scalars["ID"]
 }>
 
-export type UnlikeStratMutation = { readonly __typename: "Mutation" } & {
-  readonly unlikeStrat: Maybe<
-    { readonly __typename: "Strat" } & Pick<Strat, "uuid" | "score" | "liked">
-  >
+export type UnlikeStratMutation = {
+  readonly __typename: "Mutation"
+  readonly unlikeStrat: Maybe<{
+    readonly __typename: "Strat"
+    readonly uuid: string
+    readonly score: number
+    readonly liked: boolean
+  }>
 }
