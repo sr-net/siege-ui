@@ -14,6 +14,7 @@ module.exports = {
       files: ["src/**/*.vue"],
       rules: {
         "unicorn/consistent-function-scoping": "off",
+        "vue/require-expose": "off",
       },
     },
   ],

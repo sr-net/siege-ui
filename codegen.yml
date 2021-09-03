@@ -1,6 +1,6 @@
 overwrite: true
 
-schema: https://siege.stratroulette.com/graphql
+schema: https://siege.stratroulette.net/graphql
 
 documents:
   - src/**/*.graphql
@@ -16,6 +16,8 @@ config:
 generates:
   src/graphql/generated.ts:
     plugins:
+      - add:
+          content: "/* eslint-disable unicorn/no-abusive-eslint-disable */"
       - add:
           content: "/* eslint-disable */"
       - add:
