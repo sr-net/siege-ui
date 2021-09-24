@@ -1579,12 +1579,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-vue@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@vitejs/plugin-vue@npm:1.6.0"
+"@vitejs/plugin-vue@npm:1.9.2":
+  version: 1.9.2
+  resolution: "@vitejs/plugin-vue@npm:1.9.2"
   peerDependencies:
-    "@vue/compiler-sfc": ^3.2.6
-  checksum: b055381edb754fb169022991447dfc95fa0bfd47acc8c981fc6958060b590388928149a7bd68d87e02d902e96c5dddad3ae13500c814786eb8349a088b9c903c
+    vite: ^2.5.10
+  checksum: 7d4a63895d75819b7d8b996d3d84eee60fc85527cd1b0d582fff5cc9130dab5f3114c1675fe05da08074f972dffc10e459ae4760b8aa6909961f031e235b5e9a
   languageName: node
   linkType: hard
 
@@ -7051,7 +7051,7 @@ resolve@^2.0.0-next.3:
     "@graphql-codegen/cli": 2.1.1
     "@graphql-codegen/typescript": 2.2.0
     "@graphql-codegen/typescript-operations": 2.1.3
-    "@vitejs/plugin-vue": 1.6.0
+    "@vitejs/plugin-vue": 1.9.2
     "@vue/compiler-sfc": 3.2.8
     browserslist: 4.16.8
     clipboard-copy: 4.0.1
