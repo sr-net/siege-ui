@@ -7072,7 +7072,7 @@ resolve@^2.0.0-next.3:
     sass: 1.39.0
     typescript: 4.4.2
     vite: 2.5.10
-    vite-tsconfig-paths: 3.3.13
+    vite-tsconfig-paths: 3.3.14
     vue: 3.2.8
     vue-tsc: 0.3.0
   languageName: unknown
@@ -7846,9 +7846,9 @@ typescript@4.4.2:
   languageName: node
   linkType: hard
 
-"vite-tsconfig-paths@npm:3.3.13":
-  version: 3.3.13
-  resolution: "vite-tsconfig-paths@npm:3.3.13"
+"vite-tsconfig-paths@npm:3.3.14":
+  version: 3.3.14
+  resolution: "vite-tsconfig-paths@npm:3.3.14"
   dependencies:
     debug: ^4.1.1
     globrex: ^0.1.2
@@ -7856,7 +7856,7 @@ typescript@4.4.2:
     tsconfig-paths: ^3.9.0
   peerDependencies:
     vite: ">2.0.0-0"
-  checksum: 41c65cccc340d7c406b54b6c90fa8bce8108a90ea574bf0a4f7a812e761ab8dfc3996beefde6cf09d1674eda3f4fe50610726153794006c042dd0fdad1174bc6
+  checksum: 4dcb2ff55ae7114eac9b80b92b026678c51b1d23547a2598d8c44a67b7e4ecd693a9e7cf02ac1f9d53865c7cb3a59fd8d11a6382b132f7ef8c509724fa19bdc2
   languageName: node
   linkType: hard
 
