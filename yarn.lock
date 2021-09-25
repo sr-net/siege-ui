@@ -4130,10 +4130,10 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"graphql@npm:15.5.2":
-  version: 15.5.2
-  resolution: "graphql@npm:15.5.2"
-  checksum: 0e26592c61815661d7ea25cef3d8ce781736fb36b2c80be30898bdfaca0f3cbd0c5fa3a2c001e399b62b2f23f6370f04f384171e033e90a9b820ca908e464105
+"graphql@npm:15.6.0":
+  version: 15.6.0
+  resolution: "graphql@npm:15.6.0"
+  checksum: 439959514665bc03ba86d6e55d8fb81d4c1e8ba3fc7f5114878b0ba794147e7ef57f368e40dadbb3f94d7c5f6685d15599bebb3a124cee2a1a8871a797d5ae81
   languageName: node
   linkType: hard
 
@@ -7065,7 +7065,7 @@ resolve@^2.0.0-next.3:
     esbuild-plugin-browserslist: 0.2.1
     eslint: 7.32.0
     fathom-client: 3.1.0
-    graphql: 15.5.2
+    graphql: 15.6.0
     husky: 7.0.2
     lint-staged: 11.1.2
     prettier: 2.3.2
