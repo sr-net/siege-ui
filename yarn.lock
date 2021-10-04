@@ -7050,7 +7050,7 @@ resolve@^2.0.0-next.3:
     prettier: 2.4.1
     sass: 1.42.1
     typescript: 4.4.3
-    vite: 2.6.0
+    vite: 2.6.2
     vite-tsconfig-paths: 3.3.14
     vue: 3.2.19
     vue-tsc: 0.3.0
@@ -7841,9 +7841,9 @@ typescript@4.4.3:
   languageName: node
   linkType: hard
 
-"vite@npm:2.6.0":
-  version: 2.6.0
-  resolution: "vite@npm:2.6.0"
+"vite@npm:2.6.2":
+  version: 2.6.2
+  resolution: "vite@npm:2.6.2"
   dependencies:
     esbuild: ^0.13.2
     fsevents: ~2.3.2
@@ -7866,7 +7866,7 @@ typescript@4.4.3:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 21b19a52e273b5b3fda89d56049992f36c44a7c8ea40cc224b72f1d9d7f8d47a33ac16248c121a0e4143a5cff14bed577b865c7da21e99f53536835db68d2465
+  checksum: 78e4c81d18d08c6a56f0609a99428caf6323a999da4c3c4439ff3455558d003bc1e8aea24bec50634c8ff8735bb043ab6492b890204304c5d4a6c509f8319ff6
   languageName: node
   linkType: hard
 
