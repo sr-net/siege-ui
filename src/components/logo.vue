@@ -7,7 +7,7 @@ import { defineComponent } from "vue"
 
 import { getHoliday } from "@/holidays"
 
-const logos = import.meta.globEager("../assets/logos/*.png")
+const logos = import.meta.globEager<{ default: string }>("../assets/logos/*.png")
 
 export default defineComponent({
   props: {
@@ -17,7 +17,7 @@ export default defineComponent({
     const holiday = getHoliday()
 
     return {
-      logo: logos[`../assets/logos/${holiday}.png`]?.default,
+      logo: logos[`../assets/logos/${holiday}.png` as const]?.default,
     }
   },
 })

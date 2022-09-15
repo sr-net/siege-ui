@@ -22,7 +22,7 @@
   "dependencies": {
     "clipboard-copy": "4.0.1",
     "fathom-client": "3.2.0",
-    "graphql": "15.6.0",
+    "graphql": "16.6.0",
     "vue": "3.2.39"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "lint-staged": "13.0.3",
     "prettier": "2.7.1",
     "sass": "1.54.9",
-    "typescript": "4.4.3",
+    "typescript": "4.8.3",
     "vite": "3.1.1",
     "vite-tsconfig-paths": "3.5.0",
     "vue-tsc": "0.40.13"
