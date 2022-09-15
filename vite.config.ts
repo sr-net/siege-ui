@@ -6,9 +6,13 @@ import browserslist from "browserslist"
 
 // https://vitejs.dev/config
 export default defineConfig({
+  server: {
+    port: 3000,
+  },
+
   plugins: [
-    esbuildPluginBrowserslist(browserslist()),
     vue(),
+    esbuildPluginBrowserslist(browserslist()),
     tsconfig({
       extensions: [".vue"],
       loose: true,
