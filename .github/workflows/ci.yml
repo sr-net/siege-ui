@@ -99,6 +99,7 @@ jobs:
 
   deploy:
     if: github.ref == 'refs/heads/master'
+    needs: [build, lint, typecheck]
     runs-on: ubuntu-latest
 
     environment:
