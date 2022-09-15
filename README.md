@@ -9,9 +9,9 @@ The frontend for [stratroulette.net](https://stratroulette.net])
 
 ## Development
 
-1. Install dependencies - `yarn`
-1. Start dev server - `yarn serve`
+1. Install dependencies - `pnpm i`
+1. Start dev server - `pnpm serve`
 
 ### Generate GraphQL Types
 
-Run `yarn gql-gen`
+Run `pnpm gql-gen`

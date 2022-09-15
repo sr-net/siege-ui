@@ -21,7 +21,9 @@ import { computed, defineComponent, PropType } from "vue"
 
 import { AuthorType, Strat } from "@/graphql/generated"
 
-const authorIcons = import.meta.globEager("../assets/{name,youtube,twitch,reddit}.svg")
+const authorIcons = import.meta.globEager<{ default: string }>(
+  "../assets/{name,youtube,twitch,reddit}.svg",
+)
 
 export default defineComponent({
   props: {

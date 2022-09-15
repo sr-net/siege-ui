@@ -7,7 +7,7 @@
     <Logo />
 
     <div class="content">
-      <Title :initiated="initiated" :loading="loading" :title="strat.title" />
+      <StratTitle :initiated="initiated" :loading="loading" :title="strat.title" />
 
       <Info
         :loading="loading"
@@ -48,7 +48,7 @@ export default defineComponent({
   components: {
     Logo,
     Christmas: defineAsyncComponent(() => import("./components/christmas.vue")),
-    Title,
+    StratTitle: Title,
     Info,
     Description,
     Gamemodes,

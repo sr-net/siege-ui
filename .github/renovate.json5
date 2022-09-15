@@ -1,15 +1,13 @@
 {
   extends: ["config:js-app", "helpers:disableTypesNodeMajor"],
   prConcurrentLimit: 5,
-  prHourlyLimit: 5,
   branchConcurrentLimit: 5,
   labels: ["dependencies"],
-  postUpdateOptions: ["yarnDedupeHighest"],
   baseBranches: ["master"],
   packageRules: [
     {
       packageNames: ["node"],
-      allowedVersions: "<=16",
+      allowedVersions: "<=18",
       rangeStrategy: "replace",
     },
     {
@@ -21,6 +19,11 @@
     {
       groupName: "Linting",
       matchPackagePatterns: ["lint"],
+      automerge: true,
+    },
+    {
+      groupName: "Testing",
+      matchPackagePatterns: ["jest"],
       automerge: true,
     },
   ],
