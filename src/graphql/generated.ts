@@ -2,11 +2,14 @@
 /* eslint-disable */
 /* THIS IS A GENERATED FILE */
 export type Maybe<T> = T | null
+export type InputMaybe<T> = Maybe<T>
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] }
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]?: Maybe<T[SubKey]> }
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]: Maybe<T[SubKey]> }
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>
+}
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>
+}
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string
@@ -14,28 +17,27 @@ export type Scalars = {
   Boolean: boolean
   Int: number
   Float: number
-  /** The javascript `Date` as string. Type represents date and time as the ISO Date string. */
   DateTime: string
 }
 
 export type Author = {
   readonly __typename: "Author"
-  readonly type: AuthorType
   readonly name: Scalars["String"]
+  readonly type: AuthorType
   readonly url: Maybe<Scalars["String"]>
 }
 
 export enum AuthorType {
   Name = "Name",
-  YouTube = "YouTube",
-  Twitch = "Twitch",
   Reddit = "Reddit",
+  Twitch = "Twitch",
+  YouTube = "YouTube",
 }
 
 export enum Gamemode {
+  Areas = "Areas",
   Bombs = "Bombs",
   Hostage = "Hostage",
-  Areas = "Areas",
 }
 
 export type Mutation = {
@@ -60,39 +62,39 @@ export type Query = {
 }
 
 export type QueryStratArgs = {
-  uuid: Maybe<Scalars["ID"]>
-  shortId: Maybe<Scalars["Int"]>
-  atk: Maybe<Scalars["Boolean"]>
-  def: Maybe<Scalars["Boolean"]>
-  gamemode: Maybe<Gamemode>
-  excludeShortIds: Maybe<ReadonlyArray<Scalars["Int"]>>
-  random: Maybe<Scalars["Boolean"]>
+  atk: InputMaybe<Scalars["Boolean"]>
+  def: InputMaybe<Scalars["Boolean"]>
+  excludeShortIds: InputMaybe<ReadonlyArray<Scalars["Int"]>>
+  gamemode: InputMaybe<Gamemode>
+  random: InputMaybe<Scalars["Boolean"]>
+  shortId: InputMaybe<Scalars["Int"]>
+  uuid: InputMaybe<Scalars["ID"]>
 }
 
 export type QueryStratsArgs = {
-  uuid: Maybe<Scalars["ID"]>
-  shortId: Maybe<Scalars["Int"]>
-  atk: Maybe<Scalars["Boolean"]>
-  def: Maybe<Scalars["Boolean"]>
-  gamemode: Maybe<Gamemode>
-  excludeShortIds: Maybe<ReadonlyArray<Scalars["Int"]>>
-  page?: Maybe<Scalars["Int"]>
+  atk: InputMaybe<Scalars["Boolean"]>
+  def: InputMaybe<Scalars["Boolean"]>
+  excludeShortIds: InputMaybe<ReadonlyArray<Scalars["Int"]>>
+  gamemode: InputMaybe<Gamemode>
+  page?: InputMaybe<Scalars["Int"]>
+  shortId: InputMaybe<Scalars["Int"]>
+  uuid: InputMaybe<Scalars["ID"]>
 }
 
 export type Strat = {
   readonly __typename: "Strat"
-  readonly uuid: Scalars["ID"]
-  readonly shortId: Scalars["Int"]
-  readonly title: Scalars["String"]
-  readonly description: Scalars["String"]
-  readonly author: Author
-  readonly atk: Scalars["Boolean"]
-  readonly def: Scalars["Boolean"]
-  readonly gamemodes: ReadonlyArray<Gamemode>
-  readonly score: Scalars["Int"]
-  readonly submission: Scalars["Boolean"]
   readonly acceptedAt: Maybe<Scalars["DateTime"]>
+  readonly atk: Scalars["Boolean"]
+  readonly author: Author
+  readonly def: Scalars["Boolean"]
+  readonly description: Scalars["String"]
+  readonly gamemodes: ReadonlyArray<Gamemode>
   readonly liked: Scalars["Boolean"]
+  readonly score: Scalars["Int"]
+  readonly shortId: Scalars["Int"]
+  readonly submission: Scalars["Boolean"]
+  readonly title: Scalars["String"]
+  readonly uuid: Scalars["ID"]
 }
 
 export type StratPage = {
@@ -107,12 +109,12 @@ export type LikeStratMutationVariables = Exact<{
 
 export type LikeStratMutation = {
   readonly __typename: "Mutation"
-  readonly likeStrat: Maybe<{
+  readonly likeStrat: {
     readonly __typename: "Strat"
     readonly uuid: string
     readonly score: number
     readonly liked: boolean
-  }>
+  } | null
 }
 
 export type StratQueryVariables = Exact<{
@@ -120,13 +122,13 @@ export type StratQueryVariables = Exact<{
   atk: Scalars["Boolean"]
   def: Scalars["Boolean"]
   gamemode: Gamemode
-  shortId: Maybe<Scalars["Int"]>
-  exclude: Maybe<ReadonlyArray<Scalars["Int"]>>
+  shortId: InputMaybe<Scalars["Int"]>
+  exclude: InputMaybe<ReadonlyArray<Scalars["Int"]>>
 }>
 
 export type StratQuery = {
   readonly __typename: "Query"
-  readonly strat: Maybe<{
+  readonly strat: {
     readonly __typename: "Strat"
     readonly uuid: string
     readonly shortId: number
@@ -139,9 +141,9 @@ export type StratQuery = {
       readonly __typename: "Author"
       readonly name: string
       readonly type: AuthorType
-      readonly url: Maybe<string>
+      readonly url: string | null
     }
-  }>
+  } | null
 }
 
 export type UnlikeStratMutationVariables = Exact<{
@@ -150,10 +152,10 @@ export type UnlikeStratMutationVariables = Exact<{
 
 export type UnlikeStratMutation = {
   readonly __typename: "Mutation"
-  readonly unlikeStrat: Maybe<{
+  readonly unlikeStrat: {
     readonly __typename: "Strat"
     readonly uuid: string
     readonly score: number
     readonly liked: boolean
-  }>
+  } | null
 }
