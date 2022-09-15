@@ -3,7 +3,6 @@ module.exports = {
     "plugin:@beequeue/base",
     "plugin:@beequeue/vue",
     "plugin:@beequeue/typescript",
-    "plugin:@beequeue/prettier",
   ],
   env: {
     es2021: true,
@@ -15,6 +14,7 @@ module.exports = {
       rules: {
         "unicorn/consistent-function-scoping": "off",
         "vue/require-expose": "off",
+        "vue/multi-word-component-names": "off",
       },
     },
   ],
