@@ -46,8 +46,12 @@
     "vue-tsc": "0.40.13"
   },
   "pnpm": {
-    "ignoreMissing": [
-      "esbuild"
-    ]
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@types/node",
+        "esbuild",
+        "ts-node"
+      ]
+    }
   }
 }
