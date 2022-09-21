@@ -19,7 +19,7 @@ import { defineComponent } from "vue"
 import { Gamemode } from "@/graphql/generated"
 
 const gamemodeIcons = import.meta.globEager<{ default: string }>(
-  "../assets/{areas,bombs,hostage}.svg",
+  "../assets/{capture_areas,bombs,hostage}.svg",
 )
 
 const gamemodes = Object.values(Gamemode)
