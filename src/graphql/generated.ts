@@ -28,16 +28,16 @@ export type Author = {
 }
 
 export enum AuthorType {
-  Name = "Name",
-  Reddit = "Reddit",
-  Twitch = "Twitch",
-  YouTube = "YouTube",
+  Name = "NAME",
+  Reddit = "REDDIT",
+  Twitch = "TWITCH",
+  Youtube = "YOUTUBE",
 }
 
 export enum Gamemode {
-  Areas = "Areas",
-  Bombs = "Bombs",
-  Hostage = "Hostage",
+  Bombs = "BOMBS",
+  CaptureAreas = "CAPTURE_AREAS",
+  Hostage = "HOSTAGE",
 }
 
 export type Mutation = {
@@ -58,7 +58,6 @@ export type Query = {
   readonly __typename: "Query"
   readonly strat: Maybe<Strat>
   readonly strats: StratPage
-  readonly submission: Maybe<Strat>
 }
 
 export type QueryStratArgs = {
