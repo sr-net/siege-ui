@@ -103,14 +103,14 @@ jobs:
     needs: [build, lint, typecheck]
     runs-on: ubuntu-latest
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      contents: write
-    concurrency:
-      group: deployment
-      cancel-in-progress: true
+#    environment:
+#      name: github-pages
+#      url: ${{ steps.deployment.outputs.page_url }}
+#    permissions:
+#      contents: write
+#    concurrency:
+#      group: deployment
+#      cancel-in-progress: true
 
     steps:
       - uses: actions/download-artifact@v3
