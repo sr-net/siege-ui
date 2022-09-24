@@ -106,8 +106,8 @@ jobs:
 #    environment:
 #      name: github-pages
 #      url: ${{ steps.deployment.outputs.page_url }}
-#    permissions:
-#      contents: write
+    permissions:
+      contents: write
 #    concurrency:
 #      group: deployment
 #      cancel-in-progress: true
@@ -116,6 +116,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: dist
+          path: .
 
       - run: ls
       - run: ls dist
