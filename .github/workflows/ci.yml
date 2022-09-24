@@ -91,32 +91,38 @@ jobs:
 
       - run: pnpm build
 
-      - name: Upload artifact
-        if: github.ref == 'refs/heads/master'
-        uses: actions/upload-pages-artifact@v1
+      - name: Upload artifacts
+#        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v3
         with:
+          name: dist
           path: dist
 
   deploy:
-    if: github.ref == 'refs/heads/master'
+#    if: github.ref == 'refs/heads/master'
     needs: [build, lint, typecheck]
     runs-on: ubuntu-latest
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+#    environment:
+#      name: github-pages
+#      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
-      contents: read
-      pages: write
-      id-token: write
-    concurrency:
-      group: deployment
-      cancel-in-progress: true
+      contents: write
+#    concurrency:
+#      group: deployment
+#      cancel-in-progress: true
 
     steps:
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
+      - uses: actions/checkout@v3
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          silent: true
