@@ -91,10 +91,6 @@ jobs:
 
       - run: pnpm build
 
-      - name: Create tarball
-#        if: github.ref == 'refs/heads/master'
-        run: tar -czf ./dist.tar.gz ./dist
-
       - name: Upload artifact
 #        if: github.ref == 'refs/heads/master'
         uses: actions/upload-artifact@v3
@@ -120,8 +116,6 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: dist
-
-      - run: tar -xzf ./dist.tar.gz
 
       - run: ls
       - run: ls dist
