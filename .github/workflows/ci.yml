@@ -92,25 +92,25 @@ jobs:
       - run: pnpm build
 
       - name: Upload artifacts
-#        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master'
         uses: actions/upload-artifact@v3
         with:
           name: dist
           path: dist
 
   deploy:
-#    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master'
     needs: [build, lint, typecheck]
     runs-on: ubuntu-latest
 
-#    environment:
-#      name: github-pages
-#      url: ${{ steps.deployment.outputs.page_url }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       contents: write
-#    concurrency:
-#      group: deployment
-#      cancel-in-progress: true
+    concurrency:
+      group: deployment
+      cancel-in-progress: true
 
     steps:
       - uses: actions/checkout@v3
