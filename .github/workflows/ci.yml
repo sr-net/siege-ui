@@ -91,7 +91,7 @@ jobs:
 
       - run: pnpm build
 
-      - name: Upload artifact
+      - name: Upload artifacts
 #        if: github.ref == 'refs/heads/master'
         uses: actions/upload-artifact@v3
         with:
@@ -113,10 +113,13 @@ jobs:
 #      cancel-in-progress: true
 
     steps:
-      - uses: actions/download-artifact@v3
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
         with:
           name: dist
-          path: .
+          path: dist
 
-      - run: ls
-      - run: ls dist
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
