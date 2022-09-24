@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <mask id="a" width="24" height="24" x="0" y="0">
+      <path fill="#fff" d="M0 0h24v24H0z"/>
+      <path stroke="#000" stroke-width="2" d="M-8 24L17-1M-1 24L24-1M4 25L25 4M10 25l15-15"/>
+    </mask>
+  </defs>
+  <path fill="none" stroke="#888" stroke-width="6" d="M0 0h24v24H0z" mask="url(#a)"/>
+</svg>
