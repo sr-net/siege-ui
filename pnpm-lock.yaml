@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@beequeue/eslint-plugin': 1.0.2
+  '@beequeue/eslint-plugin': 1.1.0
   '@graphql-codegen/add': 3.2.1
   '@graphql-codegen/cli': 2.12.1
   '@graphql-codegen/typescript': 2.7.3
@@ -31,7 +31,7 @@ dependencies:
   vue: 3.2.39
 
 devDependencies:
-  '@beequeue/eslint-plugin': 1.0.2_eb7cvkluktf6qzn3d5svhzfvta
+  '@beequeue/eslint-plugin': 1.1.0_eb7cvkluktf6qzn3d5svhzfvta
   '@graphql-codegen/add': 3.2.1_graphql@16.6.0
   '@graphql-codegen/cli': 2.12.1_wd5f2ibzrubrgidvrmdkykexam
   '@graphql-codegen/typescript': 2.7.3_graphql@16.6.0
@@ -657,8 +657,8 @@ packages:
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
 
-  /@beequeue/eslint-plugin/1.0.2_eb7cvkluktf6qzn3d5svhzfvta:
-    resolution: {integrity: sha512-6ygnr7Ie8k1QZFyNGe2N+0wF52rXt9BEA5dwFKnhboqXKQkgR8yMWPw5GMK1ji6LxG1dViUsRmngi01hm3kcvw==}
+  /@beequeue/eslint-plugin/1.1.0_eb7cvkluktf6qzn3d5svhzfvta:
+    resolution: {integrity: sha512-IFUNDO4v2T69LZwlWH9a6UkBXZcfdo6Qx8suZat92v7jSqclgYpXJKyPQvO9u94MJYwS8PuU3vOfpVkghRjdKw==}
     engines: {node: '>=14'}
     peerDependencies:
       eslint: ^8.22.0
