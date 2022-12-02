@@ -20,6 +20,7 @@ specifiers:
   sass: 1.56.1
   typescript: 4.9.3
   vite: 3.2.4
+  vite-plugin-webfont-dl: ^3.4.1
   vite-tsconfig-paths: 3.6.0
   vue: 3.2.45
   vue-tsc: 1.0.10
@@ -47,6 +48,7 @@ devDependencies:
   sass: 1.56.1
   typescript: 4.9.3
   vite: 3.2.4_sass@1.56.1
+  vite-plugin-webfont-dl: 3.4.1_vite@3.2.4
   vite-tsconfig-paths: 3.6.0_vite@3.2.4
   vue-tsc: 1.0.10_typescript@4.9.3
 
@@ -1885,6 +1887,14 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
+  /axios/0.25.0:
+    resolution: {integrity: sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g==}
+    dependencies:
+      follow-redirects: 1.15.2
+    transitivePeerDependencies:
+      - debug
+    dev: true
+
   /axobject-query/2.2.0:
     resolution: {integrity: sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA==}
     dev: true
@@ -2133,6 +2143,13 @@ packages:
 
   /ci-info/3.4.0:
     resolution: {integrity: sha512-t5QdPT5jq3o262DOQ8zA6E1tlH2upmUc4Hlvrbx1pGYJuiiHl7O7rvVNI+l8HTVhd/q3Qc9vqimkNk5yiXsAug==}
+    dev: true
+
+  /clean-css/5.3.1:
+    resolution: {integrity: sha512-lCr8OHhiWCTw4v8POJovCoh4T7I9U11yVsPjMWWnnMmp9ZowCxyad1Pathle/9HjaDp+fdQKjO9fQydE6RHTZg==}
+    engines: {node: '>= 10.0'}
+    dependencies:
+      source-map: 0.6.1
     dev: true
 
   /clean-regexp/1.0.0:
@@ -3330,6 +3347,16 @@ packages:
 
   /flatted/3.2.7:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
+    dev: true
+
+  /follow-redirects/1.15.2:
+    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
     dev: true
 
   /form-data-encoder/1.7.2:
@@ -5514,6 +5541,19 @@ packages:
   /value-or-promise/1.0.11:
     resolution: {integrity: sha512-41BrgH+dIbCFXClcSapVs5M6GkENd3gQOJpEfPDNa71LsUGMXDL0jMWpI/Rh7WhX+Aalfz2TTS3Zt5pUsbnhLg==}
     engines: {node: '>=12'}
+    dev: true
+
+  /vite-plugin-webfont-dl/3.4.1_vite@3.2.4:
+    resolution: {integrity: sha512-PoDC+kkJ6pB4UirisPFG0TT9QJqsX+t5gJ/3g3acZ+ZD+G280qqQxFvPWOS8ND3+0lM4vnM04ZDu3MyN7l81nA==}
+    peerDependencies:
+      vite: ^2 || ^3
+    dependencies:
+      axios: 0.25.0
+      clean-css: 5.3.1
+      picocolors: 1.0.0
+      vite: 3.2.4_sass@1.56.1
+    transitivePeerDependencies:
+      - debug
     dev: true
 
   /vite-tsconfig-paths/3.6.0_vite@3.2.4:
