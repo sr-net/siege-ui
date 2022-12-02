@@ -22,13 +22,13 @@ export default defineComponent({
     const container = ref<HTMLDivElement>(null)
 
     onMounted(() => {
-      window.addEventListener("blur", handleBlur(container.value as HTMLDivElement))
-      window.addEventListener("focus", handleFocus(container.value as HTMLDivElement))
+      window.addEventListener("blur", handleBlur(container.value))
+      window.addEventListener("focus", handleFocus(container.value))
     })
 
     onUnmounted(() => {
-      window.removeEventListener("blur", handleBlur(container.value as HTMLDivElement))
-      window.removeEventListener("focus", handleFocus(container.value as HTMLDivElement))
+      window.removeEventListener("blur", handleBlur(container.value))
+      window.removeEventListener("focus", handleFocus(container.value))
     })
 
     return { container }
