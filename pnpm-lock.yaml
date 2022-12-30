@@ -6,7 +6,7 @@ specifiers:
   '@graphql-codegen/cli': 2.16.2
   '@graphql-codegen/typescript': 2.8.6
   '@graphql-codegen/typescript-operations': 2.5.11
-  '@vitejs/plugin-vue': 3.2.0
+  '@vitejs/plugin-vue': 4.0.0
   '@vue/compiler-sfc': 3.2.45
   browserslist: 4.21.4
   clipboard-copy: 4.0.1
@@ -37,7 +37,7 @@ devDependencies:
   '@graphql-codegen/cli': 2.16.2_fi2unsm2uqmoikyi4dmwfwvz5i
   '@graphql-codegen/typescript': 2.8.6_graphql@16.6.0
   '@graphql-codegen/typescript-operations': 2.5.11_graphql@16.6.0
-  '@vitejs/plugin-vue': 3.2.0_vite@4.0.3+vue@3.2.45
+  '@vitejs/plugin-vue': 4.0.0_vite@4.0.3+vue@3.2.45
   '@vue/compiler-sfc': 3.2.45
   browserslist: 4.21.4
   esbuild-plugin-browserslist: 0.6.0_browserslist@4.21.4
@@ -1861,11 +1861,11 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vitejs/plugin-vue/3.2.0_vite@4.0.3+vue@3.2.45:
-    resolution: {integrity: sha512-E0tnaL4fr+qkdCNxJ+Xd0yM31UwMkQje76fsDVBBUCoGOUPexu2VDUYHL8P4CwV+zMvWw6nlRw19OnRKmYAJpw==}
+  /@vitejs/plugin-vue/4.0.0_vite@4.0.3+vue@3.2.45:
+    resolution: {integrity: sha512-e0X4jErIxAB5oLtDqbHvHpJe/uWNkdpYV83AOG2xo2tEVSzCzewgJMtREZM30wXnM5ls90hxiOtAuVU6H5JgbA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
-      vite: ^3.0.0
+      vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
       vite: 4.0.3_sass@1.57.1
