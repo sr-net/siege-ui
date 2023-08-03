@@ -1995,7 +1995,7 @@ packages:
       form-data-encoder: 1.7.2
       formdata-node: 4.4.1
       node-fetch: 2.6.7
-      undici: 5.13.0
+      undici: 5.22.1
       web-streams-polyfill: 3.2.1
     transitivePeerDependencies:
       - encoding
@@ -2010,7 +2010,7 @@ packages:
       form-data-encoder: 1.7.2
       formdata-node: 4.4.1
       node-fetch: 2.6.7
-      undici: 5.13.0
+      undici: 5.22.1
       web-streams-polyfill: 3.2.1
     transitivePeerDependencies:
       - encoding
@@ -5665,9 +5665,9 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /undici@5.13.0:
-    resolution: {integrity: sha512-UDZKtwb2k7KRsK4SdXWG7ErXiL7yTGgLWvk2AXO1JMjgjh404nFo6tWSCM2xMpJwMPx3J8i/vfqEh1zOqvj82Q==}
-    engines: {node: '>=12.18'}
+  /undici@5.22.1:
+    resolution: {integrity: sha512-Ji2IJhFXZY0x/0tVBXeQwgPlLWw13GVzpsWPQ3rV50IFMMof2I55PZZxtm4P6iNq+L5znYN9nSTAq0ZyE6lSJw==}
+    engines: {node: '>=14.0'}
     dependencies:
       busboy: 1.6.0
     dev: true
