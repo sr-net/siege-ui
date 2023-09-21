@@ -22,7 +22,7 @@
   "dependencies": {
     "clipboard-copy": "4.0.1",
     "fathom-client": "3.5.0",
-    "graphql": "16.6.0",
+    "graphql": "16.8.1",
     "vue": "3.3.4"
   },
   "devDependencies": {
