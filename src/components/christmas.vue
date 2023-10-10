@@ -41,7 +41,10 @@ export default defineComponent({
 
 @keyframes snowfall {
   to {
-    background-position: 1000px 500px, 400px 400px, -300px 300px;
+    background-position:
+      1000px 500px,
+      400px 400px,
+      -300px 300px;
   }
 }
 

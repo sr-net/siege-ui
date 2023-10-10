@@ -96,7 +96,9 @@ export default defineComponent({
     padding: 10px 25px;
     user-select: text;
 
-    transition: $transitions, font-size 1s;
+    transition:
+      $transitions,
+      font-size 1s;
 
     @include mobile {
       font-size: 28px;

@@ -110,7 +110,9 @@ export default defineComponent({
     border-radius: 100%;
     cursor: pointer;
 
-    transition: $transitions, transform 0.1s;
+    transition:
+      $transitions,
+      transform 0.1s;
 
     & > img {
       width: 100%;

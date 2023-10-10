@@ -69,7 +69,9 @@ export default defineComponent({
   font-size: 24px;
   overflow: hidden;
 
-  transition: $transitions, height 0.25s;
+  transition:
+    $transitions,
+    height 0.25s;
 
   @include mobile {
     height: 100% !important;
@@ -84,7 +86,9 @@ export default defineComponent({
     min-height: 125px;
     width: 100%;
     user-select: text;
-    transition: $transitions, opacity 0.25s;
+    transition:
+      $transitions,
+      opacity 0.25s;
 
     padding: 15px 75px;
 
