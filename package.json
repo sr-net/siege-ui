@@ -4,7 +4,7 @@
   "private": true,
   "packageManager": "pnpm@8.9.0",
   "engines": {
-    "node": "^18"
+    "node": "^20"
   },
   "scripts": {
     "build": "pnpm typecheck && vite build",
@@ -22,11 +22,11 @@
   "dependencies": {
     "clipboard-copy": "4.0.1",
     "fathom-client": "3.5.0",
-    "graphql": "16.6.0",
+    "graphql": "16.8.1",
     "vue": "3.3.4"
   },
   "devDependencies": {
-    "@beequeue/eslint-plugin": "2.1.1",
+    "@beequeue/eslint-plugin": "4.0.0",
     "@graphql-codegen/add": "4.0.1",
     "@graphql-codegen/cli": "3.3.1",
     "@graphql-codegen/typescript": "3.0.4",
@@ -35,11 +35,11 @@
     "@vue/compiler-sfc": "3.3.4",
     "browserslist": "4.22.1",
     "esbuild-plugin-browserslist": "0.9.1",
-    "eslint": "8.49.0",
+    "eslint": "8.51.0",
     "husky": "8.0.3",
-    "lint-staged": "13.3.0",
-    "prettier": "2.8.8",
-    "sass": "1.69.0",
+    "lint-staged": "14.0.1",
+    "prettier": "3.0.3",
+    "sass": "1.69.1",
     "typescript": "5.2.2",
     "vite": "4.4.11",
     "vite-plugin-webfont-dl": "3.7.6",
