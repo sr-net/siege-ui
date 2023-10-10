@@ -76,7 +76,11 @@ export default defineComponent({
   color: $text400;
   font-size: 15px;
   overflow: hidden;
-  transition: $transitions, height 0.25s, padding 0.25s, border-bottom 0.25s;
+  transition:
+    $transitions,
+    height 0.25s,
+    padding 0.25s,
+    border-bottom 0.25s;
 
   @include mobile {
     padding: 5px 15px;
@@ -89,7 +93,9 @@ export default defineComponent({
   }
 
   & > div {
-    transition: $transitions, opacity 0.25s;
+    transition:
+      $transitions,
+      opacity 0.25s;
   }
 
   &.loading > div {
