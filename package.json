@@ -37,7 +37,7 @@
     "esbuild-plugin-browserslist": "0.9.1",
     "eslint": "8.53.0",
     "husky": "8.0.3",
-    "lint-staged": "15.0.2",
+    "lint-staged": "15.1.0",
     "prettier": "3.0.3",
     "sass": "1.69.4",
     "typescript": "5.2.2",
