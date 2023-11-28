@@ -2,7 +2,7 @@
   "name": "siege-ui",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@8.9.2",
+  "packageManager": "pnpm@8.11.0",
   "engines": {
     "node": "^20"
   },
@@ -21,9 +21,9 @@
   },
   "dependencies": {
     "clipboard-copy": "4.0.1",
-    "fathom-client": "3.5.0",
+    "fathom-client": "3.6.0",
     "graphql": "16.8.1",
-    "vue": "3.3.4"
+    "vue": "3.3.9"
   },
   "devDependencies": {
     "@beequeue/eslint-plugin": "4.0.0",
@@ -31,20 +31,20 @@
     "@graphql-codegen/cli": "5.0.0",
     "@graphql-codegen/typescript": "4.0.1",
     "@graphql-codegen/typescript-operations": "4.0.1",
-    "@vitejs/plugin-vue": "4.4.0",
-    "@vue/compiler-sfc": "3.3.4",
+    "@vitejs/plugin-vue": "4.5.0",
+    "@vue/compiler-sfc": "3.3.9",
     "browserslist": "4.22.1",
-    "esbuild-plugin-browserslist": "0.9.1",
+    "esbuild-plugin-browserslist": "0.10.0",
     "eslint": "8.54.0",
     "husky": "8.0.3",
     "lint-staged": "15.1.0",
-    "prettier": "3.0.3",
-    "sass": "1.69.4",
-    "typescript": "5.2.2",
-    "vite": "5.0.0-beta.11",
-    "vite-plugin-webfont-dl": "3.7.6",
+    "prettier": "3.1.0",
+    "sass": "1.69.5",
+    "typescript": "5.3.2",
+    "vite": "5.0.3",
+    "vite-plugin-webfont-dl": "3.9.1",
     "vite-tsconfig-paths": "4.2.1",
-    "vue-tsc": "1.8.19"
+    "vue-tsc": "1.8.22"
   },
   "pnpm": {
     "peerDependencyRules": {
