@@ -22,9 +22,6 @@ dependencies:
   clipboard-copy:
     specifier: 4.0.1
     version: 4.0.1
-  fathom-client:
-    specifier: 3.6.0
-    version: 3.6.0
   graphql:
     specifier: 16.8.1
     version: 16.8.1
@@ -59,7 +56,7 @@ devDependencies:
     version: 4.22.2
   esbuild-plugin-browserslist:
     specifier: 0.10.0
-    version: 0.10.0(browserslist@4.22.2)
+    version: 0.10.0(browserslist@4.22.2)(esbuild@0.19.8)
   eslint:
     specifier: 8.55.0
     version: 8.55.0
@@ -2920,18 +2917,16 @@ packages:
       is-arrayish: 0.2.1
     dev: true
 
-  /esbuild-plugin-browserslist@0.10.0(browserslist@4.22.2):
+  /esbuild-plugin-browserslist@0.10.0(browserslist@4.22.2)(esbuild@0.19.8):
     resolution: {integrity: sha512-rZWFcp3l+73xDiJB+Vl9UqP1VVs+L4E0lygbwJl6UTmW2qQago7DLT56hBu0vocH/TtZsAcRHj0+qHqkkB5Gww==}
     engines: {node: '>=18'}
     peerDependencies:
       browserslist: ^4.21.8
       esbuild: ~0.19.2
-    peerDependenciesMeta:
-      esbuild:
-        optional: true
     dependencies:
       browserslist: 4.22.2
       debug: 4.3.4
+      esbuild: 0.19.8
       zod: 3.22.4
     transitivePeerDependencies:
       - supports-color
@@ -3436,10 +3431,6 @@ packages:
     dependencies:
       reusify: 1.0.4
     dev: true
-
-  /fathom-client@3.6.0:
-    resolution: {integrity: sha512-/mrgmVvpw4HqDCcqUfPulERhONKgnJGL74RAxfqKDuRQ+7w9lKoTHMzqBWE7WNBvmsgZEthQWJFOWOEjv+T3gA==}
-    dev: false
 
   /fb-watchman@2.0.2:
     resolution: {integrity: sha512-p5161BqbuCaSnB8jIbzQHOlpgsPmK5rJVDfDKO91Axs5NC1uu3HRQm6wt9cd9/+GtQQIO53JdGXXoyDpTAsgYA==}

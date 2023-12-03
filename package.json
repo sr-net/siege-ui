@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "clipboard-copy": "4.0.1",
-    "fathom-client": "3.6.0",
     "graphql": "16.8.1",
     "vue": "3.3.9"
   },
@@ -47,13 +46,6 @@
     "vue-tsc": "1.8.24"
   },
   "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "@types/node",
-        "esbuild",
-        "ts-node"
-      ]
-    },
     "overrides": {
       "array-includes": "npm:@nolyfill/array-includes@latest",
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
