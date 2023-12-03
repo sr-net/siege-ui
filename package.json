@@ -31,20 +31,20 @@
     "@graphql-codegen/cli": "5.0.0",
     "@graphql-codegen/typescript": "4.0.1",
     "@graphql-codegen/typescript-operations": "4.0.1",
-    "@vitejs/plugin-vue": "4.5.0",
+    "@vitejs/plugin-vue": "4.5.1",
     "@vue/compiler-sfc": "3.3.9",
-    "browserslist": "4.22.1",
+    "browserslist": "4.22.2",
     "esbuild-plugin-browserslist": "0.10.0",
-    "eslint": "8.54.0",
+    "eslint": "8.55.0",
     "husky": "8.0.3",
-    "lint-staged": "15.1.0",
+    "lint-staged": "15.2.0",
     "prettier": "3.1.0",
     "sass": "1.69.5",
     "typescript": "5.3.2",
-    "vite": "5.0.3",
+    "vite": "5.0.4",
     "vite-plugin-webfont-dl": "3.9.1",
     "vite-tsconfig-paths": "4.2.1",
-    "vue-tsc": "1.8.22"
+    "vue-tsc": "1.8.24"
   },
   "pnpm": {
     "peerDependencyRules": {
