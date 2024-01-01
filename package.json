@@ -30,7 +30,7 @@
     "@graphql-codegen/cli": "5.0.0",
     "@graphql-codegen/typescript": "4.0.1",
     "@graphql-codegen/typescript-operations": "4.0.1",
-    "@vitejs/plugin-vue": "4.5.1",
+    "@vitejs/plugin-vue": "5.0.2",
     "@vue/compiler-sfc": "3.3.9",
     "browserslist": "4.22.2",
     "esbuild-plugin-browserslist": "0.10.0",
