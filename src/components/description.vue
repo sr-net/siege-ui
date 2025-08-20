@@ -3,15 +3,22 @@
     class="description-container"
     :style="{ height: `${description != null ? height : 0}px` }"
   >
-    <div ref="content" :key="description ?? 'empty'" class="description" :class="{ loading }">
-      {{ description }}
+    <div
+      ref="descWrapper$"
+      :key="description ?? 'empty'"
+      class="description-wrapper"
+      :class="{ loading }"
+    >
+      <span ref="desc$" class="desc">
+        {{ description }}
+      </span>
     </div>
 
-    <transition>
-      <div v-if="!loading && description == null" class="logo-container">
+    <Transition v-if="!isMobile && !loading">
+      <div v-if="description == null" class="logo-container">
         <Logo mobile />
       </div>
-    </transition>
+    </Transition>
 
     <div class="menu">
       <a
@@ -26,30 +33,41 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script vapor setup lang="ts">
 import { ref, watch } from "vue"
 
 import githubLogo from "../assets/github.svg"
 
 import Logo from "./logo.vue"
 
-defineProps<{
+const props = defineProps<{
   loading: boolean
   description: string | null | undefined
 }>()
 
-const content = ref<HTMLDivElement>()
+const isMobile = window.innerWidth < 768
+
+const descWrapper$ = ref<HTMLDivElement>()
+const desc$ = ref<HTMLSpanElement>()
 const height = ref(0)
 
-watch(content, (newVal, oldVar) => {
-  if (newVal?.textContent === oldVar?.textContent) return
+watch(
+  () => props.description,
+  (newVal, oldVar) => {
+    if (newVal === oldVar) return
 
-  height.value = newVal?.getBoundingClientRect().height ?? 0
-})
+    height.value = Math.max(desc$.value!.getBoundingClientRect().height + 30, 125)
+  },
+  {flush: "post"}
+)
 </script>
 
 <style scoped lang="scss">
 @use "../theme";
+
+.desc {
+  height: fit-content;
+}
 
 .description-container {
   position: relative;
@@ -72,7 +90,7 @@ watch(content, (newVal, oldVar) => {
     font-size: 20px;
   }
 
-  & > .description {
+  & > .description-wrapper {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;

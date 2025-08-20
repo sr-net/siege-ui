@@ -2,7 +2,7 @@
   <div ref="container" class="christmas-container" />
 </template>
 
-<script setup lang="ts">
+<script vapor setup lang="ts">
 import { onMounted, onUnmounted, ref } from "vue"
 
 const handleBlur = (el: HTMLDivElement | null) => () => {

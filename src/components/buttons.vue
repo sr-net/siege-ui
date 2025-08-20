@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script vapor setup lang="ts">
 import type { Team } from "@/graphql/requests.ts"
 
 import likeIcon from "../assets/like.svg"

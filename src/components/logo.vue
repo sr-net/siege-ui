@@ -2,7 +2,7 @@
   <img class="logo" :class="{ mobile }" alt="" :src="logo" />
 </template>
 
-<script lang="ts" setup>
+<script vapor setup lang="ts">
 import { computed } from "vue"
 
 import { getHoliday } from "@/holidays"

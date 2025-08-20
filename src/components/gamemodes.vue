@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script vapor setup lang="ts">
 import { Gamemode } from "@/graphql/generated"
 
 defineProps<{ selected: string | null | undefined }>()

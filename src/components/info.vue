@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script vapor setup lang="ts">
 import copy from "clipboard-copy"
 import { computed } from "vue"
 

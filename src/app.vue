@@ -1,8 +1,8 @@
 <template>
   <div id="app" :style="{ backgroundImage: `url(${bgImage})` }">
-    <transition name="fade" type="transition">
+    <Transition name="fade" type="transition">
       <Christmas v-if="getHoliday() === 'christmas'" />
-    </transition>
+    </Transition>
 
     <Logo />
 
@@ -30,7 +30,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script vapor setup lang="ts">
 import { defineAsyncComponent, watch } from "vue"
 
 import bgImage from "./assets/bg-opacity.png"
@@ -56,13 +56,17 @@ const {
   toggleLiked,
 } = useStrat()
 
-watch(shortId, (newValue) => {
-  if (newValue == null || newValue === strat.value?.shortId) {
-    return
-  }
+watch(
+  shortId,
+  (newValue) => {
+    if (newValue == null || newValue === strat.value?.shortId) {
+      return
+    }
 
-  void fetchStrat()
-})
+    void fetchStrat()
+  },
+  { immediate: true },
+)
 </script>
 
 <style lang="scss">

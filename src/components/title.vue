@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script vapor setup lang="ts">
 import { onMounted, reactive, ref, watchEffect } from "vue"
 
 const props = defineProps<{
