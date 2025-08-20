@@ -17,9 +17,9 @@
 
 <script lang="ts">
 import copy from "clipboard-copy"
-import { computed, defineComponent, PropType } from "vue"
+import { computed, defineComponent, type PropType } from "vue"
 
-import { AuthorType, Strat } from "@/graphql/generated"
+import { AuthorType, type Strat } from "@/graphql/generated"
 
 const authorIcons = import.meta.glob<{ default: string }>(
   "../assets/{name,youtube,twitch,reddit}.svg",
@@ -61,7 +61,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import "../variables";
+@import "../variables.scss";
 
 .info-container {
   flex-shrink: 0;

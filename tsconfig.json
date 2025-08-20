@@ -1,27 +1,13 @@
 {
+  "extends": ["@vue/tsconfig"],
   "compilerOptions": {
-    "noEmit": true,
-
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "sourceMap": true,
-
     "lib": ["esnext", "dom"],
     "types": ["vite/client"],
+
     "baseUrl": "./src",
     "paths": {
       "@/*": ["./*"]
-    },
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-
-    "noUnusedLocals": true,
-    "noUnusedParameters": true
+    }
   },
   "include": ["./src/**/*.ts", "./src/**/*.vue", "./index.d.ts"],
   "exclude": ["node_modules"]

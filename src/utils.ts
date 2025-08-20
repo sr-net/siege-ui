@@ -1,6 +1,6 @@
 import { ref, watch } from "vue"
 
-import { Gamemode } from "@/graphql/generated"
+import type { Gamemode } from "@/graphql/generated"
 
 type LocalStorage = {
   gamemode: Gamemode

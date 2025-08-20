@@ -23,12 +23,25 @@ const sortImports = {
 
 export default antfu({
   ignores: ["**/*.json"],
+
   markdown: false,
   stylistic: false,
   jsonc: false,
   jsx: false,
   toml: false,
-  test: { overrides: { "test/no-import-node-test": "off" } },
+
+  vue: {
+    overrides: {
+      "vue/block-order": [
+        "error",
+        {
+          order: ["template", "script", "style"],
+        },
+      ],
+      "vue/html-self-closing": "off",
+      "vue/singleline-html-element-content-newline": "off",
+    },
+  },
   typescript: {
     tsconfigPath: "tsconfig.json",
     ignoresTypeAware: ["copy.ts", "*.config.*"],
@@ -45,7 +58,6 @@ export default antfu({
     },
 
     overrides: {
-      "no-console": "off",
       "antfu/no-top-level-await": "off",
       "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
       "node/prefer-global/process": "off",

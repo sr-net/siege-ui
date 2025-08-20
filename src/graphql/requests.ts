@@ -4,12 +4,12 @@ import { getShortIdFromUrl, localStorageRef } from "@/utils"
 
 import {
   Gamemode,
-  LikeStratMutation,
-  LikeStratMutationVariables,
-  StratQuery,
-  StratQueryVariables,
-  UnlikeStratMutation,
-  UnlikeStratMutationVariables,
+  type LikeStratMutation,
+  type LikeStratMutationVariables,
+  type StratQuery,
+  type StratQueryVariables,
+  type UnlikeStratMutation,
+  type UnlikeStratMutationVariables,
 } from "./generated"
 import likeQuery from "./like-strat.graphql?raw"
 import stratQuery from "./strat.graphql?raw"

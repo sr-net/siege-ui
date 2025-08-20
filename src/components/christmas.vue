@@ -57,8 +57,8 @@ export default defineComponent({
   width: 100%;
   z-index: 0;
 
-  background: url(/christmas/snow.png), url(/christmas/snow2.png),
-    url(/christmas/snow3.png);
+  background:
+    url(/christmas/snow.png), url(/christmas/snow2.png), url(/christmas/snow3.png);
 
   animation: snowfall 45s infinite linear;
   background-size: 500px, 400px, 300px;

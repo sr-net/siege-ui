@@ -6,7 +6,9 @@
 
     <div class="title">Loading...</div>
 
-    <div class="title">{{ title }}</div>
+    <div class="title">
+      {{ title }}
+    </div>
   </div>
 </template>
 

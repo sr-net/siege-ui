@@ -1,6 +1,8 @@
 $width: 850px;
 
-$transitions: background 0.35s, color 0.35s;
+$transitions:
+  background 0.35s,
+  color 0.35s;
 
 $text400: var(--text400, #eee);
 $text300: var(--text300, #bbb);

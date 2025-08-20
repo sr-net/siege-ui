@@ -91,7 +91,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import "variables";
+@import "./variables.scss";
 
 #app {
   font-family: Lato, sans-serif;
