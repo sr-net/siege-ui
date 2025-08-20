@@ -4,6 +4,8 @@ import tsconfig from "vite-tsconfig-paths"
 
 // https://vitejs.dev/config
 export default defineConfig({
+  experimental: { enableNativePlugin: true },
+
   server: { port: 3001 },
 
   plugins: [

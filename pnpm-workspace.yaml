@@ -9,6 +9,8 @@ overrides:
   "@antfu/eslint-config>toml-eslint-parser": "-"
   "@antfu/eslint-config>vitest": "-"
   eslint-plugin-pnpm>jsonc-eslint-parser: "-"
+  volar-service-pug: "-"
+  volar-service-pug-beautify: "-"
 
   es-set-tostringtag: npm:@nolyfill/es-set-tostringtag@^1
   hasown: npm:@nolyfill/hasown@^1

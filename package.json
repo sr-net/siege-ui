@@ -7,12 +7,12 @@
     "node": "^24"
   },
   "scripts": {
-    "build": "pnpm typecheck && vite build",
+    "build": "vite build",
     "dev": "vite",
     "lint": "eslint src",
     "postinstall": "simple-git-hooks",
     "serve": "vite preview",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc"
   },
   "nano-staged": {
     "*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,json,json5,yaml,yml,css,scss,md}": [
@@ -35,6 +35,7 @@
     "@graphql-codegen/typescript-operations": "4.6.1",
     "@vitejs/plugin-vue": "6.0.1",
     "@vue/compiler-sfc": "3.4.4",
+    "@vue/language-server": "3.0.6",
     "@vue/tsconfig": "0.8.1",
     "eslint": "9.33.0",
     "nano-staged": "0.8.0",
