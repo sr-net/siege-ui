@@ -27,9 +27,6 @@ importers:
       clipboard-copy:
         specifier: 4.0.1
         version: 4.0.1
-      graphql:
-        specifier: 16.8.1
-        version: 16.8.1
       vue:
         specifier: 3.6.0-alpha.2
         version: 3.6.0-alpha.2(typescript@5.9.2)

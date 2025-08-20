@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "clipboard-copy": "4.0.1",
-    "graphql": "16.8.1",
     "vue": "3.6.0-alpha.2"
   },
   "devDependencies": {
