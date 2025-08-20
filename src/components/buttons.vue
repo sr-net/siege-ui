@@ -2,9 +2,12 @@
   <div class="buttons-container">
     <button class="team-button" :disabled="loading" @click="setTeam('atk')">ATK</button>
 
-    <button class="like-button" :class="{ liked }" @click="toggleLike">
-      <img :src="likeIcon" />
-    </button>
+    <button
+      class="like-button"
+      :class="{ liked }"
+      @click="toggleLike"
+      v-html="likeIcon"
+    />
 
     <button class="team-button" :disabled="loading" @click="setTeam('def')">DEF</button>
   </div>
@@ -13,7 +16,7 @@
 <script vapor setup lang="ts">
 import type { Team } from "@/graphql/requests.ts"
 
-import likeIcon from "../assets/like.svg"
+import likeIcon from "../assets/like.svg?raw"
 
 defineProps<{
   loading: boolean
@@ -86,13 +89,15 @@ defineProps<{
     height: 45px;
     width: 45px;
     padding: 5px;
-    padding-top: 8px;
+    padding-left: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
 
     background: theme.$button;
     border: 2px solid theme.$green;
+    --icon-border: #{theme.$green};
+    --icon-fill: transparent;
     border-radius: 100%;
     cursor: pointer;
 
@@ -100,23 +105,13 @@ defineProps<{
       theme.$transitions,
       transform 0.1s;
 
-    & > img {
-      width: 100%;
-      height: 100%;
-
-      transition: filter 0.1s;
-    }
-
     &:hover {
       transform: translate(-50%, -50%) scale(1.025);
     }
 
     &.liked {
       background: theme.$green;
-
-      & > img {
-        filter: brightness(10);
-      }
+      --icon-border: #eee;
     }
   }
 }

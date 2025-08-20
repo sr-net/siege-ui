@@ -52,7 +52,7 @@ onUnmounted(() => {
   z-index: 0;
 
   background:
-    url(/christmas/snow.png), url(/christmas/snow2.png), url(/christmas/snow3.png);
+    url(/christmas/snow.webp), url(/christmas/snow2.webp), url(/christmas/snow3.webp);
 
   animation: snowfall 45s infinite linear;
   background-size: 500px, 400px, 300px;

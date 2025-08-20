@@ -9,11 +9,13 @@ import { getHoliday } from "@/holidays"
 
 defineProps<{ mobile?: boolean }>()
 
-const logos = import.meta.glob<{ default: string }>("../assets/logos/*.png", {
+const logos = import.meta.glob<{ default: string }>("../assets/logos/*.webp", {
   eager: true,
 })
 
-const logo = computed(() => logos[`../assets/logos/${getHoliday()}.png` as const]?.default)
+const logo = computed(
+  () => logos[`../assets/logos/${getHoliday()}.webp` as const]?.default,
+)
 </script>
 
 <style scoped lang="scss">

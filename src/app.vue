@@ -33,7 +33,7 @@
 <script vapor setup lang="ts">
 import { defineAsyncComponent, watch } from "vue"
 
-import bgImage from "./assets/bg-opacity.png"
+import bgImage from "./assets/bg-opacity.webp"
 import Buttons from "./components/buttons.vue"
 import Description from "./components/description.vue"
 import Gamemodes from "./components/gamemodes.vue"

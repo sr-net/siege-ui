@@ -1,36 +1,34 @@
 <template>
   <div class="gamemodes-container">
     <button
-      v-for="gm in gamemodes"
+      v-for="gm in Object.values(Gamemode)"
       :key="gm"
       class="gamemode"
       :class="{ selected: gm === selected }"
       :title="gm"
       @click="setSelected(gm)"
-    >
-      <img :alt="gm" :src="getGamemodeIcon(gm)" />
-    </button>
+      v-html="gamemodeIcons[gm]"
+    />
   </div>
 </template>
 
 <script vapor setup lang="ts">
 import { Gamemode } from "@/graphql/generated"
 
+import bombsIcon from "../assets/bombs.svg?raw"
+import captureIcon from "../assets/capture_areas.svg?raw"
+import hostageIcon from "../assets/hostage.svg?raw"
+
 defineProps<{ selected: string | null | undefined }>()
 const emit = defineEmits<{ update: [Gamemode] }>()
 
-const gamemodeIcons = import.meta.glob<{ default: string }>(
-  "../assets/{capture_areas,bombs,hostage}.svg",
-  { eager: true },
-)
-
-const gamemodes = Object.values(Gamemode)
+const gamemodeIcons = {
+  [Gamemode.Bombs]: bombsIcon,
+  [Gamemode.CaptureAreas]: captureIcon,
+  [Gamemode.Hostage]: hostageIcon,
+} as const
 
 const setSelected = (gamemode: Gamemode) => emit("update", gamemode)
-
-const getGamemodeIcon = (gamemode: Gamemode): string | undefined => {
-  return gamemodeIcons[`../assets/${gamemode.toLowerCase()}.svg`]?.default
-}
 </script>
 
 <style scoped lang="scss">

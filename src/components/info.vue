@@ -6,7 +6,7 @@
 
     <div v-if="author != null" class="author">
       <a :href="author.url ?? undefined" target="_blank" rel="noopener">
-        <img class="type" alt="" :src="getAuthorImg(author.type)" />
+        <span class="type" v-html="authorImage" />
         {{ prefix }}{{ author.name }}
       </a>
     </div>
@@ -21,6 +21,11 @@ import { computed } from "vue"
 
 import { AuthorType, type Strat } from "@/graphql/generated.ts"
 
+import nameIcon from "../assets/name.svg?raw"
+import redditIcon from "../assets/reddit.svg?raw"
+import twitchIcon from "../assets/twitch.svg?raw"
+import youtubeIcon from "../assets/youtube.svg?raw"
+
 const props = defineProps<{
   loading: boolean
   shortId?: number | null
@@ -28,15 +33,17 @@ const props = defineProps<{
   score?: number | null
 }>()
 
-const authorIcons = import.meta.glob<{ default: string }>(
-  "../assets/{name,youtube,twitch,reddit}.svg",
-  { eager: true },
-)
-
 const prefix = computed(() => (props.author?.type === AuthorType.Reddit ? "/u/" : ""))
 
-const getAuthorImg = (type: AuthorType) =>
-  authorIcons[`../assets/${type.toLowerCase()}.svg`]?.default
+const authorImage = computed(() =>
+  props.author?.type === AuthorType.Reddit
+    ? redditIcon
+    : props.author?.type === AuthorType.Twitch
+      ? twitchIcon
+      : props.author?.type === AuthorType.Youtube
+        ? youtubeIcon
+        : nameIcon,
+)
 
 const copyLink = () => {
   void copy(location.href)
@@ -103,6 +110,7 @@ const copyLink = () => {
 
       & > .type {
         height: 18px;
+        width: 18px;
         margin-right: 5px;
       }
     }
