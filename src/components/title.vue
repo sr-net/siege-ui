@@ -56,7 +56,7 @@ watchEffect(() => {
 </script>
 
 <style scoped lang="scss">
-@import "../variables.scss";
+@use "../theme";
 
 .title-container {
   flex-shrink: 0;
@@ -65,9 +65,9 @@ watchEffect(() => {
   height: 70px;
   width: 100%;
   overflow: hidden;
-  background: $bg200;
-  color: $text400;
-  border-bottom: 2px solid $border;
+  background: theme.$bg200;
+  color: theme.$text400;
+  border-bottom: 2px solid theme.$border;
 
   & > .title {
     display: flex;
@@ -85,10 +85,10 @@ watchEffect(() => {
     user-select: text;
 
     transition:
-      $transitions,
+      theme.$transitions,
       font-size 1s;
 
-    @include mobile {
+    @include theme.mobile {
       font-size: 28px;
 
       &.start {

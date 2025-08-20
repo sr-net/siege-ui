@@ -44,7 +44,7 @@ const copyLink = () => {
 </script>
 
 <style scoped lang="scss">
-@import "../variables.scss";
+@use "../theme";
 
 .info-container {
   flex-shrink: 0;
@@ -54,31 +54,31 @@ const copyLink = () => {
   width: 100%;
   height: 30px;
   padding: 5px 25px;
-  border-bottom: 2px solid $border;
+  border-bottom: 2px solid theme.$border;
 
-  background: $bg100;
-  color: $text400;
+  background: theme.$bg100;
+  color: theme.$text400;
   font-size: 15px;
   overflow: hidden;
   transition:
-    $transitions,
+    theme.$transitions,
     height 0.25s,
     padding 0.25s,
     border-bottom 0.25s;
 
-  @include mobile {
+  @include theme.mobile {
     padding: 5px 15px;
   }
 
   &.hide {
     height: 0;
     padding: 0 25px;
-    border-bottom: 0 solid $border;
+    border-bottom: 0 solid theme.$border;
   }
 
   & > div {
     transition:
-      $transitions,
+      theme.$transitions,
       opacity 0.25s;
   }
 
@@ -98,7 +98,7 @@ const copyLink = () => {
       display: flex;
       justify-content: center;
       align-items: center;
-      color: $text300;
+      color: theme.$text300;
       text-decoration: none;
 
       & > .type {
@@ -117,7 +117,7 @@ const copyLink = () => {
     letter-spacing: 0.5px;
 
     &.score {
-      color: $green;
+      color: theme.$green;
       text-align: right;
     }
 

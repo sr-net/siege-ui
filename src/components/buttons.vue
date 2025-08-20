@@ -24,7 +24,7 @@ defineProps<{
 </script>
 
 <style scoped lang="scss">
-@import "../variables.scss";
+@use "../theme";
 
 .buttons-container {
   position: relative;
@@ -40,8 +40,8 @@ defineProps<{
     align-items: center;
     min-height: 60px;
 
-    background: $button;
-    color: $text300;
+    background: theme.$button;
+    color: theme.$text300;
     font-family: "Catamaran", Impact, sans-serif;
     font-size: 40px;
     font-weight: 800;
@@ -52,16 +52,16 @@ defineProps<{
 
     transition: background 0.25s;
 
-    @include mobile {
+    @include theme.mobile {
       font-size: 35px;
     }
 
     &:first-child {
-      border-right: 1px solid $border;
+      border-right: 1px solid theme.$border;
     }
 
     &:last-child {
-      border-left: 1px solid $border;
+      border-left: 1px solid theme.$border;
     }
 
     &:disabled {
@@ -70,11 +70,11 @@ defineProps<{
     }
 
     &:hover {
-      background: $buttonHover;
+      background: theme.$buttonHover;
     }
 
     &:active {
-      background: $buttonClick;
+      background: theme.$buttonClick;
     }
   }
 
@@ -91,13 +91,13 @@ defineProps<{
     justify-content: center;
     align-items: center;
 
-    background: $button;
-    border: 2px solid $green;
+    background: theme.$button;
+    border: 2px solid theme.$green;
     border-radius: 100%;
     cursor: pointer;
 
     transition:
-      $transitions,
+      theme.$transitions,
       transform 0.1s;
 
     & > img {
@@ -112,7 +112,7 @@ defineProps<{
     }
 
     &.liked {
-      background: $green;
+      background: theme.$green;
 
       & > img {
         filter: brightness(10);

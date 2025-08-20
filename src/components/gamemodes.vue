@@ -34,7 +34,7 @@ const getGamemodeIcon = (gamemode: Gamemode): string | undefined => {
 </script>
 
 <style scoped lang="scss">
-@import "../variables.scss";
+@use "../theme";
 
 .gamemodes-container {
   width: 100% !important;
@@ -42,7 +42,7 @@ const getGamemodeIcon = (gamemode: Gamemode): string | undefined => {
   justify-content: space-around;
   align-items: center;
 
-  background: $bg200;
+  background: theme.$bg200;
   padding: 3px 20px;
 
   & > .gamemode {
@@ -59,7 +59,7 @@ const getGamemodeIcon = (gamemode: Gamemode): string | undefined => {
     cursor: pointer;
     opacity: 0.2;
     transition:
-      $transitions,
+      theme.$transitions,
       opacity 0.25s;
 
     &.selected {

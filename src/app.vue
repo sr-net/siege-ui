@@ -66,7 +66,8 @@ watch(shortId, (newValue) => {
 </script>
 
 <style lang="scss">
-@import "./variables.scss";
+@use "sass:color";
+@use "theme";
 
 #app {
   font-family: Lato, sans-serif;
@@ -86,7 +87,7 @@ watch(shortId, (newValue) => {
     outline: none;
   }
 
-  transition: $transitions;
+  transition: theme.$transitions;
 
   &::-moz-focus-inner {
     border: 0;
@@ -97,19 +98,19 @@ watch(shortId, (newValue) => {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: $width;
+  width: theme.$width;
   max-width: 100%;
   margin: 0 auto;
 
   overflow: hidden;
-  box-shadow: 1px 3px 8px transparentize(black, 0.25);
+  box-shadow: 1px 3px 8px color.adjust(black, $alpha: -0.25);
   z-index: 1;
 
-  @include notMobile {
+  @include theme.notMobile {
     border-radius: 5px;
   }
 
-  @include mobile {
+  @include theme.mobile {
     height: 100%;
   }
 }

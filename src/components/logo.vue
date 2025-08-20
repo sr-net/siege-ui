@@ -17,13 +17,13 @@ const logo = computed(() => logos[`../assets/logos/${getHoliday()}.png` as const
 </script>
 
 <style scoped lang="scss">
-@import "../variables.scss";
+@use "../theme";
 
 .logo {
   position: relative;
   display: block;
 
-  width: $width;
+  width: theme.$width;
   max-width: 90%;
   margin: 0 auto 25px;
   padding-top: 25px;
@@ -34,13 +34,13 @@ const logo = computed(() => logos[`../assets/logos/${getHoliday()}.png` as const
   &:not(.mobile) {
     min-height: 216px;
 
-    @include mobile {
+    @include theme.mobile {
       display: none;
     }
   }
 
   &.mobile {
-    @include notMobile {
+    @include theme.notMobile {
       display: none;
     }
   }

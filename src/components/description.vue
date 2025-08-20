@@ -49,26 +49,26 @@ watch(content, (newVal, oldVar) => {
 </script>
 
 <style scoped lang="scss">
-@import "../variables.scss";
+@use "../theme";
 
 .description-container {
   position: relative;
   width: 100%;
   height: 0;
 
-  background: $bg50Trans;
-  color: $text400;
+  background: theme.$bg50Trans;
+  color: theme.$text400;
   text-align: center;
   font-size: 24px;
   overflow: hidden;
 
   transition:
-    $transitions,
+    theme.$transitions,
     height 0.25s;
 
-  @include mobile {
+  @include theme.mobile {
     height: 100% !important;
-    background: $bg50Mobile;
+    background: theme.$bg50Mobile;
     font-size: 20px;
   }
 
@@ -80,12 +80,12 @@ watch(content, (newVal, oldVar) => {
     width: 100%;
     user-select: text;
     transition:
-      $transitions,
+      theme.$transitions,
       opacity 0.25s;
 
     padding: 15px 75px;
 
-    @include mobile {
+    @include theme.mobile {
       max-height: 100%;
       padding: 10px 30px;
       overflow: scroll;
@@ -128,7 +128,7 @@ watch(content, (newVal, oldVar) => {
       width: 35px;
       padding: 5px;
       border: 0;
-      background: $button;
+      background: theme.$button;
       border-radius: 100%;
       cursor: pointer;
 

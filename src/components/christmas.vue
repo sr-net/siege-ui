@@ -31,7 +31,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-@import "../variables.scss";
+@use "../theme";
 
 @keyframes snowfall {
   to {
@@ -58,11 +58,10 @@ onUnmounted(() => {
   background-size: 500px, 400px, 300px;
 
   opacity: 1;
-  @include mobile {
+  transition: opacity 10s;
+  @include theme.mobile {
     opacity: 0.25;
   }
-
-  transition: opacity 10s;
 
   &.fade-enter,
   &.fade-leave-to {
