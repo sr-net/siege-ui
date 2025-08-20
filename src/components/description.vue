@@ -14,7 +14,7 @@
       </span>
     </div>
 
-    <Transition v-if="!isMobile && !loading">
+    <Transition v-if="isMobile && !loading">
       <div v-if="description == null" class="logo-container">
         <Logo mobile />
       </div>
@@ -26,9 +26,8 @@
         target="_blank"
         rel="noopener"
         aria-description="Link to GitHub Source"
-      >
-        <img class="github" alt="" :src="githubLogo" />
-      </a>
+        v-html="githubLogo"
+      />
     </div>
   </div>
 </template>
@@ -36,7 +35,7 @@
 <script vapor setup lang="ts">
 import { ref, watch } from "vue"
 
-import githubLogo from "../assets/github.svg"
+import githubLogo from "../assets/github.svg?raw"
 
 import Logo from "./logo.vue"
 
@@ -56,9 +55,9 @@ watch(
   (newVal, oldVar) => {
     if (newVal === oldVar) return
 
-    height.value = Math.max(desc$.value!.getBoundingClientRect().height + 30, 125)
+    height.value = Math.max(desc$.value!.getBoundingClientRect().height + 35, 125)
   },
-  {flush: "post"}
+  { flush: "post" },
 )
 </script>
 
@@ -149,6 +148,7 @@ watch(
       background: theme.$button;
       border-radius: 100%;
       cursor: pointer;
+      color: #eee;
 
       & > img {
         height: 100%;
