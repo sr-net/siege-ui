@@ -13,10 +13,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue"
-
+<script setup lang="ts">
 import { Gamemode } from "@/graphql/generated"
+
+defineProps<{ selected: string | null | undefined }>()
+const emit = defineEmits<{ update: [Gamemode] }>()
 
 const gamemodeIcons = import.meta.glob<{ default: string }>(
   "../assets/{capture_areas,bombs,hostage}.svg",
@@ -25,30 +26,15 @@ const gamemodeIcons = import.meta.glob<{ default: string }>(
 
 const gamemodes = Object.values(Gamemode)
 
-export default defineComponent({
-  props: {
-    selected: {
-      type: String,
-      default: null,
-    },
-  },
+const setSelected = (gamemode: Gamemode) => emit("update", gamemode)
 
-  emits: ["update"],
-
-  setup(_, context) {
-    const setSelected = (gamemode: Gamemode) => context.emit("update", gamemode)
-
-    const getGamemodeIcon = (gamemode: Gamemode): string | undefined => {
-      return gamemodeIcons[`../assets/${gamemode.toLowerCase()}.svg`]?.default
-    }
-
-    return { gamemodes, setSelected, getGamemodeIcon }
-  },
-})
+const getGamemodeIcon = (gamemode: Gamemode): string | undefined => {
+  return gamemodeIcons[`../assets/${gamemode.toLowerCase()}.svg`]?.default
+}
 </script>
 
 <style scoped lang="scss">
-@import "../variables";
+@import "../variables.scss";
 
 .gamemodes-container {
   width: 100% !important;

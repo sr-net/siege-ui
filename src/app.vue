@@ -1,37 +1,37 @@
 <template>
   <div id="app" :style="{ backgroundImage: `url(${bgImage})` }">
     <transition name="fade" type="transition">
-      <Christmas v-if="holiday === 'christmas'" />
+      <Christmas v-if="getHoliday() === 'christmas'" />
     </transition>
 
     <Logo />
 
     <div class="content">
-      <StratTitle :initiated="initiated" :loading="loading" :title="strat.title" />
+      <Title :initiated="initiated" :loading="loading" :title="strat?.title" />
 
       <Info
         :loading="loading"
-        :short-id="strat.shortId"
-        :author="strat.author"
-        :score="strat.score"
+        :short-id="strat?.shortId"
+        :author="strat?.author"
+        :score="strat?.score"
       />
 
-      <Description :loading="loading" :description="strat.description" />
+      <Description :loading="loading" :description="strat?.description" />
 
       <Gamemodes :selected="gamemode" @update="setGamemode" />
 
       <Buttons
         :loading="loading"
-        :liked="strat.liked"
-        :set-team="fetchForTeam"
+        :liked="strat?.liked"
+        :set-team="fetchStrat"
         :toggle-like="toggleLiked"
       />
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineAsyncComponent, defineComponent, watch } from "vue"
+<script setup lang="ts">
+import { defineAsyncComponent, watch } from "vue"
 
 import bgImage from "./assets/bg-opacity.png"
 import Buttons from "./components/buttons.vue"
@@ -43,50 +43,25 @@ import Title from "./components/title.vue"
 import { useStrat } from "./graphql/requests"
 import { getHoliday } from "./holidays"
 
-export default defineComponent({
-  name: "App",
-  components: {
-    Logo,
-    Christmas: defineAsyncComponent(() => import("./components/christmas.vue")),
-    StratTitle: Title,
-    Info,
-    Description,
-    Gamemodes,
-    Buttons,
-  },
-  setup() {
-    const {
-      initiated,
-      shortId,
-      gamemode,
-      strat,
-      loading,
-      fetchStrat,
-      setGamemode,
-      toggleLiked,
-    } = useStrat()
+const Christmas = defineAsyncComponent(() => import("./components/christmas.vue"))
 
-    watch(shortId, (newValue) => {
-      if (newValue == null || newValue === strat.value?.shortId) {
-        return
-      }
+const {
+  initiated,
+  shortId,
+  gamemode,
+  strat,
+  loading,
+  fetchStrat,
+  setGamemode,
+  toggleLiked,
+} = useStrat()
 
-      void fetchStrat()
-    })
+watch(shortId, (newValue) => {
+  if (newValue == null || newValue === strat.value?.shortId) {
+    return
+  }
 
-    return {
-      bgImage,
-      holiday: getHoliday(),
-      gamemode,
-      initiated,
-      shortId,
-      strat,
-      loading,
-      fetchForTeam: fetchStrat,
-      setGamemode,
-      toggleLiked,
-    }
-  },
+  void fetchStrat()
 })
 </script>
 

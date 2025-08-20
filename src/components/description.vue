@@ -3,7 +3,7 @@
     class="description-container"
     :style="{ height: `${description != null ? height : 0}px` }"
   >
-    <div ref="content" :key="description" class="description" :class="{ loading }">
+    <div ref="content" :key="description ?? 'empty'" class="description" :class="{ loading }">
       {{ description }}
     </div>
 
@@ -14,49 +14,42 @@
     </transition>
 
     <div class="menu">
-      <a href="https://github.com/sr-net" target="_blank" rel="noopener">
-        <img class="github" :src="githubLogo" />
+      <a
+        href="https://github.com/sr-net"
+        target="_blank"
+        rel="noopener"
+        aria-description="Link to GitHub Source"
+      >
+        <img class="github" alt="" :src="githubLogo" />
       </a>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, watch } from "vue"
+<script setup lang="ts">
+import { ref, watch } from "vue"
 
 import githubLogo from "../assets/github.svg"
 
 import Logo from "./logo.vue"
 
-export default defineComponent({
-  components: { Logo },
-  props: {
-    loading: {
-      type: Boolean,
-      required: true,
-    },
-    description: {
-      type: String,
-      default: null,
-    },
-  },
-  setup() {
-    const content = ref<HTMLDivElement>(null)
-    const height = ref(0)
+defineProps<{
+  loading: boolean
+  description: string | null | undefined
+}>()
 
-    watch(content, (newVal, oldVar) => {
-      if (newVal?.textContent === oldVar?.textContent) return
+const content = ref<HTMLDivElement>()
+const height = ref(0)
 
-      height.value = newVal?.getBoundingClientRect().height ?? 0
-    })
+watch(content, (newVal, oldVar) => {
+  if (newVal?.textContent === oldVar?.textContent) return
 
-    return { height, content, githubLogo }
-  },
+  height.value = newVal?.getBoundingClientRect().height ?? 0
 })
 </script>
 
 <style scoped lang="scss">
-@import "../variables";
+@import "../variables.scss";
 
 .description-container {
   position: relative;

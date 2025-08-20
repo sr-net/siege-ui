@@ -1,32 +1,23 @@
 <template>
-  <img class="logo" :class="{ mobile }" alt="stratroulette.net" :src="logo" />
+  <img class="logo" :class="{ mobile }" alt="" :src="logo" />
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue"
+<script lang="ts" setup>
+import { computed } from "vue"
 
 import { getHoliday } from "@/holidays"
+
+defineProps<{ mobile?: boolean }>()
 
 const logos = import.meta.glob<{ default: string }>("../assets/logos/*.png", {
   eager: true,
 })
 
-export default defineComponent({
-  props: {
-    mobile: Boolean,
-  },
-  setup() {
-    const holiday = getHoliday()
-
-    return {
-      logo: logos[`../assets/logos/${holiday}.png` as const]?.default,
-    }
-  },
-})
+const logo = computed(() => logos[`../assets/logos/${getHoliday()}.png` as const]?.default)
 </script>
 
 <style scoped lang="scss">
-@import "../variables";
+@import "../variables.scss";
 
 .logo {
   position: relative;

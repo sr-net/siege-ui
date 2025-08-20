@@ -12,65 +12,51 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted, reactive, ref, watchEffect } from "vue"
+<script lang="ts" setup>
+import { onMounted, reactive, ref, watchEffect } from "vue"
 
-export default defineComponent({
-  props: {
-    initiated: {
-      type: Boolean,
-      required: true,
-    },
-    loading: {
-      type: Boolean,
-      required: true,
-    },
-    title: {
-      type: String,
-      default: null,
-    },
-  },
-  setup(props) {
-    const container = ref<HTMLDivElement>(null)
+const props = defineProps<{
+  initiated: boolean
+  loading: boolean
+  title: string | null | undefined
+}>()
 
-    const state = reactive({
-      currentTitle: props.title,
-      height: 70,
+const container = ref<HTMLDivElement>()
+
+const state = reactive({
+  currentTitle: props.title,
+  height: 70,
+})
+
+onMounted(() => {
+  state.height = container.value!.getBoundingClientRect().height ?? 70
+})
+
+watchEffect(() => {
+  if (!props.initiated) return
+
+  if (props.loading) {
+    container.value?.scrollTo({ top: 0 })
+
+    container.value?.scrollTo({
+      top: state.height,
+      behavior: "smooth",
     })
+  }
 
-    onMounted(() => {
-      state.height = container.value.getBoundingClientRect().height ?? 70
+  if (!props.loading) {
+    // Default to nice text
+    state.currentTitle = props.title ?? "Select a team to begin!"
+    container.value?.scrollTo({
+      top: state.height * 2,
+      behavior: "smooth",
     })
-
-    watchEffect(() => {
-      if (!props.initiated) return
-
-      if (props.loading) {
-        container.value?.scrollTo({ top: 0 })
-
-        container.value?.scrollTo({
-          top: state.height,
-          behavior: "smooth",
-        })
-      }
-
-      if (!props.loading) {
-        // Default to nice text
-        state.currentTitle = props.title ?? "Select a team to begin!"
-        container.value?.scrollTo({
-          top: state.height * 2,
-          behavior: "smooth",
-        })
-      }
-    })
-
-    return { container, state }
-  },
+  }
 })
 </script>
 
 <style scoped lang="scss">
-@import "../variables";
+@import "../variables.scss";
 
 .title-container {
   flex-shrink: 0;

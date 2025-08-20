@@ -4,9 +4,9 @@
       #{{ shortId }}
     </div>
 
-    <div v-if="author" class="author">
-      <a :href="author.url" target="_blank" rel="noopener">
-        <img class="type" :src="getAuthorImg(author.type)" />
+    <div v-if="author != null" class="author">
+      <a :href="author.url ?? undefined" target="_blank" rel="noopener">
+        <img class="type" alt="" :src="getAuthorImg(author.type)" />
         {{ prefix }}{{ author.name }}
       </a>
     </div>
@@ -15,49 +15,32 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import copy from "clipboard-copy"
-import { computed, defineComponent, type PropType } from "vue"
+import { computed } from "vue"
 
-import { AuthorType, type Strat } from "@/graphql/generated"
+import { AuthorType, type Strat } from "@/graphql/generated.ts"
+
+const props = defineProps<{
+  loading: boolean
+  shortId?: number | null
+  author?: Strat["author"] | null
+  score?: number | null
+}>()
 
 const authorIcons = import.meta.glob<{ default: string }>(
   "../assets/{name,youtube,twitch,reddit}.svg",
   { eager: true },
 )
 
-export default defineComponent({
-  props: {
-    loading: {
-      type: Boolean,
-      required: true,
-    },
-    shortId: {
-      type: Number,
-      default: null,
-    },
-    author: {
-      type: Object as PropType<Strat["author"]>,
-      default: null,
-    },
-    score: {
-      type: Number,
-      default: null,
-    },
-  },
-  setup(props) {
-    const prefix = computed(() => (props.author?.type === AuthorType.Reddit ? "/u/" : ""))
+const prefix = computed(() => (props.author?.type === AuthorType.Reddit ? "/u/" : ""))
 
-    const getAuthorImg = (type: AuthorType) =>
-      authorIcons[`../assets/${type.toLowerCase()}.svg`]?.default
+const getAuthorImg = (type: AuthorType) =>
+  authorIcons[`../assets/${type.toLowerCase()}.svg`]?.default
 
-    const copyLink = () => {
-      void copy(location.href)
-    }
-
-    return { prefix, getAuthorImg, copyLink }
-  },
-})
+const copyLink = () => {
+  void copy(location.href)
+}
 </script>
 
 <style scoped lang="scss">

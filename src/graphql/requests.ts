@@ -15,7 +15,7 @@ import likeQuery from "./like-strat.graphql?raw"
 import stratQuery from "./strat.graphql?raw"
 import unlikeQuery from "./unlike-strat.graphql?raw"
 
-type Team = "atk" | "def"
+export type Team = "atk" | "def"
 
 const postGraphql = async <R, V>(query: string, variables: V) => {
   const response = await fetch("https://siege.stratroulette.net/graphql", {

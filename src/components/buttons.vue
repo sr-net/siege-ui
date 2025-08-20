@@ -10,35 +10,21 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, type PropType } from "vue"
+<script setup lang="ts">
+import type { Team } from "@/graphql/requests.ts"
 
 import likeIcon from "../assets/like.svg"
 
-export default defineComponent({
-  props: {
-    loading: {
-      type: Boolean,
-      required: true,
-    },
-    liked: {
-      type: Boolean,
-    },
-    setTeam: {
-      type: Function as PropType<(team: string) => void>,
-      required: true,
-    },
-    toggleLike: {
-      type: Function as PropType<() => void>,
-      required: true,
-    },
-  },
-  setup: () => ({ likeIcon }),
-})
+defineProps<{
+  loading: boolean
+  liked?: boolean
+  setTeam: (team?: Team) => Promise<void>
+  toggleLike: () => void
+}>()
 </script>
 
 <style scoped lang="scss">
-@import "../variables";
+@import "../variables.scss";
 
 .buttons-container {
   position: relative;

@@ -2,8 +2,8 @@
   <div ref="container" class="christmas-container" />
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted, onUnmounted, ref } from "vue"
+<script setup lang="ts">
+import { onMounted, onUnmounted, ref } from "vue"
 
 const handleBlur = (el: HTMLDivElement | null) => () => {
   if (el == null) return
@@ -17,27 +17,21 @@ const handleFocus = (el: HTMLDivElement | null) => () => {
   el.style.animationPlayState = ""
 }
 
-export default defineComponent({
-  setup() {
-    const container = ref<HTMLDivElement>(null)
+const container = ref<HTMLDivElement>()
 
-    onMounted(() => {
-      window.addEventListener("blur", handleBlur(container.value))
-      window.addEventListener("focus", handleFocus(container.value))
-    })
+onMounted(() => {
+  window.addEventListener("blur", handleBlur(container.value!))
+  window.addEventListener("focus", handleFocus(container.value!))
+})
 
-    onUnmounted(() => {
-      window.removeEventListener("blur", handleBlur(container.value))
-      window.removeEventListener("focus", handleFocus(container.value))
-    })
-
-    return { container }
-  },
+onUnmounted(() => {
+  window.removeEventListener("blur", handleBlur(container.value!))
+  window.removeEventListener("focus", handleFocus(container.value!))
 })
 </script>
 
 <style scoped lang="scss">
-@import "../variables";
+@import "../variables.scss";
 
 @keyframes snowfall {
   to {
