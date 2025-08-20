@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - run: pnpm lint --format compact
+      - run: pnpm lint
 
   typecheck:
     runs-on: ubuntu-latest
