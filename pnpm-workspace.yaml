@@ -1,0 +1,19 @@
+packages: []
+
+overrides:
+  "@antfu/eslint-config>@eslint/markdown": "-"
+  "@antfu/eslint-config>@stylistic/eslint-plugin": "-"
+  "@antfu/eslint-config>eslint-plugin-jsonc": "-"
+  "@antfu/eslint-config>eslint-plugin-toml": "-"
+  "@antfu/eslint-config>jsonc-eslint-parser": "-"
+  "@antfu/eslint-config>toml-eslint-parser": "-"
+  "@antfu/eslint-config>vitest": "-"
+  eslint-plugin-pnpm>jsonc-eslint-parser: "-"
+
+  es-set-tostringtag: npm:@nolyfill/es-set-tostringtag@^1
+  hasown: npm:@nolyfill/hasown@^1
+  safe-buffer: npm:@nolyfill/safe-buffer@^1
+  safer-buffer: npm:@nolyfill/safer-buffer@^1
+
+savePrefix: ""
+shellEmulator: true

@@ -2,22 +2,25 @@
   "name": "siege-ui",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@8.14.0",
+  "packageManager": "pnpm@10.15.0",
   "engines": {
-    "node": "^20"
+    "node": "^24"
   },
   "scripts": {
     "build": "pnpm typecheck && vite build",
     "dev": "vite",
     "lint": "eslint src",
-    "postinstall": "husky install",
+    "postinstall": "simple-git-hooks",
     "serve": "vite preview",
     "typecheck": "pnpm vue-tsc --noEmit"
   },
-  "lint-staged": {
-    "*.{js,vue,ts,html,json,json5,graphql}": [
-      "prettier --write"
+  "nano-staged": {
+    "*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,json,json5,yaml,yml,css,scss,md}": [
+      "prettier --experimental-cli --write"
     ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "./node_modules/.bin/nano-staged"
   },
   "dependencies": {
     "clipboard-copy": "4.0.1",
@@ -25,49 +28,21 @@
     "vue": "3.4.4"
   },
   "devDependencies": {
-    "@beequeue/eslint-plugin": "4.0.1",
-    "@graphql-codegen/add": "5.0.0",
-    "@graphql-codegen/cli": "5.0.0",
-    "@graphql-codegen/typescript": "4.0.1",
-    "@graphql-codegen/typescript-operations": "4.0.1",
-    "@vitejs/plugin-vue": "5.0.2",
+    "@antfu/eslint-config": "5.2.1",
+    "@graphql-codegen/add": "5.0.3",
+    "@graphql-codegen/cli": "5.0.7",
+    "@graphql-codegen/typescript": "4.1.6",
+    "@graphql-codegen/typescript-operations": "4.6.1",
+    "@vitejs/plugin-vue": "6.0.1",
     "@vue/compiler-sfc": "3.4.4",
-    "browserslist": "4.22.2",
-    "esbuild-plugin-browserslist": "0.10.0",
-    "eslint": "8.57.0",
-    "husky": "8.0.3",
-    "lint-staged": "15.2.2",
-    "prettier": "3.1.1",
+    "eslint": "9.33.0",
+    "nano-staged": "0.8.0",
+    "prettier": "3.6.2",
     "sass": "1.69.7",
-    "typescript": "5.3.3",
-    "vite": "5.0.13",
-    "vite-plugin-webfont-dl": "3.9.1",
-    "vite-tsconfig-paths": "4.2.3",
-    "vue-tsc": "1.8.27"
-  },
-  "pnpm": {
-    "overrides": {
-      "array-includes": "npm:@nolyfill/array-includes@latest",
-      "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
-      "array.prototype.flatmap": "npm:@nolyfill/array.prototype.flatmap@latest",
-      "array.prototype.tosorted": "npm:@nolyfill/array.prototype.tosorted@latest",
-      "function-bind": "npm:@nolyfill/function-bind@latest",
-      "gopd": "npm:@nolyfill/gopd@latest",
-      "has-property-descriptors": "npm:@nolyfill/has-property-descriptors@latest",
-      "has-proto": "npm:@nolyfill/has-proto@latest",
-      "has-symbols": "npm:@nolyfill/has-symbols@latest",
-      "hasown": "npm:@nolyfill/hasown@latest",
-      "isarray": "npm:@nolyfill/isarray@latest",
-      "jsonify": "npm:@nolyfill/jsonify@latest",
-      "object-keys": "npm:@nolyfill/object-keys@latest",
-      "object.assign": "npm:@nolyfill/object.assign@latest",
-      "object.entries": "npm:@nolyfill/object.entries@latest",
-      "object.fromentries": "npm:@nolyfill/object.fromentries@latest",
-      "object.hasown": "npm:@nolyfill/object.hasown@latest",
-      "object.values": "npm:@nolyfill/object.values@latest",
-      "string.prototype.matchall": "npm:@nolyfill/string.prototype.matchall@latest",
-      "es-iterator-helpers": "npm:@nolyfill/es-iterator-helpers@latest",
-      "has": "npm:@nolyfill/has@latest"
-    }
+    "simple-git-hooks": "2.13.1",
+    "typescript": "5.9.2",
+    "vite": "npm:rolldown-vite@7.1.4",
+    "vite-tsconfig-paths": "5.1.4",
+    "vue-tsc": "3.0.6"
   }
 }

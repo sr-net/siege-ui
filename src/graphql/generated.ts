@@ -81,7 +81,7 @@ export type QueryStratsArgs = {
   def: InputMaybe<Scalars["Boolean"]["input"]>
   excludeShortIds: InputMaybe<ReadonlyArray<Scalars["Int"]["input"]>>
   gamemode: InputMaybe<Gamemode>
-  page?: InputMaybe<Scalars["Int"]["input"]>
+  page: Scalars["Int"]["input"]
   shortId: InputMaybe<Scalars["Int"]["input"]>
   uuid: InputMaybe<Scalars["ID"]["input"]>
 }
