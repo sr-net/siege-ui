@@ -109,8 +109,8 @@ export const useStrat = () => {
   const toggleLiked = async () => {
     if (state.strat == null) return null
 
-    const result = await toggleLikeMutation(state.strat.liked, {
-      uuid: state.strat.uuid,
+    const result = await toggleLikeMutation(state.strat.liked!, {
+      uuid: state.strat.uuid!,
     })
 
     state.strat = {

@@ -16,7 +16,7 @@ export const localStorageRef = <
   defaultValue?: D,
 ) => {
   const theRef = ref<V | D>(
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    // eslint-disable-next-line ts/no-unsafe-argument
     JSON.parse(localStorage.getItem(key) ?? "null") ?? defaultValue ?? null,
   )
 

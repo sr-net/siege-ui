@@ -1,8 +1,7 @@
-import { createVaporApp } from "vue"
+import { createVaporApp, type VaporComponent } from "vue"
 
 import App from "./app.vue"
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-const app = createVaporApp(App)
+const app = createVaporApp(App as VaporComponent)
 
 app.mount("#app")
