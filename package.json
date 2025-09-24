@@ -2,7 +2,7 @@
   "name": "siege-ui",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.15.0",
+  "packageManager": "pnpm@10.17.1",
   "engines": {
     "node": "^24"
   },
@@ -33,16 +33,16 @@
     "@graphql-codegen/typescript": "4.1.6",
     "@graphql-codegen/typescript-operations": "4.6.1",
     "@vitejs/plugin-vue": "6.0.1",
-    "@vue/language-server": "3.0.6",
+    "@vue/language-server": "3.0.8",
     "@vue/tsconfig": "0.8.1",
     "eslint": "9.36.0",
     "nano-staged": "0.8.0",
     "prettier": "3.6.2",
-    "sass": "1.90.0",
+    "sass": "1.93.2",
     "simple-git-hooks": "2.13.1",
     "typescript": "5.9.2",
-    "vite": "npm:rolldown-vite@7.1.4",
+    "vite": "npm:rolldown-vite@7.1.13",
     "vite-tsconfig-paths": "5.1.4",
-    "vue-tsc": "3.0.6"
+    "vue-tsc": "3.0.8"
   }
 }
