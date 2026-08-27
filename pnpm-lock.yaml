@@ -15,10 +15,10 @@ overrides:
   eslint-plugin-pnpm>jsonc-eslint-parser: '-'
   volar-service-pug: '-'
   volar-service-pug-beautify: '-'
-  es-set-tostringtag: npm:@nolyfill/es-set-tostringtag@^1
-  hasown: npm:@nolyfill/hasown@^1
-  safe-buffer: npm:@nolyfill/safe-buffer@^1
-  safer-buffer: npm:@nolyfill/safer-buffer@^1
+  es-set-tostringtag: npm:@nolyfill/es-set-tostringtag@1.0.44
+  hasown: npm:@nolyfill/hasown@1.0.44
+  safe-buffer: npm:@nolyfill/safe-buffer@1.0.44
+  safer-buffer: npm:@nolyfill/safer-buffer@1.0.44
 
 importers:
 
@@ -1567,6 +1567,7 @@ packages:
   eslint@9.39.4:
     resolution: {integrity: sha512-XoMjdBOwe/esVgEvLmNsD3IRHkm7fbKIUGvrleloJXUZgDHig2IPWNniv+GwjyJXzuNqVjlr5+4yVUZjycJwfQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
