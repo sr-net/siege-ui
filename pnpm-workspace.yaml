@@ -12,10 +12,10 @@ overrides:
   volar-service-pug: "-"
   volar-service-pug-beautify: "-"
 
-  es-set-tostringtag: npm:@nolyfill/es-set-tostringtag@^1
-  hasown: npm:@nolyfill/hasown@^1
-  safe-buffer: npm:@nolyfill/safe-buffer@^1
-  safer-buffer: npm:@nolyfill/safer-buffer@^1
+  es-set-tostringtag: npm:@nolyfill/es-set-tostringtag@1.0.44
+  hasown: npm:@nolyfill/hasown@1.0.44
+  safe-buffer: npm:@nolyfill/safe-buffer@1.0.44
+  safer-buffer: npm:@nolyfill/safer-buffer@1.0.44
 
 savePrefix: ""
 shellEmulator: true
